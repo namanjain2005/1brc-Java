@@ -1,21 +1,21 @@
 # Performance and correctness
 
-`naive/` is the current `TreeMap` implementation. `naive2/` keeps the `HashMap` implementation with a final sort so both approaches can be compared.
+`naive/` is the TreeMap implementation. `naive2/` is the HashMap implementation with a final sort. Both use `double` for aggregation and exact integer arithmetic to round to one decimal place with ties to even.
 
 ## Timing
 
-`test.py` starts its timer after imports and stdout setup, before allocating its aggregation map and reading the file. It stops after printing the station results. Java uses the same scope: each `Main` starts `System.nanoTime()` at the start of `main` and reports elapsed time to stderr after printing the results. Process startup and compilation are excluded from both measurements.
+`test.py` starts its timer after imports and stdout setup, before creating its aggregation map and reading the input. It stops after printing station rows. Both Java programs time from the start of `main` through result printing. Process startup and compilation are excluded.
 
-Measured with OpenJDK 25.0.2 and Python 3.11. `python benchmark.py` compiles before timing, runs one warm-up and then 11 samples per implementation, and redirects result rows to the null device. The Python baseline is run from the same `test.py` source; only its final timing line is sent to stderr so the harness can collect it.
+Measured on Windows with OpenJDK 25.0.2 and Python 3.11. `python benchmark.py` compiles into a temporary directory, performs one warm-up and 11 measured runs per implementation, and sends result rows to the null device.
 
 | Implementation | Median timed section |
 | --- | ---: |
-| Java `TreeMap` (`naive/`) | 0.676 s |
-| Java `HashMap` plus sort (`naive2/`) | 0.628 s |
-| Python (`test.py`) | 0.200 s |
+| Java TreeMap (`naive/`) | 0.539 s |
+| Java HashMap plus sort (`naive2/`) | 0.656 s |
+| Python (`test.py`) | 0.232 s |
 
-In this run, HashMap plus sorting was about 7% faster than TreeMap, while the two Java medians were close relative to the run-to-run variation. Python was about 3.1 times faster than the HashMap version. TreeMap keeps station names sorted during aggregation; HashMap pays for sorting once before output.
+Run-to-run timing varied, so treat these as approximate. In this run, the Python baseline was about 2.3 times faster than the TreeMap version.
 
 ## Correctness
 
-Both Java implementations matched all 41,343 expected rows in sorted order and numeric values. The comparison decodes `expected.txt` as UTF-16 and repairs mojibake in station names before comparing. Each implementation writes its timing line to stderr, leaving result rows on stdout.
+Both Java implementations produced 41,343 rows and matched `expected.txt` in sorted order and values. The check decodes the expected file as UTF-16 and repairs mojibake in station names before comparing.

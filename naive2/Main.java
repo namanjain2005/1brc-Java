@@ -6,8 +6,6 @@ import java.util.Map;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 
 public  class Main {
@@ -55,11 +53,34 @@ public  class Main {
      }
 
     private static String roundToOneDecimal(double value) {
-        BigDecimal rounded = new BigDecimal(value)
-            .setScale(1, RoundingMode.HALF_EVEN);
-        if (rounded.signum() == 0 && Double.doubleToRawLongBits(value) < 0) {
-            return "-0.0";
+        // Round the exact binary double to integer tenths using ties-to-even.
+        long bits = Double.doubleToRawLongBits(value);
+        boolean negative = bits < 0;
+        int exponentBits = (int) ((bits >>> 52) & 0x7ffL);
+        if (exponentBits == 0x7ff) {
+            throw new IllegalArgumentException("Expected a finite temperature");
         }
-        return rounded.toPlainString();
+
+        int exponent = exponentBits - 1023;
+        int shift = 52 - exponent;
+        long tenths;
+        if (exponentBits == 0 || shift >= 58) {
+            tenths = 0;
+        } else if (shift <= 0) {
+            throw new IllegalArgumentException("Temperature is outside the supported range");
+        } else {
+            long significand = (1L << 52) | (bits & ((1L << 52) - 1));
+            long numerator = significand * 10L;
+            long quotient = numerator >>> shift;
+            long remainder = numerator - (quotient << shift);
+            long halfway = 1L << (shift - 1);
+            if (remainder > halfway || (remainder == halfway && (quotient & 1L) != 0)) {
+                quotient++;
+            }
+            tenths = quotient;
+        }
+
+        long magnitude = tenths;
+        return (negative ? "-" : "") + (magnitude / 10) + "." + (magnitude % 10);
     }
 }
