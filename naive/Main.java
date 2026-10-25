@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.TreeMap;
 import java.util.Map;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,7 +9,8 @@ import java.math.RoundingMode;
 
 public  class Main {
     public static void main(String[] args) {
-        Map<String,CountryStat> aggregate = new HashMap<>();
+        long startTime = System.nanoTime();
+        Map<String,CountryStat> aggregate = new TreeMap<>();
         try (BufferedReader br = new BufferedReader(new FileReader("weather_stations.csv"))){
 
             String line = null;
@@ -33,10 +31,9 @@ public  class Main {
                 }
             }
 
-            List<String> names = new ArrayList<>(aggregate.keySet());
-            Collections.sort(names);
-            for (String name : names) {
-                CountryStat stat = aggregate.get(name);
+            for (Map.Entry<String, CountryStat> entry : aggregate.entrySet()) {
+                String name = entry.getKey();
+                CountryStat stat = entry.getValue();
 
                 System.out.printf(
                     "%s;%s;%s;%s%n",
@@ -49,6 +46,8 @@ public  class Main {
         } catch (IOException x) {
             System.err.format("IOException: %s%n", x);
         }
+        double elapsedSeconds = (System.nanoTime() - startTime) / 1_000_000_000.0;
+        System.err.printf("Time taken: %.6f seconds%n", elapsedSeconds);
      }
 
     private static String roundToOneDecimal(double value) {
