@@ -1,0 +1,22 @@
+Time taken: 0.365009 seconds
+Time taken: 0.243935 seconds
+Time taken: 0.173551 seconds
+Time taken: 0.155589 seconds
+Time taken: 0.189381 seconds
+Time taken: 0.187247 seconds
+Time taken: 0.194320 seconds
+Time taken: 0.191315 seconds
+Time taken: 0.189529 seconds
+Time taken: 0.198757 seconds
+Time taken: 0.187645 seconds
+Time taken: 0.194424 seconds
+Time taken: 0.188520 seconds
+Time taken: 0.189493 seconds
+Time taken: 0.193732 seconds
+Time taken: 0.187990 seconds
+Time taken: 0.186115 seconds
+Time taken: 0.187156 seconds
+Time taken: 0.177965 seconds
+Time taken: 0.160025 seconds
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.414 MB profile-output/naive.perf.data (3207 samples) ]

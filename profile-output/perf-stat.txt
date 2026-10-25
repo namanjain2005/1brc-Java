@@ -1,0 +1,16 @@
+Time taken: 0.679496 seconds
+Time taken: 0.662079 seconds
+Time taken: 0.663958 seconds
+Time taken: 0.667072 seconds
+Time taken: 0.673453 seconds
+
+ Performance counter stats for 'java -Dfile.encoding=UTF-8 -cp profile-output/classes Main' (5 runs):
+
+           2282.39 msec task-clock:u              #    2.975 CPUs utilized            ( +-  3.44% )
+        5009960483      cycles:u                  #    2.195 GHz                      ( +-  3.97% )
+        6070725524      instructions:u            #    1.21  insn per cycle           ( +-  3.68% )
+           7529438      cache-misses:u                                                ( +-  7.13% )
+          42442516      branch-misses:u                                               ( +-  2.15% )
+
+           0.76713 +- 0.00376 seconds time elapsed  ( +-  0.49% )
+

@@ -1,0 +1,32 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 3K of event 'cycles:uppp'
+# Event count (approx.): 18374814953
+#
+# Overhead  Symbol                                                                                                                               
+# ........  .....................................................................................................................................
+#
+     9.25%  [.] void Main.main(java.lang.String[])
+     9.23%  [.] G1ParScanThreadState::trim_queue_to_threshold
+     4.86%  [.] void sun.nio.cs.StreamEncoder.flushBuffer()
+     4.44%  [.] void java.util.Formatter$FormatSpecifier.printString(java.util.Formatter, java.lang.Object, java.util.Locale)
+     3.65%  [.] java.lang.Object java.util.TreeMap.put(java.lang.Object, java.lang.Object, boolean)
+     2.53%  [.] OopOopIterateBackwardsDispatch<G1ScanEvacuatedObjClosure>::Table::oop_oop_iterate_backwards<InstanceKlass, narrowOop>
+     1.93%  [.] java.util.List java.util.Formatter.parse(java.lang.String)
+     1.89%  [.] void java.io.OutputStreamWriter.write(char[], int, int)
+     1.81%  [.] void java.io.PrintStream.implWrite(java.lang.String)
+     1.51%  [.] Interpreter
+     1.45%  [.] java.lang.String[] java.lang.String.split(java.lang.String, int, boolean)
+     1.41%  [.] void sun.nio.cs.StreamEncoder.lockedWrite(char[], int, int)
+     1.28%  [.] G1ParScanThreadState::steal_and_trim_queue
+     1.27%  [.] void java.io.PrintStream.implFormat(java.lang.String, java.lang.Object[])
+     1.01%  [.] void java.util.Formatter$FormatSpecifier.print(java.util.Formatter, java.lang.Object, java.util.Locale)
+     1.00%  [.] java.lang.String Main.roundToOneDecimal(double)
+
+
+#
+# (Tip: To count events in every 1000 msec: perf stat -I 1000)
+#

@@ -1,0 +1,1212 @@
+0x00007f62144441a0 0x00000000000003e0 java.lang.Object jdk.internal.misc.Unsafe.getReferenceVolatile(java.lang.Object, long)
+0x00007f6214444720 0x00000000000001f0 int java.lang.Object.hashCode()
+0x00007f6214444b00 0x0000000000000028 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214444e00 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(java.lang.invoke.MemberName)
+0x00007f6214445120 0x0000000000000200 void java.lang.System.arraycopy(java.lang.Object, int, java.lang.Object, int, int)
+0x00007f6214445520 0x00000000000001d8 boolean java.lang.Class.isPrimitive()
+0x00007f6214445880 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)
+0x00007f6214445b80 0x0000000000000028 java.lang.Object java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214445ea0 0x00000000000001f8 boolean jdk.internal.misc.Unsafe.compareAndSetLong(java.lang.Object, long, long, long)
+0x00007f62144462a0 0x00000000000000c8 int java.lang.Enum.ordinal()
+0x00007f6214446580 0x0000000000000020 void java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214446880 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic()
+0x00007f6214446b80 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214446ea0 0x00000000000003c8 java.lang.Object java.lang.Object.clone()
+0x00007f6214447420 0x00000000000000c8 java.lang.Object jdk.internal.util.StrongReferenceKey.get()
+0x00007f6214447700 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214447a00 0x0000000000000090 void java.lang.Object.<init>()
+0x00007f6214447d00 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214448020 0x00000000000001d8 boolean java.lang.Class.isArray()
+0x00007f62144483a0 0x00000000000000c8 java.lang.Class java.lang.invoke.MethodType.returnType()
+0x00007f62144486a0 0x0000000000000220 boolean jdk.internal.misc.Unsafe.compareAndSetReference(java.lang.Object, long, java.lang.Object, java.lang.Object)
+0x00007f6214448a80 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(long, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214448d80 0x0000000000000020 void java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, long, java.lang.invoke.MemberName)
+0x00007f6214449080 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(long)
+0x00007f6214449380 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, long, java.lang.invoke.MemberName)
+0x00007f62144496a0 0x00000000000000c8 java.lang.Class java.lang.invoke.MemberName.getDeclaringClass()
+0x00007f62144499a0 0x0000000000000118 void java.util.concurrent.locks.AbstractOwnableSynchronizer.setExclusiveOwnerThread(java.lang.Thread)
+0x00007f6214449c80 0x0000000000000098 boolean java.lang.String.isLatin1()
+0x00007f6214449fa0 0x00000000000001f8 boolean jdk.internal.misc.Unsafe.compareAndSetInt(java.lang.Object, long, int, int)
+0x00007f621444a3a0 0x00000000000000c8 int java.util.ArrayList.size()
+0x00007f621444a6a0 0x00000000000000c8 int java.util.concurrent.locks.AbstractQueuedSynchronizer.getState()
+0x00007f621444a9a0 0x00000000000000c8 java.lang.Thread java.util.concurrent.locks.AbstractOwnableSynchronizer.getExclusiveOwnerThread()
+0x00007f621444aca0 0x00000000000000c8 void java.util.concurrent.locks.AbstractQueuedSynchronizer.setState(int)
+0x00007f621444afa0 0x0000000000000130 char java.lang.String.charAt(int)
+0x00007f621444b3a0 0x00000000000005f0 int java.lang.String.compareTo(java.lang.Object)
+0x00007f621444bc20 0x0000000000000220 int jdk.internal.util.ArraysSupport.mismatch(byte[], byte[], int)
+0x00007f621444c100 0x0000000000000090 java.util.TreeMap$Entry java.util.TreeMap.parentOf(java.util.TreeMap$Entry)
+0x00007f621444c420 0x00000000000005b8 int java.lang.String.compareTo(java.lang.String)
+0x00007f621444cc00 0x00000000000000b0 int java.lang.String.length()
+0x00007f621444cf20 0x00000000000002e0 int java.lang.StringLatin1.compareTo(byte[], byte[])
+0x00007f621444d5a0 0x0000000000000328 int java.lang.StringLatin1.compareTo(byte[], byte[], int, int)
+0x00007f621444dd20 0x0000000000000290 int java.lang.StringUTF16.compress(char[], int, byte[], int, int)
+0x00007f621444e220 0x0000000000000238 int java.lang.StringLatin1.indexOfChar(byte[], int, int, int)
+0x00007f621444e740 0x00000000000006e8 java.util.TreeMap$Entry java.util.TreeMap.getEntry(java.lang.Object)
+0x00007f621444f1a0 0x00000000000000c8 int java.nio.Buffer.position()
+0x00007f621444f540 0x0000000000000d28 java.lang.String java.io.BufferedReader.implReadLine(boolean, boolean[])
+0x00007f6214450ba0 0x0000000000000d70 java.lang.Object java.util.TreeMap.put(java.lang.Object, java.lang.Object, boolean)
+0x00007f62144520c0 0x0000000000000c40 jdk.internal.math.FloatingDecimal$ASCIIToBinaryConverter jdk.internal.math.FloatingDecimal.readJavaFormatString(java.lang.String)
+0x00007f6214453900 0x00000000000007a0 double jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer.doubleValue()
+0x00007f6214454900 0x00000000000000a0 boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.compareAndSetState(int, int)
+0x00007f6214454c40 0x00000000000002d0 int java.lang.String.indexOf(int, int)
+0x00007f6214455200 0x0000000000000088 void java.util.concurrent.locks.AbstractQueuedSynchronizer.signalNext(java.util.concurrent.locks.AbstractQueuedSynchronizer$Node)
+0x00007f6214455520 0x0000000000000238 int java.lang.StringLatin1.indexOf(byte[], int, int, int)
+0x00007f6214455a20 0x00000000000001a8 boolean java.util.concurrent.locks.ReentrantLock$Sync.tryRelease(int)
+0x00007f6214455e20 0x00000000000001a8 boolean java.util.concurrent.locks.ReentrantLock$NonfairSync.initialTryLock()
+0x00007f6214456280 0x00000000000007f8 java.nio.charset.CoderResult sun.nio.cs.UTF_8$Decoder.decodeArrayLoop(java.nio.ByteBuffer, java.nio.CharBuffer)
+0x00007f6214457120 0x0000000000000190 java.util.List java.util.ArrayList.subList(int, int)
+0x00007f62144575a0 0x0000000000000308 java.lang.Object[] java.util.ArrayList.grow(int)
+0x00007f6214457bc0 0x00000000000004e0 java.lang.String java.lang.StringLatin1.newString(byte[], int, int)
+0x00007f6214458500 0x00000000000004a0 java.lang.String java.io.BufferedReader.readLine()
+0x00007f6214458f00 0x00000000000004b8 java.lang.String java.io.BufferedReader.readLine(boolean, boolean[])
+0x00007f62144598a0 0x00000000000002b0 java.lang.Object[] java.util.ArrayList$SubList.toArray(java.lang.Object[])
+0x00007f6214459ee0 0x0000000000000630 java.lang.String java.lang.String.substring(int, int)
+0x00007f621445a980 0x00000000000000a8 void CountryStat.<init>(double)
+0x00007f621445aca0 0x00000000000000c0 java.lang.Object java.util.TreeMap.put(java.lang.Object, java.lang.Object)
+0x00007f621445afc0 0x00000000000000f8 double java.lang.Double.parseDouble(java.lang.String)
+0x00007f621445b3a0 0x00000000000000d0 void java.util.AbstractList.subListRangeCheck(int, int, int)
+0x00007f621445b720 0x00000000000000d0 void java.util.ArrayList$SubList.checkForComodification()
+0x00007f621445ba20 0x0000000000000128 java.lang.String java.lang.StringLatin1.trim(byte[])
+0x00007f621445be20 0x00000000000002f0 java.lang.Object[] java.util.ArrayList$SubList.toArray(java.lang.Object[])
+0x00007f621445c420 0x00000000000006f0 java.lang.Object java.util.TreeMap.get(java.lang.Object)
+0x00007f621445cea0 0x0000000000000820 java.nio.charset.CoderResult sun.nio.cs.UTF_8$Decoder.decodeArrayLoop(java.nio.ByteBuffer, java.nio.CharBuffer)
+0x00007f621445df20 0x00000000000002d0 int java.lang.StringUTF16.compress(byte[], int, byte[], int, int)
+0x00007f621445e520 0x00000000000000c8 int java.nio.Buffer.limit()
+0x00007f621445e820 0x0000000000000250 int java.lang.StringUTF16.indexOf(byte[], int, int, int)
+0x00007f621445ed20 0x00000000000003c8 java.lang.Thread java.lang.Thread.currentCarrierThread()
+0x00007f621445f3e0 0x0000000000002130 java.lang.String[] java.lang.String.split(char, int, boolean)
+0x00007f6214462d40 0x00000000000007d8 void java.util.TreeMap.rotateRight(java.util.TreeMap$Entry)
+0x00007f62144637c0 0x0000000000000620 byte[] java.lang.StringUTF16.compress(byte[], int, int)
+0x00007f6214464220 0x0000000000000168 void java.util.ArrayList.<init>()
+0x00007f62144645a0 0x0000000000000128 java.lang.Object java.util.ArrayList.get(int)
+0x00007f62144649c0 0x00000000000007d8 void java.util.TreeMap.rotateLeft(java.util.TreeMap$Entry)
+0x00007f6214465420 0x00000000000000c8 boolean java.lang.String.isEmpty()
+0x00007f6214465740 0x00000000000004b0 boolean java.util.ArrayList.add(java.lang.Object)
+0x00007f6214466060 0x0000000000002018 java.lang.String[] java.lang.String.split(java.lang.String)
+0x00007f6214469900 0x0000000000002710 java.lang.String[] java.lang.String.split(java.lang.String, int, boolean)
+0x00007f621446d840 0x0000000000000790 java.lang.String java.lang.StringUTF16.newString(byte[], int, int)
+0x00007f621446e4a0 0x00000000000000c8 int java.lang.AbstractStringBuilder.length()
+0x00007f621446e7a0 0x00000000000000c8 byte[] java.lang.AbstractStringBuilder.getValue()
+0x00007f621446ea80 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f621446ed80 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)
+0x00007f621446f080 0x0000000000000028 java.lang.Object java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f621446f3a0 0x00000000000000c8 java.lang.Class[] java.lang.invoke.MethodType.ptypes()
+0x00007f621446f680 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(java.lang.Object, java.lang.invoke.MemberName)
+0x00007f621446f980 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(java.lang.Object, long, java.lang.invoke.MemberName)
+0x00007f621446fc80 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(java.lang.Object, long)
+0x00007f621446ff80 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, java.lang.Object, long, java.lang.invoke.MemberName)
+0x00007f62144702a0 0x00000000000000c8 java.lang.invoke.MethodTypeForm java.lang.invoke.MethodType.form()
+0x00007f6214470580 0x0000000000000088 java.lang.Object java.util.Objects.requireNonNull(java.lang.Object)
+0x00007f6214470880 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToStatic(long, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214470b80 0x0000000000000030 long java.lang.invoke.MethodHandle.invokeBasic(long, java.lang.Object, java.lang.Object, java.lang.Object)
+0x00007f6214470e80 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, long, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214471180 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f62144714a0 0x00000000000000c8 int jdk.internal.util.WeakReferenceKey.hashCode()
+0x00007f6214471780 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)
+0x00007f6214471a80 0x0000000000000030 long java.lang.invoke.MethodHandle.invokeBasic(long, java.lang.Object, java.lang.Object)
+0x00007f6214471d80 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, long, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214472080 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToStatic(long, java.lang.Object, long, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214472380 0x0000000000000030 long java.lang.invoke.MethodHandle.invokeBasic(long, java.lang.Object, long, java.lang.Object)
+0x00007f62144726a0 0x0000000000000400 java.lang.invoke.MemberName java.lang.invoke.MethodHandleNatives.resolve(java.lang.invoke.MemberName, java.lang.Class, int, boolean)
+0x00007f6214472c80 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, long, java.lang.Object, long, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214472fa0 0x00000000000000c8 char sun.invoke.util.Wrapper.basicTypeChar()
+0x00007f62144732a0 0x00000000000000c8 int java.lang.invoke.MethodTypeForm.parameterSlotCount()
+0x00007f6214473580 0x0000000000000030 long java.lang.invoke.MethodHandle.invokeBasic(long, java.lang.Object, long)
+0x00007f6214473880 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, long, java.lang.Object, long, java.lang.invoke.MemberName)
+0x00007f6214473b80 0x0000000000000030 long java.lang.invoke.MethodHandle.invokeBasic(long, java.lang.Object, java.lang.Object, long)
+0x00007f6214473e80 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, long, java.lang.Object, java.lang.Object, long, java.lang.invoke.MemberName)
+0x00007f6214474180 0x0000000000000030 long java.lang.invoke.MethodHandle.invokeBasic(long, java.lang.Object, java.lang.Object, long, long)
+0x00007f6214474480 0x0000000000000028 long java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, long, java.lang.Object, java.lang.Object, long, long, java.lang.invoke.MemberName)
+0x00007f6214474780 0x0000000000000078 int java.lang.Math.min(int, int)
+0x00007f6214474aa0 0x00000000000001f0 boolean java.lang.Class.isAssignableFrom(java.lang.Class)
+0x00007f6214474e80 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(long, java.lang.invoke.MemberName)
+0x00007f62144751a0 0x00000000000000c8 java.lang.invoke.MethodType java.lang.invoke.MethodTypeForm.erasedType()
+0x00007f62144754a0 0x00000000000003c8 java.lang.Class java.lang.Object.getClass()
+0x00007f6214475a20 0x00000000000001d8 boolean java.lang.Class.isInterface()
+0x00007f6214475da0 0x00000000000000c8 int java.lang.invoke.LambdaForm$Name.index()
+0x00007f62144760a0 0x00000000000000c8 java.lang.Class java.lang.invoke.LambdaForm$BasicType.basicTypeClass()
+0x00007f6214476380 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToStatic(long, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214476680 0x0000000000000030 long java.lang.invoke.MethodHandle.invokeBasic(long, java.lang.Object)
+0x00007f6214476980 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, long, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214476ca0 0x00000000000000c8 java.lang.invoke.LambdaForm$BasicType java.lang.invoke.LambdaForm$Name.type()
+0x00007f6214476f80 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToStatic(long, long, java.lang.invoke.MemberName)
+0x00007f6214477280 0x0000000000000030 long java.lang.invoke.MethodHandle.invokeBasic(long, long)
+0x00007f6214477580 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, long, long, java.lang.invoke.MemberName)
+0x00007f62144778a0 0x0000000000000108 jdk.internal.org.objectweb.asm.SymbolTable$Entry jdk.internal.org.objectweb.asm.SymbolTable.get(int)
+0x00007f6214477c40 0x0000000000000450 byte[] java.util.Arrays.copyOfRange(byte[], int, int)
+0x00007f6214478380 0x0000000000000028 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, long, java.lang.invoke.MemberName)
+0x00007f6214478680 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, long)
+0x00007f6214478980 0x0000000000000030 long java.lang.invoke.MethodHandle.invokeBasic(java.lang.Object, long, long)
+0x00007f6214478c80 0x0000000000000020 long java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, java.lang.Object, long, long, java.lang.invoke.MemberName)
+0x00007f6214478f80 0x0000000000000078 int java.lang.Math.max(int, int)
+0x00007f6214479280 0x0000000000000028 java.lang.Object java.lang.invoke.MethodHandle.linkToStatic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214479580 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(java.lang.Object)
+0x00007f6214479880 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f6214479b80 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)
+0x00007f6214479e80 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(java.lang.Object, long, long)
+0x00007f621447a180 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, java.lang.Object, long, long, java.lang.invoke.MemberName)
+0x00007f621447a480 0x0000000000000020 int java.lang.invoke.MethodHandle.linkToStatic(int, int, java.lang.invoke.MemberName)
+0x00007f621447a780 0x0000000000000020 void java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, int, java.lang.invoke.MemberName)
+0x00007f621447aa80 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(int)
+0x00007f621447ada0 0x00000000000000c8 java.lang.invoke.MethodType java.lang.invoke.MethodHandle.type()
+0x00007f621447b080 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, int, java.lang.invoke.MemberName)
+0x00007f621447b380 0x0000000000000020 int java.lang.invoke.MethodHandle.linkToStatic(int, java.lang.invoke.MemberName)
+0x00007f621447b680 0x0000000000000020 int java.lang.invoke.MethodHandle.linkToStatic(int, int, int, java.lang.invoke.MemberName)
+0x00007f621447b980 0x0000000000000020 void java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, int, int, java.lang.invoke.MemberName)
+0x00007f621447bc80 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(int, int)
+0x00007f621447bf80 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, int, int, java.lang.invoke.MemberName)
+0x00007f621447c280 0x0000000000000020 int java.lang.invoke.MethodHandle.linkToStatic(java.lang.Object, java.lang.Object, int, java.lang.invoke.MemberName)
+0x00007f621447c580 0x0000000000000020 void java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f621447c880 0x0000000000000030 java.lang.Object java.lang.invoke.MethodHandle.invokeBasic(java.lang.Object, java.lang.Object)
+0x00007f621447cb80 0x0000000000000020 java.lang.Object java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f621447cea0 0x00000000000000c8 int java.nio.Buffer.capacity()
+0x00007f621447d1a0 0x00000000000000c8 float java.nio.charset.CharsetEncoder.maxBytesPerChar()
+0x00007f621447d4a0 0x0000000000000290 void jdk.internal.misc.InternalLock.lock()
+0x00007f621447da20 0x0000000000000200 void jdk.internal.misc.InternalLock.unlock()
+0x00007f621447df20 0x00000000000000c8 int java.util.Formatter$FormatSpecifier.index()
+0x00007f621447e220 0x00000000000000c8 int java.util.Formatter$FixedString.index()
+0x00007f621447e500 0x0000000000000090 java.lang.String java.lang.String.toString()
+0x00007f621447e820 0x00000000000000c8 java.lang.Object java.util.TreeMap$Entry.getKey()
+0x00007f621447eb20 0x00000000000000c8 java.lang.Object java.util.TreeMap$Entry.getValue()
+0x00007f621447ee20 0x00000000000000d0 int java.nio.ByteBuffer.arrayOffset()
+0x00007f621447f120 0x0000000000000108 java.nio.Buffer java.nio.Buffer.position(int)
+0x00007f621447f4a0 0x0000000000000190 boolean java.util.concurrent.locks.ReentrantLock$Sync.tryRelease(int)
+0x00007f621447f8a0 0x00000000000001f8 boolean java.util.concurrent.locks.ReentrantLock$NonfairSync.initialTryLock()
+0x00007f621447fd20 0x00000000000000d0 int java.nio.CharBuffer.arrayOffset()
+0x00007f6214480020 0x0000000000000108 java.nio.Buffer java.nio.CharBuffer.position(int)
+0x00007f6214480380 0x0000000000000238 void java.lang.StringLatin1.inflate(byte[], int, char[], int, int)
+0x00007f6214480800 0x0000000000000090 long java.lang.StringConcatHelper.checkOverflow(long)
+0x00007f6214480b00 0x00000000000000b8 boolean java.util.ArrayList$Itr.hasNext()
+0x00007f6214480e20 0x0000000000000108 java.nio.ByteBuffer java.nio.ByteBuffer.position(int)
+0x00007f62144811a0 0x0000000000000130 java.nio.Buffer java.nio.Buffer.limit(int)
+0x00007f6214481520 0x00000000000000f8 char java.lang.StringUTF16.getChar(byte[], int)
+0x00007f6214481880 0x00000000000000a8 java.nio.ByteBuffer java.nio.ByteBuffer.clear()
+0x00007f6214481ba0 0x00000000000001a0 void java.lang.StringLatin1.getChars(byte[], int, int, char[], int)
+0x00007f6214481fa0 0x0000000000000180 java.lang.Object java.util.ArrayList$Itr.next()
+0x00007f6214482420 0x0000000000000280 int java.lang.StringCoding.implEncodeAsciiArray(char[], int, byte[], int, int)
+0x00007f6214482900 0x00000000000000a8 java.nio.ByteBuffer java.nio.ByteBuffer.flip()
+0x00007f6214482c20 0x0000000000000128 java.nio.Buffer java.nio.ByteBuffer.position(int)
+0x00007f6214483040 0x0000000000000460 void java.nio.CharBuffer.<init>(int, int, int, int, char[], int, java.lang.foreign.MemorySegment)
+0x00007f62144838c0 0x00000000000002d8 java.nio.CharBuffer java.nio.CharBuffer.wrap(char[], int, int)
+0x00007f6214483fc0 0x0000000000000398 void java.nio.Buffer.<init>(int, int, int, int, java.lang.foreign.MemorySegment)
+0x00007f6214484740 0x0000000000000430 void java.nio.HeapCharBuffer.<init>(char[], int, int, java.lang.foreign.MemorySegment)
+0x00007f6214484fa0 0x0000000000000848 void sun.nio.cs.StreamEncoder.writeBytes()
+0x00007f6214485fe0 0x00000000000005b0 void java.io.BufferedWriter.implWrite(java.lang.String, int, int)
+0x00007f6214486c20 0x00000000000000d8 void java.io.BufferedWriter.growIfNeeded(int)
+0x00007f6214486fc0 0x0000000000000bf8 void sun.nio.cs.StreamEncoder.lockedWrite(char[], int, int)
+0x00007f62144887e0 0x0000000000000cf8 void sun.nio.cs.StreamEncoder.flushBuffer()
+0x00007f6214489ea0 0x0000000000000218 int java.lang.Long.getChars(long, int, byte[])
+0x00007f621448a420 0x00000000000001f8 int java.lang.Long.stringSize(long)
+0x00007f621448a880 0x0000000000000180 int java.lang.System$2.encodeASCII(char[], int, byte[], int, int)
+0x00007f621448aca0 0x0000000000000830 void sun.nio.cs.StreamEncoder.implWrite(java.nio.CharBuffer)
+0x00007f621448bd00 0x00000000000000f0 int java.lang.Math.round(float)
+0x00007f621448c020 0x0000000000000198 void sun.nio.cs.StreamEncoder.growByteBufferIfNeeded(int)
+0x00007f621448c520 0x00000000000009e8 void java.io.BufferedWriter.write(java.lang.String, int, int)
+0x00007f621448d880 0x0000000000000590 void sun.nio.cs.StreamEncoder.write(char[], int, int)
+0x00007f621448e320 0x0000000000000178 void java.lang.String.getBytes(byte[], int, byte)
+0x00007f621448e840 0x00000000000012d8 void java.io.OutputStreamWriter.write(char[], int, int)
+0x00007f6214490a80 0x00000000000000a0 java.lang.CharacterData java.lang.CharacterData.of(int)
+0x00007f6214490da0 0x00000000000001d8 long java.lang.StringConcatHelper.prepend(long, byte[], java.lang.String)
+0x00007f6214491280 0x0000000000000090 boolean java.util.Formatter$Conversion.isValid(char)
+0x00007f62144915e0 0x00000000000004d8 java.nio.charset.CoderResult sun.nio.cs.UTF_8$Encoder.encodeLoop(java.nio.CharBuffer, java.nio.ByteBuffer)
+0x00007f6214491fa0 0x00000000000000e0 boolean java.lang.CharacterDataLatin1.isUpperCase(int)
+0x00007f6214492320 0x0000000000000198 void java.util.Formatter$FormatSpecifier.<init>(char)
+0x00007f6214492860 0x00000000000004e8 java.nio.charset.CoderResult sun.nio.cs.UTF_8$Encoder.encodeArrayLoop(java.nio.CharBuffer, java.nio.ByteBuffer)
+0x00007f62144932c0 0x00000000000003a8 long java.lang.StringConcatHelper.prepend(long, byte[], long, java.lang.String)
+0x00007f6214493b80 0x00000000000006f8 java.nio.charset.CoderResult java.nio.charset.CharsetEncoder.encode(java.nio.CharBuffer, java.nio.ByteBuffer, boolean)
+0x00007f62144949c0 0x0000000000000450 void java.lang.String.getChars(int, int, char[], int)
+0x00007f6214495260 0x00000000000005e8 void java.io.PrintStream.write(byte[], int, int)
+0x00007f6214495f80 0x0000000000001580 void java.io.BufferedWriter.flushBuffer()
+0x00007f6214498620 0x00000000000001f0 java.lang.Object jdk.internal.misc.Unsafe.allocateUninitializedArray(java.lang.Class, int)
+0x00007f6214498b20 0x00000000000001e0 java.lang.Object jdk.internal.misc.Unsafe.allocateUninitializedArray0(java.lang.Class, int)
+0x00007f6214498fa0 0x00000000000001d0 java.lang.Object jdk.internal.misc.Unsafe.allocateUninitializedArray(java.lang.Class, int)
+0x00007f6214499580 0x0000000000001570 java.lang.Appendable java.io.PrintStream.append(java.lang.CharSequence)
+0x00007f621449baa0 0x00000000000000f0 long java.lang.StringConcatHelper.mix(long, java.lang.String)
+0x00007f621449be20 0x0000000000000118 java.lang.String java.lang.StringConcatHelper.newString(byte[], long)
+0x00007f621449c340 0x0000000000001918 void java.util.Formatter$FormatSpecifier.printString(java.util.Formatter, java.lang.Object, java.util.Locale)
+0x00007f621449efa0 0x0000000000001788 void java.util.Formatter$FormatSpecifier.appendJustified(java.lang.Appendable, java.lang.CharSequence)
+0x00007f62144a19a0 0x0000000000001848 void java.util.Formatter$FormatSpecifier.print(java.util.Formatter, java.lang.String, java.util.Locale)
+0x00007f62144a4320 0x0000000000000220 long java.lang.StringConcatHelper.prepend(long, byte[], java.lang.String, java.lang.String)
+0x00007f62144a48a0 0x0000000000000138 java.util.TreeMap$Entry java.util.TreeMap.successor(java.util.TreeMap$Entry)
+0x00007f62144a4ee0 0x00000000000027c0 void java.io.PrintStream.write(java.lang.String)
+0x00007f62144a9320 0x00000000000000e8 java.util.Locale java.util.Locale.getDefault(java.util.Locale$Category)
+0x00007f62144a96a0 0x0000000000000138 void java.io.OutputStream$1.write(byte[], int, int)
+0x00007f62144a9aa0 0x0000000000000110 java.util.Iterator java.util.ArrayList.iterator()
+0x00007f62144a9e00 0x00000000000000b0 boolean java.util.TreeMap$PrivateEntryIterator.hasNext()
+0x00007f62144aa160 0x0000000000000778 java.lang.CharSequence java.lang.String.subSequence(int, int)
+0x00007f62144aae60 0x0000000000001380 java.util.List java.util.Formatter.parse(java.lang.String)
+0x00007f62144acba0 0x00000000000003a8 java.lang.Object java.util.TreeMap$EntryIterator.next()
+0x00007f62144ad2a0 0x00000000000003a8 java.util.TreeMap$Entry java.util.TreeMap$PrivateEntryIterator.nextEntry()
+0x00007f62144ada20 0x0000000000000d00 java.lang.String Main.roundToOneDecimal(double)
+0x00007f62144af5a0 0x00000000000022a8 void java.io.PrintStream.implWrite(java.lang.String)
+0x00007f62144b31a0 0x0000000000000130 java.nio.Buffer java.nio.CharBuffer.limit(int)
+0x00007f62144b3720 0x0000000000001798 void java.util.Formatter$FixedString.print(java.util.Formatter, java.lang.Object, java.util.Locale)
+0x00007f62144b6120 0x0000000000001708 java.lang.Appendable java.io.PrintStream.append(java.lang.CharSequence, int, int)
+0x00007f62144b8ba0 0x0000000000002e18 void java.util.Formatter$FormatSpecifier.print(java.util.Formatter, java.lang.Object, java.util.Locale)
+0x00007f62144bd880 0x0000000000000780 java.nio.charset.CoderResult sun.nio.cs.UTF_8$Encoder.encodeArrayLoopSlow(java.nio.CharBuffer, char[], int, int, java.nio.ByteBuffer, byte[], int, int)
+0x00007f62144be900 0x0000000000002608 java.io.PrintStream java.io.PrintStream.format(java.lang.String, java.lang.Object[])
+0x00007f62144c2c00 0x0000000000002608 java.io.PrintStream java.io.PrintStream.printf(java.lang.String, java.lang.Object[])
+0x00007f62144c6da0 0x00000000000000f0 long java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, long, long)
+0x00007f62144c7120 0x0000000000000110 long java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, long, java.lang.Object, long, java.lang.Object)
+0x00007f62144c7540 0x0000000000000140 long java.lang.invoke.DelegatingMethodHandle$Holder.reinvoke_L(java.lang.Object, long, long)
+0x00007f62144c79a0 0x00000000000000a8 java.lang.String java.lang.StringConcatHelper.stringOf(java.lang.Object)
+0x00007f62144c7cc0 0x0000000000000168 long java.lang.invoke.LambdaForm$MH/0x00007f6188003400.invoke(java.lang.Object, long, java.lang.Object, long)
+0x00007f62144c8120 0x0000000000000138 byte[] java.lang.StringConcatHelper.newArray(long)
+0x00007f62144c84a0 0x0000000000000108 java.lang.Object java.lang.invoke.LambdaForm$MH/0x00007f6188007800.linkToTargetMethod(java.lang.Object, long, long, java.lang.Object)
+0x00007f62144c8820 0x00000000000000e8 java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object)
+0x00007f62144c8ba0 0x00000000000000e8 java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, long)
+0x00007f62144c8f20 0x00000000000000f0 long java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, long, java.lang.Object)
+0x00007f62144c92a0 0x0000000000000238 long java.lang.StringConcatHelper.mix(long, long)
+0x00007f62144c97e0 0x0000000000000260 long java.lang.invoke.LambdaForm$MH/0x00007f6188006400.invoke(java.lang.Object, java.lang.Object, long, long)
+0x00007f62144c9ec0 0x0000000000000228 long java.lang.invoke.LambdaForm$MH/0x00007f6188004400.invoke(java.lang.Object, long, java.lang.Object, java.lang.Object, long, long)
+0x00007f62144ca4a0 0x0000000000000110 long java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, long, java.lang.Object, java.lang.Object, java.lang.Object)
+0x00007f62144ca8c0 0x0000000000000168 long java.lang.invoke.LambdaForm$MH/0x00007f6188002c00.invoke(java.lang.Object, long, java.lang.Object, java.lang.Object)
+0x00007f62144cad20 0x00000000000000f0 java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, long)
+0x00007f62144cb0c0 0x0000000000000200 long java.lang.invoke.LambdaForm$MH/0x00007f6188003800.invoke(java.lang.Object, long, java.lang.Object, java.lang.Object, long)
+0x00007f62144cb720 0x0000000000000438 java.lang.Object java.lang.invoke.LambdaForm$MH/0x00007f6188007000.invoke(java.lang.Object, java.lang.Object, long, long)
+0x00007f62144cc380 0x0000000000001e38 void java.io.PrintStream.implFormat(java.lang.String, java.lang.Object[])
+0x00007f62144cf9a0 0x0000000000000d00 java.lang.String Main.roundToOneDecimal(double)
+0x00007f62144d1320 0x00000000000000c8 java.lang.String sun.util.locale.BaseLocale.getLanguage()
+0x00007f62144d1600 0x0000000000000020 void java.lang.invoke.MethodHandle.linkToSpecial(java.lang.Object, java.lang.Object, java.lang.invoke.MemberName)
+0x00007f62144d1900 0x00000000000000a0 boolean java.util.regex.Pattern$$Lambda/0x800000028.is(int)
+0x00007f62144d1c20 0x00000000000001f8 boolean java.lang.Class.desiredAssertionStatus0(java.lang.Class)
+0x00007f62144d2040 0x00000000000002f0 boolean java.util.regex.Pattern$BmpCharPropertyGreedy.match(java.util.regex.Matcher, int, java.lang.CharSequence)
+0x00007f62144d2740 0x0000000000000360 int java.lang.String.hashCode()
+0x00007f62144d2d80 0x00000000000000a8 void java.io.BufferedReader.ensureOpen()
+0x00007f62144d30c0 0x0000000000000618 void java.lang.String.<init>(char[], int, int)
+0x00007f62144d3b40 0x0000000000000578 void java.lang.String.<init>(char[], int, int, java.lang.Void)
+0x00007f62144d4460 0x0000000000000360 void java.util.TreeMap.fixAfterInsertion(java.util.TreeMap$Entry)
+0x00007f62144d4c80 0x00000000000006b0 boolean java.util.regex.Matcher.search(int)
+0x00007f62144d5a00 0x0000000000000610 void java.util.TreeMap.addEntry(java.lang.Object, java.lang.Object, java.util.TreeMap$Entry, boolean)
+0x00007f62144d65a0 0x0000000000000d70 java.lang.Object java.util.TreeMap.put(java.lang.Object, java.lang.Object, boolean)
+0x00007f62144d7ac0 0x0000000000000db0 java.lang.String java.io.BufferedReader.implReadLine(boolean, boolean[])
+0x00007f62144d9120 0x00000000000001f0 int java.io.FileInputStream.readBytes(byte[], int, int)
+0x00007f62144d9520 0x00000000000001d0 int java.io.FileInputStream.available0()
+0x00007f62144d9880 0x00000000000000b8 boolean java.nio.Buffer.hasRemaining()
+0x00007f62144d9bc0 0x00000000000008d8 void java.util.TreeMap.rotateLeft(java.util.TreeMap$Entry)
+0x00007f62144da8a0 0x0000000000001428 void Main.main(java.lang.String[])
+0x00007f62144dc9c0 0x00000000000008d8 void java.util.TreeMap.rotateRight(java.util.TreeMap$Entry)
+0x00007f62144dd500 0x00000000000000e8 void CountryStat.update(double)
+0x00007f62144dd820 0x00000000000000b8 java.lang.String[] java.lang.String.split(java.lang.String)
+0x00007f62144ddb00 0x00000000000000b0 boolean sun.nio.cs.StreamEncoder.isOpen()
+0x00007f62144dde20 0x00000000000000d0 char java.lang.StringLatin1.charAt(byte[], int)
+0x00007f62144de180 0x0000000000000180 void java.util.Formatter$FixedString.<init>(java.lang.String, int, int)
+0x00007f62144de520 0x00000000000001e0 void java.util.Formatter$FormatSpecifier.<init>(char)
+0x00007f62144dea00 0x00000000000000d0 boolean java.util.Formatter$Conversion.isValid(char)
+0x00007f62144ded20 0x00000000000002c0 int java.lang.String.indexOf(int, int)
+0x00007f62144df440 0x0000000000000d70 void sun.nio.cs.StreamEncoder.implFlushBuffer()
+0x00007f62144e0dc0 0x0000000000000d70 void sun.nio.cs.StreamEncoder.lockedFlushBuffer()
+0x00007f62144e2800 0x0000000000001290 void sun.nio.cs.StreamEncoder.flushBuffer()
+0x00007f62144e4b40 0x0000000000002b78 void Main.main(java.lang.String[])
+0x00007f62144e8c00 0x0000000000000098 boolean java.util.TreeMap$PrivateEntryIterator.hasNext()
+0x00007f62144e8f20 0x0000000000000130 java.lang.Appendable java.io.PrintStream.append(java.lang.CharSequence)
+0x00007f62144e9320 0x0000000000000378 java.lang.Object java.util.TreeMap$EntryIterator.next()
+0x00007f62144e99c0 0x0000000000000430 java.lang.Object[] java.util.ArrayList.grow(int)
+0x00007f62144ea100 0x0000000000000558 java.io.PrintStream java.io.PrintStream.format(java.lang.String, java.lang.Object[])
+0x00007f62144eaee0 0x00000000000023d8 java.util.List java.util.Formatter.parse(java.lang.String)
+0x00007f62144ee720 0x00000000000002c8 int java.lang.StringCoding.countPositives(byte[], int, int)
+0x00007f62144eeca0 0x00000000000000d8 void java.io.OutputStreamWriter.flushBuffer()
+0x00007f62144eef80 0x00000000000000a8 void java.io.PrintStream.ensureOpen()
+0x00007f62144ef280 0x00000000000000b0 void sun.nio.cs.StreamEncoder.ensureOpen()
+0x00007f62144ef580 0x0000000000000088 java.lang.String java.lang.System.lineSeparator()
+0x00007f62144ef880 0x00000000000000b8 java.util.Locale java.util.Formatter.locale()
+0x00007f62144efc80 0x0000000000000c70 void sun.nio.cs.StreamEncoder.lockedWrite(char[], int, int)
+0x00007f62144f16e0 0x0000000000001308 void java.io.OutputStreamWriter.write(char[], int, int)
+0x00007f62144f3a80 0x0000000000000570 void java.io.BufferedWriter.flushBuffer()
+0x00007f62144f46a0 0x0000000000001840 void java.io.PrintStream.implWrite(java.lang.String)
+0x00007f62144f7260 0x0000000000002008 void java.util.Formatter$FormatSpecifier.print(java.util.Formatter, java.lang.Object, java.util.Locale)
+0x00007f62144faa40 0x00000000000029c8 void java.io.PrintStream.write(java.lang.String)
+0x00007f62144ff300 0x0000000000000cf0 java.lang.Appendable java.io.PrintStream.append(java.lang.CharSequence, int, int)
+0x00007f6214500960 0x0000000000000748 java.lang.CharSequence java.lang.String.subSequence(int, int)
+0x00007f62145015e0 0x0000000000000748 java.lang.String java.lang.String.substring(int, int)
+0x00007f62145023a0 0x0000000000001e30 void java.util.Formatter$FixedString.print(java.util.Formatter, java.lang.Object, java.util.Locale)
+0x00007f6214505740 0x00000000000009d0 java.util.Formatter java.util.Formatter.format(java.util.Locale, java.lang.String, java.lang.Object[])
+0x00007f6214506c00 0x0000000000000e20 void java.io.PrintStream.implFormat(java.lang.String, java.lang.Object[])
+0x00007f6214508820 0x0000000000002160 void Main.main(java.lang.String[])
+0x00007f621450bf00 0x00000000000001e8 int java.lang.StringCoding.countPositives(byte[], int, int)
+0x00007f621450c720 0x0000000000003960 void Main.main(java.lang.String[])
+0x00007f6214511ea0 0x00000000000005b0 void sun.nio.cs.UTF_8.updatePositions(java.nio.Buffer, int, java.nio.Buffer, int)
+0x00007f6214512a20 0x00000000000000f0 void java.lang.StringUTF16.checkBoundsBeginEnd(int, int, byte[])
+0x00007f6214512e80 0x0000000000000558 java.io.PrintStream java.io.PrintStream.printf(java.lang.String, java.lang.Object[])
+0x00007f6214513920 0x0000000000000108 java.nio.CharBuffer java.nio.CharBuffer.position(int)
+0x00007f6214513ce0 0x0000000000000548 boolean java.util.regex.Pattern$BmpCharPropertyGreedy.match(java.util.regex.Matcher, int, java.lang.CharSequence)
+0x00007f62145147e0 0x0000000000000480 void java.lang.AbstractStringBuilder.appendChars(char[], int, int)
+0x00007f62145150a0 0x0000000000000108 void java.lang.StringUTF16.putChar(byte[], int, int)
+0x00007f620c8141a0 0x0000000000000108 void java.lang.Object.<init>()
+0x00007f620c8144a0 0x0000000000000170 boolean java.lang.String.isLatin1()
+0x00007f620c814860 0x0000000000000338 int java.lang.String.hashCode()
+0x00007f620c814e20 0x0000000000000130 byte java.lang.String.coder()
+0x00007f620c8151c0 0x0000000000000198 int jdk.internal.util.Preconditions.checkIndex(int, int, java.util.function.BiFunction)
+0x00007f620c8155e0 0x0000000000000388 char java.lang.String.charAt(int)
+0x00007f620c815cc0 0x00000000000001c0 char java.lang.StringLatin1.charAt(byte[], int)
+0x00007f620c816120 0x0000000000000130 void java.lang.String.checkIndex(int, int)
+0x00007f620c8164c0 0x00000000000001a0 int java.lang.String.length()
+0x00007f620c8168c0 0x00000000000002e8 java.util.concurrent.ConcurrentHashMap$Node java.util.concurrent.ConcurrentHashMap.tabAt(java.util.concurrent.ConcurrentHashMap$Node[], int)
+0x00007f620c816e20 0x0000000000000168 java.lang.Object jdk.internal.misc.Unsafe.getReferenceAcquire(java.lang.Object, long)
+0x00007f620c8171a0 0x00000000000000f8 int java.util.concurrent.ConcurrentHashMap.spread(int)
+0x00007f620c8174c0 0x00000000000001f0 java.lang.Object java.util.Objects.requireNonNull(java.lang.Object)
+0x00007f620c817920 0x0000000000000160 boolean java.lang.ref.ReferenceQueue.headIsNull()
+0x00007f620c817ca0 0x0000000000000130 int java.lang.Math.min(int, int)
+0x00007f620c818060 0x0000000000000360 void jdk.internal.util.ReferencedKeyMap.removeStaleReferences()
+0x00007f620c8186e0 0x0000000000000358 java.lang.ref.Reference java.lang.ref.NativeReferenceQueue.poll()
+0x00007f620c818de0 0x0000000000000a68 java.lang.Object java.util.concurrent.ConcurrentHashMap.get(java.lang.Object)
+0x00007f620c819dc0 0x0000000000000598 java.lang.Class java.lang.invoke.MethodTypeForm.canonicalize(java.lang.Class, int)
+0x00007f620c81a6e0 0x0000000000000388 int java.lang.invoke.MethodType.hashCode()
+0x00007f620c81ada0 0x0000000000000158 jdk.internal.org.objectweb.asm.SymbolTable$Entry jdk.internal.org.objectweb.asm.SymbolTable.get(int)
+0x00007f620c81b1c0 0x0000000000000218 int java.lang.StringLatin1.indexOfChar(byte[], int, int, int)
+0x00007f620c81b6c0 0x0000000000000280 jdk.internal.util.ReferenceKey jdk.internal.util.ReferencedKeyMap.lookupKey(java.lang.Object)
+0x00007f620c81bba0 0x00000000000001c0 void jdk.internal.util.StrongReferenceKey.<init>(java.lang.Object)
+0x00007f620c81bfc0 0x00000000000001f0 int jdk.internal.util.StrongReferenceKey.hashCode()
+0x00007f620c81c4c0 0x0000000000000608 void java.lang.invoke.MethodType.checkSlotCount(int)
+0x00007f620c81cec0 0x00000000000001f0 java.lang.Object java.util.Objects.requireNonNull(java.lang.Object, java.lang.String)
+0x00007f620c81d340 0x00000000000001c0 int jdk.internal.util.ArraysSupport.signedHashCode(int, byte[], int, int)
+0x00007f620c81d7a0 0x0000000000000130 int java.lang.Math.max(int, int)
+0x00007f620c81db20 0x0000000000000170 boolean java.lang.StringLatin1.canEncode(int)
+0x00007f620c81dea0 0x0000000000000118 char java.lang.StringLatin1.getChar(byte[], int)
+0x00007f620c81e320 0x0000000000000b80 byte[] java.util.Arrays.copyOfRange(byte[], int, int)
+0x00007f620c81f4c0 0x0000000000000230 int java.lang.String.compareTo(java.lang.Object)
+0x00007f620c81f960 0x00000000000003d8 int jdk.internal.util.ArraysSupport.mismatch(byte[], byte[], int)
+0x00007f620c8200c0 0x0000000000000130 int java.lang.StringLatin1.compareTo(byte[], byte[])
+0x00007f620c820520 0x0000000000000478 int java.lang.String.compareTo(java.lang.String)
+0x00007f620c820d40 0x0000000000000168 java.util.TreeMap$Entry java.util.TreeMap.parentOf(java.util.TreeMap$Entry)
+0x00007f620c821160 0x0000000000000360 int java.lang.StringLatin1.compareTo(byte[], byte[], int, int)
+0x00007f620c821880 0x00000000000004b0 int java.lang.String.indexOf(int, int)
+0x00007f620c822100 0x0000000000000518 int java.lang.StringLatin1.indexOf(byte[], int, int, int)
+0x00007f620c8229a0 0x00000000000001c8 void java.lang.String.<init>(byte[], byte)
+0x00007f620c822dc0 0x00000000000001c8 int jdk.internal.util.Preconditions.checkFromToIndex(int, int, int, java.util.function.BiFunction)
+0x00007f620c823240 0x0000000000000228 void java.lang.String.checkBoundsBeginEnd(int, int, int)
+0x00007f620c823720 0x0000000000000168 char java.lang.StringUTF16.getChar(byte[], int)
+0x00007f620c823ba0 0x00000000000005e8 java.lang.String java.lang.String.substring(int, int)
+0x00007f620c8245a0 0x0000000000000168 boolean java.lang.String.isEmpty()
+0x00007f620c824a40 0x0000000000000db0 java.lang.String java.lang.StringLatin1.newString(byte[], int, int)
+0x00007f620c825ea0 0x0000000000000160 void java.util.AbstractCollection.<init>()
+0x00007f620c826260 0x00000000000003b0 void java.util.ArrayList.add(java.lang.Object, java.lang.Object[], int)
+0x00007f620c826960 0x0000000000000430 boolean java.util.ArrayList.add(java.lang.Object)
+0x00007f620c827120 0x0000000000000120 void java.util.TreeMap.setColor(java.util.TreeMap$Entry, boolean)
+0x00007f620c8274c0 0x00000000000001c8 void java.util.AbstractList.<init>()
+0x00007f620c827940 0x0000000000000240 int java.lang.StringUTF16.compress(char[], int, byte[], int, int)
+0x00007f620c827ec0 0x0000000000000148 int java.lang.String.indexOf(int)
+0x00007f620c828220 0x00000000000000f0 int java.lang.StringUTF16.length(byte[])
+0x00007f620c828700 0x0000000000000ff8 java.lang.String java.io.BufferedReader.implReadLine(boolean, boolean[])
+0x00007f620c829fc0 0x0000000000000168 java.util.TreeMap$Entry java.util.TreeMap.leftOf(java.util.TreeMap$Entry)
+0x00007f620c82a3e0 0x0000000000000340 int java.lang.StringLatin1.compareToUTF16Values(byte[], byte[], int, int)
+0x00007f620c82aac0 0x00000000000001a8 int jdk.internal.util.Preconditions.checkFromIndexSize(int, int, int, java.util.function.BiFunction)
+0x00007f620c82af20 0x00000000000000f0 int java.lang.StringLatin1.length(byte[])
+0x00007f620c82b2c0 0x0000000000000208 int java.lang.String.checkBoundsOffCount(int, int, int)
+0x00007f620c82b7a0 0x0000000000000100 byte java.lang.StringUTF16.coderFromArrayLen(byte[], int)
+0x00007f620c82bb80 0x0000000000000620 java.lang.Object[] java.util.ArrayList.grow(int)
+0x00007f620c82c5a0 0x0000000000000668 java.util.TreeMap$Entry java.util.TreeMap.getEntry(java.lang.Object)
+0x00007f620c82d360 0x0000000000002668 double jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer.doubleValue()
+0x00007f620c830aa0 0x0000000000000da8 java.lang.Object java.util.TreeMap.put(java.lang.Object, java.lang.Object, boolean)
+0x00007f620c831dc0 0x00000000000001f8 int java.lang.StringLatin1.compareToUTF16(byte[], byte[])
+0x00007f620c8322e0 0x0000000000000288 void java.util.concurrent.locks.ReentrantLock$Sync.lock()
+0x00007f620c8327e0 0x00000000000002f8 void java.util.concurrent.locks.ReentrantLock.lock()
+0x00007f620c832da0 0x0000000000000120 boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.compareAndSetState(int, int)
+0x00007f620c8333a0 0x00000000000021e0 java.lang.String[] java.lang.String.split(char, int, boolean)
+0x00007f620c8363c0 0x0000000000000160 java.lang.String java.io.BufferedReader.readLine()
+0x00007f620c8367e0 0x00000000000003e8 boolean java.util.concurrent.locks.ReentrantLock$NonfairSync.initialTryLock()
+0x00007f620c836e20 0x0000000000000138 int java.util.Objects.checkIndex(int, int)
+0x00007f620c8371e0 0x00000000000003e0 void jdk.internal.misc.InternalLock.lock()
+0x00007f620c8378a0 0x0000000000000138 java.lang.Object java.util.ArrayList.elementData(int)
+0x00007f620c837c40 0x0000000000000248 java.lang.Object java.util.ArrayList.get(int)
+0x00007f620c8381c0 0x00000000000002a0 void java.util.ArrayList.<init>()
+0x00007f620c838760 0x00000000000002d8 void java.util.concurrent.locks.ReentrantLock.unlock()
+0x00007f620c838d60 0x0000000000000368 boolean java.util.concurrent.locks.ReentrantLock$Sync.tryRelease(int)
+0x00007f620c8393a0 0x0000000000000608 boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.release(int)
+0x00007f620c839d80 0x0000000000000488 void java.util.concurrent.locks.AbstractQueuedSynchronizer.signalNext(java.util.concurrent.locks.AbstractQueuedSynchronizer$Node)
+0x00007f620c83a520 0x0000000000000148 void java.lang.StringUTF16.putChar(byte[], int, int)
+0x00007f620c83aa40 0x0000000000000ed0 java.lang.String java.io.BufferedReader.readLine(boolean, boolean[])
+0x00007f620c83bfe0 0x00000000000003c8 void jdk.internal.misc.InternalLock.unlock()
+0x00007f620c83c6c0 0x0000000000000150 java.lang.String[] java.lang.String.split(java.lang.String)
+0x00007f620c83ca60 0x0000000000000350 void java.lang.String.<init>(char[], int, int)
+0x00007f620c83d140 0x0000000000000278 java.lang.Void java.lang.String.rangeCheck(char[], int, int)
+0x00007f620c83d6e0 0x0000000000000368 byte[] java.lang.StringUTF16.compress(char[], int, int)
+0x00007f620c83dd60 0x00000000000003c0 java.util.List java.util.ArrayList.subList(int, int)
+0x00007f620c83e4a0 0x00000000000005d0 void java.lang.String.<init>(char[], int, int, java.lang.Void)
+0x00007f620c83eee0 0x00000000000004d8 void java.util.TreeMap.addEntry(java.lang.Object, java.lang.Object, java.util.TreeMap$Entry, boolean)
+0x00007f620c83f900 0x0000000000001088 void java.util.AbstractList.subListRangeCheck(int, int, int)
+0x00007f620c841260 0x00000000000002d0 java.lang.String java.lang.String.trim()
+0x00007f620c841960 0x0000000000001458 java.lang.String[] java.lang.String.split(java.lang.String, int, boolean)
+0x00007f620c8436c0 0x00000000000002d0 void java.util.ArrayList$SubList.<init>(java.util.ArrayList, int, int)
+0x00007f620c843ce0 0x00000000000003b0 java.lang.String java.lang.StringLatin1.trim(byte[])
+0x00007f620c8443c0 0x00000000000001c8 void java.util.ArrayList$SubList.checkForComodification()
+0x00007f620c844840 0x0000000000000240 double java.lang.Double.parseDouble(java.lang.String)
+0x00007f620c844da0 0x0000000000000698 java.lang.Object[] java.util.ArrayList$SubList.toArray(java.lang.Object[])
+0x00007f620c8457c0 0x00000000000001e8 double jdk.internal.math.FloatingDecimal.parseDouble(java.lang.String)
+0x00007f620c845c40 0x00000000000001c0 java.lang.Object java.util.TreeMap.get(java.lang.Object)
+0x00007f620c8460a0 0x0000000000000180 void CountryStat.<init>(double)
+0x00007f620c8464c0 0x0000000000000148 java.lang.Object java.util.TreeMap.put(java.lang.Object, java.lang.Object)
+0x00007f620c846820 0x00000000000001d0 void jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer.<init>(boolean, int, char[], int)
+0x00007f620c846c40 0x0000000000000298 void java.util.TreeMap$Entry.<init>(java.lang.Object, java.lang.Object, java.util.TreeMap$Entry)
+0x00007f620c847440 0x0000000000002488 void java.util.TreeMap.fixAfterInsertion(java.util.TreeMap$Entry)
+0x00007f620c84a6a0 0x0000000000000140 boolean java.util.TreeMap.colorOf(java.util.TreeMap$Entry)
+0x00007f620c84aa40 0x0000000000000168 java.util.TreeMap$Entry java.util.TreeMap.rightOf(java.util.TreeMap$Entry)
+0x00007f620c84b520 0x0000000000005890 jdk.internal.math.FloatingDecimal$ASCIIToBinaryConverter jdk.internal.math.FloatingDecimal.readJavaFormatString(java.lang.String)
+0x00007f620c853960 0x0000000000000548 void java.util.TreeMap.rotateLeft(java.util.TreeMap$Entry)
+0x00007f620c8541e0 0x0000000000000548 void java.util.TreeMap.rotateRight(java.util.TreeMap$Entry)
+0x00007f620c854a80 0x0000000000000490 int java.lang.StringUTF16.compress(byte[], int, byte[], int, int)
+0x00007f620c855340 0x00000000000001f8 int java.lang.StringUTF16.indexOfCharUnsafe(byte[], int, int, int)
+0x00007f620c8557a0 0x0000000000000148 boolean sun.nio.cs.UTF_8$Decoder.isNotContinuation(int)
+0x00007f620c855b60 0x00000000000002f8 void java.lang.StringUTF16.checkBoundsBeginEnd(int, int, byte[])
+0x00007f620c856280 0x0000000000000790 int java.lang.StringUTF16.newBytesLength(int)
+0x00007f620c856f00 0x0000000000000498 int java.lang.StringUTF16.indexOfChar(byte[], int, int, int)
+0x00007f620c8577e0 0x0000000000000390 java.lang.String java.lang.StringUTF16.newString(byte[], int, int)
+0x00007f620c858000 0x0000000000000e78 byte[] java.lang.StringUTF16.compress(byte[], int, int)
+0x00007f620c8595c0 0x0000000000000720 int java.lang.StringUTF16.indexOf(byte[], int, int, int)
+0x00007f620c85a1c0 0x0000000000000300 byte[] java.lang.StringUTF16.toBytes(char[], int, int)
+0x00007f620c85a820 0x0000000000000140 boolean java.lang.StringLatin1.canEncode(char)
+0x00007f620c85b260 0x0000000000004ac0 java.nio.charset.CoderResult sun.nio.cs.UTF_8$Decoder.decodeArrayLoop(java.nio.ByteBuffer, java.nio.CharBuffer)
+0x00007f620c861ca0 0x0000000000004e28 java.nio.charset.CoderResult sun.nio.cs.UTF_8$Decoder.decodeArrayLoop(java.nio.ByteBuffer, java.nio.CharBuffer)
+0x00007f620c868340 0x0000000000000230 void java.lang.AbstractStringBuilder.ensureCapacityInternal(int)
+0x00007f620c868840 0x0000000000000220 int java.lang.StringCoding.countPositives(byte[], int, int)
+0x00007f620c868d40 0x00000000000001c8 void CountryStat.update(double)
+0x00007f620c8691c0 0x0000000000000320 double java.lang.Math.max(double, double)
+0x00007f620c869740 0x0000000000000320 double java.lang.Math.min(double, double)
+0x00007f620c869ca0 0x00000000000001e8 boolean sun.nio.cs.UTF_8$Decoder.isMalformed3(int, int, int)
+0x00007f620c86a0a0 0x0000000000000170 boolean java.lang.AbstractStringBuilder.isLatin1()
+0x00007f620c86a440 0x0000000000000258 java.nio.Buffer java.nio.Buffer.position(int)
+0x00007f620c86ab80 0x0000000000002178 java.lang.String[] java.lang.String.split(char, int, boolean)
+0x00007f620c86db40 0x00000000000001f8 void java.lang.StringLatin1.inflate(byte[], int, char[], int, int)
+0x00007f620c86e040 0x0000000000000148 java.nio.ByteBuffer java.nio.ByteBuffer.position(int)
+0x00007f620c86e3e0 0x0000000000000270 int java.nio.ByteBuffer.arrayOffset()
+0x00007f620c86e920 0x0000000000000160 boolean java.nio.charset.CoderResult.isUnderflow()
+0x00007f620c86eca0 0x0000000000000160 boolean java.nio.charset.CoderResult.isOverflow()
+0x00007f620c86f040 0x0000000000000148 java.nio.CharBuffer java.nio.CharBuffer.position(int)
+0x00007f620c86f3c0 0x00000000000001b0 java.nio.Buffer java.nio.CharBuffer.position(int)
+0x00007f620c86f820 0x0000000000000148 boolean jdk.internal.misc.VM.isBooted()
+0x00007f620c86fba0 0x0000000000000160 boolean java.lang.invoke.MemberName.anyFlagSet(int)
+0x00007f620c86ff20 0x00000000000001c0 boolean java.lang.invoke.MemberName.isInvocable()
+0x00007f620c870360 0x0000000000000458 boolean java.lang.String.equals(java.lang.Object)
+0x00007f620c870a80 0x0000000000000528 java.lang.Object jdk.internal.util.ReferencedKeyMap.getNoCheckStale(java.lang.Object)
+0x00007f620c871340 0x0000000000000260 boolean java.util.Objects.equals(java.lang.Object, java.lang.Object)
+0x00007f620c8718c0 0x0000000000000848 java.lang.Object jdk.internal.util.ReferencedKeyMap.get(java.lang.Object)
+0x00007f620c8725c0 0x0000000000000130 int jdk.internal.org.objectweb.asm.SymbolTable.hash(int, java.lang.String)
+0x00007f620c8729c0 0x00000000000002a0 void jdk.internal.org.objectweb.asm.Symbol.<init>(int, int, java.lang.String, java.lang.String, java.lang.String, long)
+0x00007f620c873000 0x0000000000000aa0 jdk.internal.org.objectweb.asm.ByteVector jdk.internal.org.objectweb.asm.ByteVector.putUTF8(java.lang.String)
+0x00007f620c874140 0x0000000000000208 jdk.internal.org.objectweb.asm.ByteVector jdk.internal.org.objectweb.asm.ByteVector.putShort(int)
+0x00007f620c874680 0x0000000000000898 jdk.internal.org.objectweb.asm.SymbolTable$Entry jdk.internal.org.objectweb.asm.SymbolTable.put(jdk.internal.org.objectweb.asm.SymbolTable$Entry)
+0x00007f620c8753c0 0x0000000000000180 void jdk.internal.org.objectweb.asm.SymbolTable$Entry.<init>(int, int, java.lang.String, int)
+0x00007f620c875840 0x0000000000000608 int jdk.internal.org.objectweb.asm.SymbolTable.addConstantUtf8(java.lang.String)
+0x00007f620c876320 0x0000000000000138 java.lang.Class java.lang.invoke.MethodType.parameterType(int)
+0x00007f620c8766a0 0x0000000000000120 int java.lang.StringBuilder.length()
+0x00007f620c876a40 0x0000000000000278 java.lang.invoke.LambdaForm$Name java.lang.invoke.LambdaForm.argument(int, java.lang.invoke.LambdaForm$BasicType)
+0x00007f620c876fc0 0x0000000000000258 java.lang.ClassLoader java.lang.Class.getClassLoader()
+0x00007f620c8774c0 0x0000000000000238 void java.util.concurrent.ConcurrentHashMap$Node.<init>(int, java.lang.Object, java.lang.Object)
+0x00007f620c877a20 0x0000000000000a50 java.lang.invoke.LambdaForm$BasicType java.lang.invoke.LambdaForm$BasicType.basicType(char)
+0x00007f620c8788c0 0x00000000000001d8 char sun.invoke.util.Wrapper.basicTypeChar(java.lang.Class)
+0x00007f620c878d20 0x00000000000001a0 boolean java.lang.invoke.LambdaForm$Name.initIndex(int)
+0x00007f620c879160 0x0000000000000230 java.lang.invoke.LambdaForm$BasicType java.lang.invoke.LambdaForm$BasicType.basicType(java.lang.Class)
+0x00007f620c879660 0x00000000000002f0 void java.lang.String.getBytes(byte[], int, byte)
+0x00007f620c879c20 0x00000000000001b0 void java.lang.invoke.MemberName.initResolved(boolean)
+0x00007f620c87a040 0x0000000000000230 void java.lang.invoke.MethodType.<init>(java.lang.Class, java.lang.Class[])
+0x00007f620c87a4c0 0x0000000000000148 java.lang.StringBuilder java.lang.StringBuilder.append(java.lang.String)
+0x00007f620c87a900 0x0000000000000ae0 java.lang.Object jdk.internal.util.ReferencedKeySet.get(java.lang.Object)
+0x00007f620c87b9e0 0x00000000000008e0 void java.util.concurrent.ConcurrentHashMap.addCount(long, int)
+0x00007f620c87c7a0 0x0000000000000528 java.lang.AbstractStringBuilder java.lang.AbstractStringBuilder.append(java.lang.String)
+0x00007f620c87d1a0 0x0000000000000a88 int java.lang.invoke.MethodType.checkPtypes(java.lang.Class[])
+0x00007f620c87e3e0 0x00000000000015a8 java.lang.invoke.MethodType java.lang.invoke.MethodType.makeImpl(java.lang.Class, java.lang.Class[], boolean)
+0x00007f620c8802c0 0x00000000000001e0 jdk.internal.org.objectweb.asm.ByteVector jdk.internal.org.objectweb.asm.ByteVector.putByte(int)
+0x00007f620c880920 0x0000000000000fe0 int jdk.internal.util.ArraysSupport.vectorizedHashCode(java.lang.Object, int, int, int, int)
+0x00007f620c881e40 0x0000000000000228 int java.lang.StringLatin1.hashCode(byte[])
+0x00007f620c882340 0x0000000000000280 boolean java.lang.StringLatin1.equals(byte[], byte[])
+0x00007f620c8828a0 0x0000000000000140 java.lang.Object java.lang.ref.Reference.get()
+0x00007f620c882c20 0x0000000000000160 boolean java.lang.invoke.MemberName.allFlagsSet(int)
+0x00007f620c882fe0 0x0000000000000358 java.lang.invoke.LambdaForm$Name java.lang.invoke.LambdaForm.internArgument(java.lang.invoke.LambdaForm$Name)
+0x00007f620c883880 0x0000000000001ab8 java.lang.Object java.util.concurrent.ConcurrentHashMap.putVal(java.lang.Object, java.lang.Object, boolean)
+0x00007f620c885ea0 0x0000000000000118 int java.lang.invoke.MethodType.parameterCount()
+0x00007f620c886240 0x0000000000000280 void java.lang.ref.Reference.<init>(java.lang.Object, java.lang.ref.ReferenceQueue)
+0x00007f620c886720 0x0000000000000148 java.lang.invoke.LambdaForm$Name java.lang.invoke.LambdaForm.parameter(int)
+0x00007f620c886ac0 0x0000000000000238 jdk.internal.org.objectweb.asm.ByteVector jdk.internal.org.objectweb.asm.ByteVector.put12(int, int)
+0x00007f620c887cc0 0x0000000000006258 void jdk.internal.org.objectweb.asm.Frame.execute(int, int, jdk.internal.org.objectweb.asm.Symbol, jdk.internal.org.objectweb.asm.SymbolTable)
+0x00007f620c88fea0 0x0000000000000f60 boolean sun.invoke.util.VerifyAccess.isTypeVisible(java.lang.Class, java.lang.Class)
+0x00007f620c8914c0 0x0000000000000158 java.lang.invoke.LambdaForm$BasicType java.lang.invoke.LambdaForm.parameterType(int)
+0x00007f620c8919e0 0x0000000000000ad8 sun.invoke.util.Wrapper sun.invoke.util.Wrapper.forPrimitiveType(java.lang.Class)
+0x00007f620c892960 0x0000000000000560 void jdk.internal.org.objectweb.asm.Frame.push(int)
+0x00007f620c893240 0x0000000000000148 jdk.internal.org.objectweb.asm.Symbol jdk.internal.org.objectweb.asm.SymbolTable.addConstantClass(java.lang.String)
+0x00007f620c893640 0x00000000000005d8 jdk.internal.org.objectweb.asm.Symbol jdk.internal.org.objectweb.asm.SymbolTable.addConstantUtf8Reference(int, java.lang.String)
+0x00007f620c8940c0 0x00000000000002d8 void java.lang.invoke.LambdaForm$Name.<init>(int, java.lang.invoke.LambdaForm$BasicType, java.lang.invoke.LambdaForm$NamedFunction, java.lang.Object[])
+0x00007f620c894640 0x0000000000000210 java.lang.String java.lang.StringBuilder.toString()
+0x00007f620c894b40 0x0000000000000148 void java.lang.String.<init>(java.lang.StringBuilder)
+0x00007f620c894ea0 0x00000000000001c8 boolean java.lang.invoke.MemberName.isConstructor()
+0x00007f620c8952c0 0x0000000000000330 java.lang.invoke.MethodType java.lang.invoke.LambdaForm$NamedFunction.methodType()
+0x00007f620c8958c0 0x0000000000000280 jdk.internal.org.objectweb.asm.ByteVector jdk.internal.org.objectweb.asm.ByteVector.put122(int, int, int)
+0x00007f620c896100 0x0000000000001a78 void java.lang.String.<init>(java.lang.AbstractStringBuilder, java.lang.Void)
+0x00007f620c898620 0x0000000000000140 boolean java.lang.reflect.Modifier.isStatic(int)
+0x00007f620c8989a0 0x0000000000000118 byte java.lang.invoke.MemberName.getReferenceKind()
+0x00007f620c898d20 0x0000000000000160 boolean java.lang.invoke.MemberName.isResolved()
+0x00007f620c8990c0 0x0000000000000260 int java.lang.invoke.LambdaForm$Name.useCount(java.lang.invoke.LambdaForm$Name)
+0x00007f620c8995a0 0x00000000000001c0 boolean java.lang.invoke.MemberName.isStatic()
+0x00007f620c899a80 0x0000000000000908 void jdk.internal.org.objectweb.asm.MethodWriter.visitVarInsn(int, int)
+0x00007f620c89a7c0 0x0000000000000148 java.lang.Object java.util.concurrent.ConcurrentHashMap.putIfAbsent(java.lang.Object, java.lang.Object)
+0x00007f620c89aba0 0x00000000000004b0 java.lang.invoke.MethodType java.lang.invoke.MethodType.methodType(java.lang.Class, java.lang.Class[], boolean)
+0x00007f620c89b3c0 0x0000000000000148 java.lang.StringBuilder java.lang.StringBuilder.append(char)
+0x00007f620c89b7a0 0x00000000000006a0 java.lang.AbstractStringBuilder java.lang.AbstractStringBuilder.append(char)
+0x00007f620c89c320 0x0000000000000538 int jdk.internal.org.objectweb.asm.SymbolTable.addType(java.lang.String)
+0x00007f620c89cca0 0x0000000000000130 int java.lang.invoke.MethodType.parameterSlotCount()
+0x00007f620c89d080 0x0000000000000578 boolean java.util.Arrays.equals(java.lang.Object[], java.lang.Object[])
+0x00007f620c89d960 0x00000000000004d8 boolean java.lang.invoke.MethodType.equals(java.lang.Object)
+0x00007f620c89e0c0 0x00000000000002d8 void java.lang.ref.WeakReference.<init>(java.lang.Object, java.lang.ref.ReferenceQueue)
+0x00007f620c89e640 0x0000000000000218 int java.util.Objects.hashCode(java.lang.Object)
+0x00007f620c89eb00 0x0000000000000648 java.lang.Class[] java.lang.invoke.MethodTypeForm.canonicalizeAll(java.lang.Class[], int)
+0x00007f620c89f4e0 0x00000000000004b0 void jdk.internal.util.WeakReferenceKey.<init>(java.lang.Object, java.lang.ref.ReferenceQueue)
+0x00007f620c89fd20 0x0000000000000678 jdk.internal.util.ReferenceKey jdk.internal.util.ReferencedKeyMap.entryKey(java.lang.Object)
+0x00007f620c8a0780 0x0000000000000610 boolean jdk.internal.util.StrongReferenceKey.equals(java.lang.Object)
+0x00007f620c8a11e0 0x00000000000013c0 java.lang.invoke.MethodType java.lang.invoke.MemberName.getMethodType()
+0x00007f620c8a2c60 0x00000000000002f8 java.lang.invoke.MethodType java.lang.invoke.MethodTypeForm.canonicalize(java.lang.invoke.MethodType, int)
+0x00007f620c8a3260 0x0000000000000368 java.lang.invoke.MemberName java.lang.invoke.MemberName.clone()
+0x00007f620c8a39c0 0x0000000000000e90 java.lang.Object jdk.internal.util.ReferencedKeyMap.existingKey(jdk.internal.util.ReferencedKeyMap, java.lang.Object)
+0x00007f620c8a4f20 0x0000000000000cb0 java.lang.Object jdk.internal.util.ReferencedKeyMap.internKey(jdk.internal.util.ReferencedKeyMap, java.lang.Object)
+0x00007f620c8a6260 0x0000000000000270 int java.nio.CharBuffer.arrayOffset()
+0x00007f620c8a67e0 0x00000000000003e8 boolean java.util.concurrent.locks.ReentrantLock$NonfairSync.initialTryLock()
+0x00007f620c8a6e60 0x0000000000000368 boolean java.util.concurrent.locks.ReentrantLock$Sync.tryRelease(int)
+0x00007f620c8a7440 0x00000000000001c8 java.nio.Buffer java.nio.ByteBuffer.position(int)
+0x00007f620c8a7840 0x0000000000000288 java.nio.Buffer java.nio.Buffer.limit(int)
+0x00007f620c8a7d20 0x0000000000000198 boolean java.nio.ByteBuffer.hasArray()
+0x00007f620c8a8120 0x0000000000000198 boolean java.nio.CharBuffer.hasArray()
+0x00007f620c8a8560 0x0000000000000270 byte[] java.nio.ByteBuffer.array()
+0x00007f620c8a8aa0 0x00000000000001e8 java.lang.Object java.lang.invoke.DirectMethodHandle.internalMemberName(java.lang.Object)
+0x00007f620c8a8f20 0x0000000000000108 java.lang.String java.lang.String.toString()
+0x00007f620c8a9220 0x0000000000000180 int java.nio.Buffer.remaining()
+0x00007f620c8a95e0 0x0000000000000428 void sun.nio.cs.UTF_8.updatePositions(java.nio.Buffer, int, java.nio.Buffer, int)
+0x00007f620c8a9d40 0x0000000000000220 void java.io.PrintStream.ensureOpen()
+0x00007f620c8aa240 0x0000000000000200 java.lang.String java.lang.String.valueOf(java.lang.Object)
+0x00007f620c8aa6c0 0x0000000000000220 void java.io.BufferedWriter.ensureOpen()
+0x00007f620c8aaba0 0x0000000000000120 java.nio.Buffer java.nio.Buffer.flip()
+0x00007f620c8aaf20 0x0000000000000178 java.nio.ByteBuffer java.nio.ByteBuffer.flip()
+0x00007f620c8ab320 0x0000000000000160 boolean java.nio.Buffer.hasRemaining()
+0x00007f620c8ab6c0 0x0000000000000248 java.nio.CharBuffer java.nio.CharBuffer.wrap(char[], int, int)
+0x00007f620c8abc40 0x0000000000000188 void java.nio.HeapCharBuffer.<init>(char[], int, int, java.lang.foreign.MemorySegment)
+0x00007f620c8ac040 0x00000000000001b8 void java.nio.CharBuffer.<init>(int, int, int, int, char[], int, java.lang.foreign.MemorySegment)
+0x00007f620c8ac540 0x0000000000000ad8 void java.nio.Buffer.<init>(int, int, int, int, java.lang.foreign.MemorySegment)
+0x00007f620c8ad5c0 0x00000000000001b0 java.nio.Buffer java.nio.CharBuffer.limit(int)
+0x00007f620c8ada40 0x0000000000000148 java.nio.CharBuffer java.nio.CharBuffer.limit(int)
+0x00007f620c8adda0 0x0000000000000170 boolean java.util.ArrayList$Itr.hasNext()
+0x00007f620c8ae1c0 0x00000000000001d8 long java.lang.StringConcatHelper.checkOverflow(long)
+0x00007f620c8ae640 0x00000000000001c8 void java.util.ArrayList$Itr.checkForComodification()
+0x00007f620c8aeae0 0x0000000000000270 char[] java.nio.CharBuffer.array()
+0x00007f620c8af080 0x00000000000003c8 java.lang.Object java.util.ArrayList$Itr.next()
+0x00007f620c8af7c0 0x0000000000000208 int java.util.Objects.checkFromIndexSize(int, int, int)
+0x00007f620c8afca0 0x0000000000000140 boolean java.util.Formatter$Flags.contains(int, int)
+0x00007f620c8b0080 0x00000000000004b8 java.io.PrintStream java.io.PrintStream.append(java.lang.CharSequence)
+0x00007f620c8b08c0 0x0000000000000250 void java.io.PrintStream.print(java.lang.String)
+0x00007f620c8b0dc0 0x00000000000002d8 void java.io.Writer.write(java.lang.String)
+0x00007f620c8b1460 0x00000000000007e8 void java.io.PrintStream.implWrite(java.lang.String)
+0x00007f620c8b2120 0x0000000000000168 int java.io.BufferedWriter.min(int, int)
+0x00007f620c8b2520 0x0000000000000538 void java.io.BufferedWriter.implWrite(java.lang.String, int, int)
+0x00007f620c8b2e40 0x00000000000002e8 void java.io.BufferedWriter.growIfNeeded(int)
+0x00007f620c8b3500 0x0000000000000ec8 void java.io.PrintStream.write(java.lang.String)
+0x00007f620c8b4cc0 0x0000000000000128 void java.lang.StringLatin1.getChars(byte[], int, int, char[], int)
+0x00007f620c8b5140 0x0000000000000f30 void java.io.BufferedWriter.write(java.lang.String, int, int)
+0x00007f620c8b66c0 0x0000000000000148 void java.io.OutputStreamWriter.write(char[], int, int)
+0x00007f620c8b6ae0 0x00000000000003c8 void java.io.BufferedWriter.implFlushBuffer()
+0x00007f620c8b7240 0x0000000000000718 void java.lang.String.getChars(int, int, char[], int)
+0x00007f620c8b7e40 0x0000000000000148 int java.lang.System$2.encodeASCII(char[], int, byte[], int, int)
+0x00007f620c8b8340 0x0000000000000f30 void sun.nio.cs.StreamEncoder.write(char[], int, int)
+0x00007f620c8b9a40 0x0000000000001438 void java.io.BufferedWriter.flushBuffer()
+0x00007f620c8bb7e0 0x00000000000002c8 long java.lang.StringConcatHelper.prepend(long, byte[], java.lang.String)
+0x00007f620c8bbde0 0x0000000000000390 long java.lang.invoke.DelegatingMethodHandle$Holder.reinvoke_L(java.lang.Object, long, long)
+0x00007f620c8bc460 0x0000000000000270 long java.lang.StringConcatHelper.mix(long, long)
+0x00007f620c8bc9e0 0x00000000000004d8 long java.lang.invoke.LambdaForm$MH/0x00007f6188003400.invoke(java.lang.Object, long, java.lang.Object, long)
+0x00007f620c8bd1c0 0x0000000000000258 int java.lang.Long.stringSize(long)
+0x00007f620c8bd6e0 0x00000000000003e8 long java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, long, long)
+0x00007f620c8bdde0 0x00000000000004f0 long java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, long, java.lang.Object, long, java.lang.Object)
+0x00007f620c8be600 0x00000000000005d8 int java.lang.Long.getChars(long, int, byte[])
+0x00007f620c8bf140 0x00000000000001d0 long java.lang.StringConcatHelper.prepend(long, byte[], long)
+0x00007f620c8bf5e0 0x0000000000000288 long java.lang.StringConcatHelper.prepend(long, byte[], long, java.lang.String)
+0x00007f620c8bfb40 0x0000000000000180 void sun.nio.cs.StreamEncoder.implWrite(char[], int, int)
+0x00007f620c8bff40 0x0000000000000220 void sun.nio.cs.StreamEncoder.ensureOpen()
+0x00007f620c8c04e0 0x00000000000008a0 java.lang.CharacterData java.lang.CharacterData.of(int)
+0x00007f620c8c1200 0x0000000000000430 void sun.nio.cs.StreamEncoder.growByteBufferIfNeeded(int)
+0x00007f620c8c19c0 0x00000000000001d8 int java.lang.Math.round(float)
+0x00007f620c8c1de0 0x00000000000003d0 java.nio.charset.CoderResult sun.nio.cs.UTF_8$Encoder.encodeLoop(java.nio.CharBuffer, java.nio.ByteBuffer)
+0x00007f620c8c25a0 0x0000000000000a68 void sun.nio.cs.StreamEncoder.implWrite(java.nio.CharBuffer)
+0x00007f620c8c3760 0x0000000000001470 void sun.nio.cs.StreamEncoder.flushBuffer()
+0x00007f620c8c5540 0x0000000000000220 void java.io.OutputStream$1.ensureOpen()
+0x00007f620c8c5a80 0x0000000000000468 void java.io.PrintStream.implWrite(byte[], int, int)
+0x00007f620c8c6280 0x0000000000000408 void java.io.OutputStream$1.write(byte[], int, int)
+0x00007f620c8c6a20 0x0000000000000178 java.nio.ByteBuffer java.nio.ByteBuffer.clear()
+0x00007f620c8c6e20 0x0000000000000120 java.nio.Buffer java.nio.Buffer.clear()
+0x00007f620c8c7320 0x00000000000011b0 java.nio.charset.CoderResult java.nio.charset.CharsetEncoder.encode(java.nio.CharBuffer, java.nio.ByteBuffer, boolean)
+0x00007f620c8c8c40 0x0000000000000238 int java.lang.StringCoding.implEncodeAsciiArray(char[], int, byte[], int, int)
+0x00007f620c8c91c0 0x00000000000005a8 boolean java.util.Formatter$Conversion.isValid(char)
+0x00007f620c8c99c0 0x0000000000000258 boolean java.lang.Character.isUpperCase(char)
+0x00007f620c8c9f20 0x0000000000000548 void sun.nio.cs.StreamEncoder.lockedWrite(char[], int, int)
+0x00007f620c8ca840 0x00000000000001f8 boolean java.lang.Character.isUpperCase(int)
+0x00007f620c8caea0 0x0000000000001600 void java.io.PrintStream.write(byte[], int, int)
+0x00007f620c8cd1a0 0x0000000000000140 int java.lang.CharacterDataLatin1.getPropertiesEx(int)
+0x00007f620c8cd5a0 0x0000000000000660 void java.util.Formatter$FormatSpecifier.<init>(char)
+0x00007f620c8cdfc0 0x0000000000000200 boolean java.lang.CharacterDataLatin1.isUpperCase(int)
+0x00007f620c8ce6c0 0x0000000000001348 java.nio.charset.CoderResult sun.nio.cs.UTF_8$Encoder.encodeArrayLoop(java.nio.CharBuffer, java.nio.ByteBuffer)
+0x00007f620c8d03e0 0x0000000000000320 byte[] java.lang.StringConcatHelper.newArray(long)
+0x00007f620c8d09a0 0x0000000000000160 boolean java.util.Formatter$Conversion.isText(char)
+0x00007f620c8d0da0 0x00000000000008d8 java.lang.Object jdk.internal.misc.Unsafe.allocateUninitializedArray0(java.lang.Class, int)
+0x00007f620c8d1980 0x0000000000000440 java.lang.Object jdk.internal.misc.Unsafe.allocateUninitializedArray(java.lang.Class, int)
+0x00007f620c8d21a0 0x0000000000000750 void java.util.Formatter$FormatSpecifier.appendJustified(java.lang.Appendable, java.lang.CharSequence)
+0x00007f620c8d2d80 0x0000000000000930 void sun.nio.cs.StreamEncoder.writeBytes()
+0x00007f620c8d3ce0 0x0000000000000ec0 void java.util.Formatter$FormatSpecifier.printString(java.util.Formatter, java.lang.Object, java.util.Locale)
+0x00007f620c8d5300 0x00000000000009a0 void java.util.Formatter$FormatSpecifier.print(java.util.Formatter, java.lang.String, java.util.Locale)
+0x00007f620c8d61c0 0x0000000000000228 java.lang.String java.lang.StringConcatHelper.stringOf(java.lang.Object)
+0x00007f620c8d6660 0x00000000000003e8 long java.lang.StringConcatHelper.mix(long, java.lang.String)
+0x00007f620c8d6e00 0x0000000000000508 java.lang.Appendable java.io.PrintStream.append(java.lang.CharSequence)
+0x00007f620c8d77a0 0x0000000000000798 void java.util.Formatter$FormatSpecifier.print(java.util.Formatter, java.lang.Object, java.util.Locale)
+0x00007f620c8d8380 0x00000000000009b8 java.lang.String java.lang.StringConcatHelper.newString(byte[], long)
+0x00007f620c8d92c0 0x00000000000003e0 java.lang.Object java.lang.invoke.LambdaForm$MH/0x00007f6188007800.linkToTargetMethod(java.lang.Object, long, long, java.lang.Object)
+0x00007f620c8d9980 0x00000000000006f8 long java.lang.invoke.LambdaForm$MH/0x00007f6188006400.invoke(java.lang.Object, java.lang.Object, long, long)
+0x00007f620c8da4e0 0x0000000000000c80 java.lang.Object java.lang.invoke.LambdaForm$MH/0x00007f6188007000.invoke(java.lang.Object, java.lang.Object, long, long)
+0x00007f620c8db660 0x00000000000004a0 long java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, long, java.lang.Object)
+0x00007f620c8dbde0 0x0000000000000508 java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object)
+0x00007f620c8dc5e0 0x0000000000000448 java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, long)
+0x00007f620c8dcd80 0x0000000000000690 long java.lang.invoke.LambdaForm$MH/0x00007f6188004400.invoke(java.lang.Object, long, java.lang.Object, java.lang.Object, long, long)
+0x00007f620c8dd800 0x0000000000000688 long java.lang.invoke.LambdaForm$MH/0x00007f6188003800.invoke(java.lang.Object, long, java.lang.Object, java.lang.Object, long)
+0x00007f620c8de1e0 0x00000000000004f0 long java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, long, java.lang.Object, java.lang.Object, java.lang.Object)
+0x00007f620c8de9c0 0x0000000000000190 long java.lang.StringConcatHelper.prepend(long, byte[], java.lang.String, java.lang.String)
+0x00007f620c8dede0 0x00000000000004d8 long java.lang.invoke.LambdaForm$MH/0x00007f6188002c00.invoke(java.lang.Object, long, java.lang.Object, java.lang.Object)
+0x00007f620c8df5a0 0x00000000000001d0 void java.util.Formatter$FixedString.<init>(java.lang.String, int, int)
+0x00007f620c8df9e0 0x0000000000000508 java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, long)
+0x00007f620c8e01c0 0x00000000000001e8 void java.util.Formatter$FixedString.print(java.util.Formatter, java.lang.Object, java.util.Locale)
+0x00007f620c8e0640 0x0000000000000140 java.lang.CharSequence java.lang.String.subSequence(int, int)
+0x00007f620c8e0a20 0x00000000000006a8 java.lang.Appendable java.io.PrintStream.append(java.lang.CharSequence, int, int)
+0x00007f620c8e1520 0x0000000000000610 java.io.PrintStream java.io.PrintStream.append(java.lang.CharSequence, int, int)
+0x00007f620c8e21e0 0x0000000000002f38 java.lang.String Main.roundToOneDecimal(double)
+0x00007f620c8e60c0 0x00000000000001c0 void java.util.Formatter.ensureOpen()
+0x00007f620c8e65c0 0x00000000000007d8 java.util.Locale java.util.Locale.getDefault(java.util.Locale$Category)
+0x00007f620c8e7160 0x00000000000002d8 void java.lang.StringUTF16.checkBoundsOffCount(int, int, byte[])
+0x00007f620c8e77c0 0x0000000000000298 java.util.Iterator java.util.ArrayList.iterator()
+0x00007f620c8e7d40 0x00000000000001e0 void java.util.ArrayList$Itr.<init>(java.util.ArrayList)
+0x00007f620c8e81a0 0x0000000000000160 boolean java.util.TreeMap$PrivateEntryIterator.hasNext()
+0x00007f620c8e8540 0x0000000000000140 java.util.Map$Entry java.util.TreeMap$EntryIterator.next()
+0x00007f620c8e88e0 0x0000000000000340 java.util.TreeMap$Entry java.util.TreeMap.successor(java.util.TreeMap$Entry)
+0x00007f620c8e8f40 0x0000000000000198 java.lang.Object java.util.TreeMap$EntryIterator.next()
+0x00007f620c8e9380 0x0000000000000390 java.util.TreeMap$Entry java.util.TreeMap$PrivateEntryIterator.nextEntry()
+0x00007f620c8e9a40 0x0000000000000150 java.io.PrintStream java.io.PrintStream.printf(java.lang.String, java.lang.Object[])
+0x00007f620c8ea0e0 0x0000000000002120 java.util.List java.util.Formatter.parse(java.lang.String)
+0x00007f620c8ed260 0x00000000000008c0 void java.io.PrintStream.implFormat(java.lang.String, java.lang.Object[])
+0x00007f620c8ee1e0 0x00000000000014b8 java.util.Formatter java.util.Formatter.format(java.util.Locale, java.lang.String, java.lang.Object[])
+0x00007f620c8f0340 0x0000000000000e00 java.io.PrintStream java.io.PrintStream.format(java.lang.String, java.lang.Object[])
+0x00007f620c8f1a20 0x0000000000000170 boolean java.lang.Character.isSurrogate(char)
+0x00007f620c8f20e0 0x00000000000026e8 java.nio.charset.CoderResult sun.nio.cs.UTF_8$Encoder.encodeArrayLoopSlow(java.nio.CharBuffer, char[], int, int, java.nio.ByteBuffer, byte[], int, int)
+0x00007f620c8f5840 0x00000000000032a8 void Main.main(java.lang.String[])
+0x00007f620c8fa5c0 0x00000000000028e8 void Main.main(java.lang.String[])
+0x00007f620c8fe8a0 0x0000000000002510 java.lang.String Main.roundToOneDecimal(double)
+0x00007f620c901d20 0x0000000000000168 boolean sun.util.locale.LocaleUtils.isUpper(char)
+0x00007f620c9020c0 0x0000000000000200 int java.util.HashMap.hash(java.lang.Object)
+0x00007f620c902520 0x0000000000000108 void java.util.HashMap.afterNodeInsertion(boolean)
+0x00007f620c902840 0x0000000000000290 void java.util.HashMap$Node.<init>(int, java.lang.Object, java.lang.Object, java.util.HashMap$Node)
+0x00007f620c902d40 0x0000000000000358 java.util.HashMap$Node java.util.HashMap.newNode(int, java.lang.Object, java.lang.Object, java.util.HashMap$Node)
+0x00007f620c903360 0x0000000000000300 java.lang.Object java.util.HashMap.put(java.lang.Object, java.lang.Object)
+0x00007f620c903a40 0x0000000000000fa8 java.lang.Object java.util.HashMap.putVal(int, java.lang.Object, java.lang.Object, boolean, boolean)
+0x00007f620c9050a0 0x0000000000000170 boolean java.util.concurrent.ConcurrentHashMap.casTabAt(java.util.concurrent.ConcurrentHashMap$Node[], int, java.util.concurrent.ConcurrentHashMap$Node, java.util.concurrent.ConcurrentHashMap$Node)
+0x00007f620c905420 0x0000000000000100 int java.lang.invoke.MemberName.flagsMods(int, int, byte)
+0x00007f620c905740 0x0000000000000248 void java.lang.invoke.MemberName.init(java.lang.Class, java.lang.String, java.lang.Object, int)
+0x00007f620c905d00 0x0000000000000ec0 java.lang.invoke.MethodType java.lang.invoke.MethodType.insertParameterTypes(int, java.lang.Class[])
+0x00007f620c907320 0x0000000000000138 boolean java.util.regex.Pattern.lambda$Single$14(int, int)
+0x00007f620c9076a0 0x00000000000001b8 boolean java.util.regex.Pattern$$Lambda/0x800000028.is(int)
+0x00007f620c907b20 0x00000000000005e8 java.lang.String java.lang.String.substring(int, int)
+0x00007f620c908580 0x0000000000000628 boolean java.util.regex.Pattern$BmpCharPropertyGreedy.match(java.util.regex.Matcher, int, java.lang.CharSequence)
+0x00007f620c908f40 0x0000000000000140 java.lang.CharSequence java.lang.String.subSequence(int, int)
+0x00007f620c9092e0 0x0000000000000430 boolean java.util.ArrayList.add(java.lang.Object)
+0x00007f620c909aa0 0x0000000000000160 boolean java.util.regex.Matcher.hasMatch()
+0x00007f620c909e40 0x0000000000000270 void java.util.regex.Matcher.checkMatch()
+0x00007f620c90a380 0x0000000000000560 boolean java.util.regex.Matcher.search(int)
+0x00007f620c90ac60 0x00000000000003e8 boolean java.util.regex.Pattern$Start.match(java.util.regex.Matcher, int, java.lang.CharSequence)
+0x00007f620c90b3e0 0x00000000000002d0 int java.util.regex.Matcher.start()
+0x00007f620c90b9e0 0x00000000000002d8 int java.util.regex.Matcher.end()
+0x00007f620c90bfc0 0x00000000000001f8 boolean java.util.regex.Pattern$LastNode.match(java.util.regex.Matcher, int, java.lang.CharSequence)
+0x00007f620c90c4c0 0x00000000000002c8 boolean java.util.regex.Matcher.find()
+0x00007f620c90ca20 0x00000000000001a0 int java.lang.Math.floorMod(int, int)
+0x00007f620c90ce80 0x0000000000000528 int java.util.ImmutableCollections$SetN.probe(java.lang.Object)
+0x00007f620c90d720 0x0000000000000160 boolean java.util.regex.Pattern.has(int)
+0x00007f620c90db40 0x00000000000006f0 java.lang.invoke.MemberName java.lang.invoke.MemberName$Factory.resolve(byte, java.lang.invoke.MemberName, java.lang.Class, int, boolean)
+0x00007f620c90e700 0x0000000000000468 void java.lang.StringUTF16.getChars(byte[], int, int, char[], int)
+0x00007f620c90efe0 0x0000000000000548 void java.util.TreeMap.rotateLeft(java.util.TreeMap$Entry)
+0x00007f620c90f920 0x0000000000000f10 java.lang.Object java.util.TreeMap.put(java.lang.Object, java.lang.Object, boolean)
+0x00007f620c910f00 0x0000000000000fd8 java.lang.String java.io.BufferedReader.implReadLine(boolean, boolean[])
+0x00007f620c912760 0x0000000000000548 void java.util.TreeMap.rotateRight(java.util.TreeMap$Entry)
+0x00007f620c9130a0 0x0000000000000da8 java.lang.Object java.util.TreeMap.put(java.lang.Object, java.lang.Object, boolean)
+0x00007f620c9143c0 0x0000000000000288 void java.lang.AbstractStringBuilder.<init>(int)
+0x00007f620c914900 0x00000000000004d0 void jdk.internal.misc.Blocker.end(long)
+0x00007f620c9151c0 0x00000000000008d8 long jdk.internal.misc.Blocker.begin()
+0x00007f620c915e20 0x0000000000000110 int java.nio.HeapByteBuffer.ix(int)
+0x00007f620c916160 0x00000000000003d0 java.nio.charset.CoderResult sun.nio.cs.UTF_8$Decoder.decodeLoop(java.nio.ByteBuffer, java.nio.CharBuffer)
+0x00007f620c916860 0x00000000000003a0 int java.lang.String.decodeASCII(byte[], int, char[], int, int)
+0x00007f620c917180 0x00000000000015d0 java.nio.charset.CoderResult java.nio.charset.CharsetDecoder.decode(java.nio.ByteBuffer, java.nio.CharBuffer, boolean)
+0x00007f620c9190c0 0x0000000000000148 java.lang.StringBuilder java.lang.StringBuilder.append(char[], int, int)
+0x00007f620c919460 0x0000000000000300 java.lang.AbstractStringBuilder java.lang.AbstractStringBuilder.append(char[], int, int)
+0x00007f620c919b20 0x0000000000000568 void java.lang.AbstractStringBuilder.appendChars(char[], int, int)
+0x00007f620c91a4a0 0x0000000000000160 boolean java.util.TreeMap$PrivateEntryIterator.hasNext()
+0x00007f620c91a880 0x0000000000000538 char java.lang.String.charAt(int)
+0x00007f620c91b1c0 0x00000000000005a8 boolean java.util.Formatter$Conversion.isValid(char)
+0x00007f620c91b9c0 0x0000000000000198 java.lang.Object java.util.TreeMap$EntryIterator.next()
+0x00007f620c91be00 0x00000000000004b0 int java.lang.String.indexOf(int, int)
+0x00007f620c91c6c0 0x0000000000000808 java.lang.CharacterData java.lang.CharacterData.of(int)
+0x00007f620c91d300 0x0000000000000620 java.lang.Object[] java.util.ArrayList.grow(int)
+0x00007f620c91dd00 0x00000000000004f8 java.lang.Appendable java.io.PrintStream.append(java.lang.CharSequence)
+0x00007f620c91e880 0x00000000000027d8 java.util.List java.util.Formatter.parse(java.lang.String)
+0x00007f620c9223c0 0x0000000000000de0 java.io.PrintStream java.io.PrintStream.format(java.lang.String, java.lang.Object[])
+0x00007f620c923ac0 0x0000000000000148 java.nio.ByteBuffer java.nio.ByteBuffer.limit(int)
+0x00007f620c923e60 0x0000000000000228 int java.io.FileInputStream.read(byte[], int, int)
+0x00007f620c9243a0 0x0000000000000110 void java.nio.Buffer.discardMark()
+0x00007f620c924700 0x0000000000000610 java.nio.ByteBuffer java.nio.HeapByteBuffer.compact()
+0x00007f620c925240 0x0000000000000f88 int sun.nio.cs.StreamDecoder.readBytes()
+0x00007f620c926be0 0x0000000000000208 int java.io.FileInputStream.available()
+0x00007f620c9270c0 0x00000000000003d8 boolean sun.nio.cs.StreamDecoder.inReady()
+0x00007f620c927740 0x0000000000000158 int java.io.InputStreamReader.read(char[], int, int)
+0x00007f620c927b40 0x0000000000000220 void sun.nio.cs.StreamDecoder.ensureOpen()
+0x00007f620c928140 0x0000000000000cc8 int sun.nio.cs.StreamDecoder.implRead(char[], int, int)
+0x00007f620c929500 0x0000000000000a18 int sun.nio.cs.StreamDecoder.lockedRead(char[], int, int)
+0x00007f620c92a4c0 0x0000000000000f08 int sun.nio.cs.StreamDecoder.read(char[], int, int)
+0x00007f620c92bb00 0x0000000000000658 void java.io.BufferedReader.fill()
+0x00007f620c92c4c0 0x0000000000000148 void java.io.OutputStreamWriter.write(char[], int, int)
+0x00007f620c92c920 0x0000000000000548 void sun.nio.cs.StreamEncoder.lockedWrite(char[], int, int)
+0x00007f620c92d2e0 0x00000000000007b8 void java.io.PrintStream.implWrite(java.lang.String)
+0x00007f620c92e100 0x0000000000000ea8 void java.io.PrintStream.write(java.lang.String)
+0x00007f620c92fa40 0x0000000000001438 void java.io.BufferedWriter.flushBuffer()
+0x00007f620c9317c0 0x00000000000001e8 void java.util.Formatter$FixedString.print(java.util.Formatter, java.lang.Object, java.util.Locale)
+0x00007f620c931d20 0x0000000000000798 void java.util.Formatter$FormatSpecifier.print(java.util.Formatter, java.lang.Object, java.util.Locale)
+0x00007f620c9328a0 0x0000000000000680 java.lang.Appendable java.io.PrintStream.append(java.lang.CharSequence, int, int)
+0x00007f620c9333e0 0x00000000000008c0 void java.io.PrintStream.implFormat(java.lang.String, java.lang.Object[])
+0x00007f620c934540 0x0000000000002870 void Main.main(java.lang.String[])
+0x00007f620c9384e0 0x00000000000002a0 int java.lang.String.decodeASCII(byte[], int, char[], int, int)
+0x00007f620c938ac0 0x0000000000000140 java.io.PrintStream java.io.PrintStream.printf(java.lang.String, java.lang.Object[])
+0x00007f620c938e40 0x00000000000001b0 byte[] java.lang.StringUTF16.newBytesFor(int)
+0x00007f620c939220 0x00000000000000e8 void java.lang.ref.Reference.reachabilityFence(java.lang.Object)
+0x00007f620c939540 0x00000000000001d0 void java.lang.StringUTF16.putChars(byte[], int, char[], int, int)
+0x00007f620c939a40 0x0000000000000148 void java.lang.StringBuilder.<init>()
+0x00007f620c939de0 0x0000000000000438 void java.lang.StringUTF16.inflate(byte[], int, byte[], int, int)
+0x00007f6213be3080 0x0000000000000040 flush_icache_stub
+0x00007f6213be3380 0x00000000000007d0 VM_Version stub
+0x00007f6213be3c00 0x0000000000004f60 StubRoutines (initial stubs)
+0x00007f6213be8c00 0x0000000000000228 getCPUIDBrandString_stub
+0x00007f6213be8f80 0x0000000000000060 StackOverflowError throw_exception
+0x00007f6213be9280 0x0000000000000060 delayed StackOverflowError throw_exception
+0x00007f6213be9580 0x0000000000000910 StubRoutines (continuation stubs)
+0x00007f6213be9f80 0x00000000000001a8 wrong_method_stub
+0x00007f6213bea500 0x0000000000000080 jfr_write_checkpoint
+0x00007f6213bea800 0x0000000000000070 jfr_return_lease
+0x00007f6213beab00 0x00000000000181a8 Interpreter
+0x00007f6213c02d80 0x0000000000000140 jni_fast_GetBooleanField
+0x00007f6213c03100 0x0000000000000408 I2C/C2I adapters
+0x00007f6213c03600 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213c03a80 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c03f00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c04380 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c04800 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213c04c80 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c05100 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c05580 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c05a00 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c05e80 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c06300 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c06780 0x0000000000000400 Signature Handler Temp Buffer
+0x00007f6213c06c00 0x0000000000008000 native signature handlers
+0x00007f6213c0ec80 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c0f100 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c0f580 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c0fa00 0x00000000000003b0 I2C/C2I adapters
+0x00007f6213c0fe80 0x00000000000003b0 I2C/C2I adapters
+0x00007f6213c10300 0x00000000000003b0 I2C/C2I adapters
+0x00007f6213c10780 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c10c00 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c11080 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c11500 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c11980 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c11e00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c12280 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c12700 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c12b80 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c13000 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c13480 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c13900 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c13d80 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c14200 0x0000000000001080 MethodHandles adapters
+0x00007f6213c15300 0x0000000000000060 NullPointerException at call throw_exception
+0x00007f6213c15600 0x0000000000000060 IncompatibleClassChangeError throw_exception
+0x00007f6213c15900 0x0000000000000060 AbstractMethodError throw_exception
+0x00007f6213c15c00 0x0000000000000140 jni_fast_GetByteField
+0x00007f6213c15f80 0x000000000000c490 StubRoutines (final stubs)
+0x00007f6213c22500 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c22980 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c22e00 0x0000000000000400 I2C/C2I adapters
+0x00007f6213c23280 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c23700 0x0000000000000418 I2C/C2I adapters
+0x00007f6213c23c00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c24080 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c24500 0x0000000000000428 I2C/C2I adapters
+0x00007f6213c24a00 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c24e80 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c25300 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c25780 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c25c00 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c26080 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213c26500 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c26980 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c26e00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c27280 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c27700 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213c27b80 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c28000 0x00000000000003f8 I2C/C2I adapters
+0x00007f6213c28480 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c28900 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c28d80 0x0000000000000440 I2C/C2I adapters
+0x00007f6213c29280 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213c29700 0x00000000000003b0 I2C/C2I adapters
+0x00007f6213c29b80 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c2a000 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c2a480 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c2a900 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c2ad80 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c2b200 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c2b680 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c2bb00 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c2bf80 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c2c400 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c2c880 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c2cd00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c2d180 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c2d600 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c2da80 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c2df00 0x0000000000002800 InlineCacheBuffer
+0x00007f6213c30780 0x00000000000003a0 I2C/C2I adapters
+0x00007f6213c30d80 0x00000000000001a8 wrong_method_abstract_stub
+0x00007f6213c31080 0x00000000000001a8 ic_miss_stub
+0x00007f6213c31380 0x00000000000001a8 resolve_opt_virtual_call
+0x00007f6213c31680 0x00000000000001a8 resolve_virtual_call
+0x00007f6213c31980 0x00000000000001a8 resolve_static_call
+0x00007f6213c31c80 0x0000000000004000 adapters
+0x00007f6213c35d00 0x00000000000003b0 I2C/C2I adapters
+0x00007f6213c36180 0x00000000000003b0 I2C/C2I adapters
+0x00007f6213c36600 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c36a80 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c36f00 0x00000000000000f8 UncommonTrapBlob
+0x00007f6213c372a0 0x0000000000000508 DeoptimizationBlob
+0x00007f6213c37880 0x00000000000003c8 SafepointBlob
+0x00007f6213c37d00 0x00000000000001b8 SafepointBlob
+0x00007f6213c38000 0x0000000000000178 SafepointBlob
+0x00007f6213c38300 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c38a00 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c38e80 0x0000000000000428 I2C/C2I adapters
+0x00007f6213c39380 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c39800 0x0000000000000458 I2C/C2I adapters
+0x00007f6213c39d00 0x0000000000000418 I2C/C2I adapters
+0x00007f6213c3a200 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c3a680 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c3ab00 0x0000000000000458 I2C/C2I adapters
+0x00007f6213c3b000 0x0000000000000490 I2C/C2I adapters
+0x00007f6213c3b580 0x00000000000004c8 I2C/C2I adapters
+0x00007f6213c3bb00 0x0000000000000500 I2C/C2I adapters
+0x00007f6213c3c080 0x0000000000000538 I2C/C2I adapters
+0x00007f6213c3c680 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c3cb00 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c3cf80 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c3d400 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c3d880 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c3dd00 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c3e180 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c3e600 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c3ea80 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c3ef00 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c3f380 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c3f800 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c3fc80 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c40100 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c40580 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c40a00 0x0000000000000418 I2C/C2I adapters
+0x00007f6213c40f00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c41380 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c41800 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c41c80 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c42100 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c42580 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c42a00 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c42e80 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c43300 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c43780 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c43c00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c44080 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213c44500 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c44980 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c44e00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c45280 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c45700 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c45b80 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c46000 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c46480 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c46900 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213c46d80 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c47200 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c47680 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213c47b00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c47f80 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c48400 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c48880 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c48d00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c49180 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c49600 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213c49a80 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c49f00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c4a380 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c4a800 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c4ac80 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c4b100 0x0000000000000400 I2C/C2I adapters
+0x00007f6213c4b580 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c4ba00 0x0000000000000418 I2C/C2I adapters
+0x00007f6213c4bf00 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213c4c380 0x0000000000000430 I2C/C2I adapters
+0x00007f6213c4c880 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213c4cd00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c4d180 0x00000000000003e0 I2C/C2I adapters
+0x00007f6213c4d600 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c4da80 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c4df00 0x00000000000003e0 I2C/C2I adapters
+0x00007f6213c4e380 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c4e800 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c4ec80 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c4f100 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c4f580 0x0000000000000430 I2C/C2I adapters
+0x00007f6213c4fa80 0x0000000000000408 I2C/C2I adapters
+0x00007f6213c4ff80 0x0000000000000440 I2C/C2I adapters
+0x00007f6213c50480 0x0000000000000408 I2C/C2I adapters
+0x00007f6213c50980 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213c50e00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c51280 0x0000000000000418 I2C/C2I adapters
+0x00007f6213c51780 0x0000000000000420 I2C/C2I adapters
+0x00007f6213c51c80 0x0000000000000408 I2C/C2I adapters
+0x00007f6213c52180 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c52600 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213c52a80 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213c52f00 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213c53380 0x0000000000000400 I2C/C2I adapters
+0x00007f6213c53800 0x0000000000000140 jni_fast_GetCharField
+0x00007f6213c53b00 0x0000000000000140 jni_fast_GetShortField
+0x00007f6213c53e00 0x0000000000000140 jni_fast_GetIntField
+0x00007f6213c54100 0x0000000000000140 jni_fast_GetLongField
+0x00007f6213c54400 0x0000000000000140 jni_fast_GetFloatField
+0x00007f6213c54700 0x0000000000000140 jni_fast_GetDoubleField
+0x00007f6213c54a00 0x0000000000013178 StubRoutines (compiler stubs)
+0x00007f6213c67c00 0x000000000008ccd0 C1 temporary CodeBuffer
+0x00007f6213cf4980 0x0000000000000188 dtrace_object_alloc Runtime1 stub
+0x00007f6213cf4c80 0x0000000000000038 unwind_exception Runtime1 stub
+0x00007f6213cf4f80 0x0000000000000160 forward_exception Runtime1 stub
+0x00007f6213cf5280 0x0000000000000130 throw_range_check_failed Runtime1 stub
+0x00007f6213cf5580 0x0000000000000130 throw_index_exception Runtime1 stub
+0x00007f6213cf5880 0x0000000000000128 throw_div0_exception Runtime1 stub
+0x00007f6213cf5b80 0x0000000000000128 throw_null_pointer_exception Runtime1 stub
+0x00007f6213cf5e80 0x00000000000001f8 register_finalizer Runtime1 stub
+0x00007f6213cf6180 0x00000000000001e8 new_instance Runtime1 stub
+0x00007f6213cf6480 0x0000000000000400 I2C/C2I adapters
+0x00007f6213cf6900 0x00000000000001e8 fast_new_instance Runtime1 stub
+0x00007f6213cf6c00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213cf7080 0x00000000000001e8 fast_new_instance_init_check Runtime1 stub
+0x00007f6213cf7380 0x00000000000001f0 new_type_array Runtime1 stub
+0x00007f6213cf7680 0x00000000000001f0 new_object_array Runtime1 stub
+0x00007f6213cf7980 0x00000000000001f0 new_multi_array Runtime1 stub
+0x00007f6213cf7c80 0x0000000000000120 handle_exception_nofpu Runtime1 stub
+0x00007f6213cf7f80 0x00000000000001e8 handle_exception Runtime1 stub
+0x00007f6213cf8280 0x0000000000000088 handle_exception_from_callee Runtime1 stub
+0x00007f6213cf8580 0x0000000000000130 throw_array_store_exception Runtime1 stub
+0x00007f6213cf8880 0x0000000000000130 throw_class_cast_exception Runtime1 stub
+0x00007f6213cf8b80 0x0000000000000128 throw_incompatible_class_change_error Runtime1 stub
+0x00007f6213cf8e80 0x0000000000000048 slow_subtype_check Runtime1 stub
+0x00007f6213cf9180 0x00000000000001e0 monitorenter Runtime1 stub
+0x00007f6213cf9480 0x0000000000000118 monitorenter_nofpu Runtime1 stub
+0x00007f6213cf9780 0x00000000000001d8 monitorexit Runtime1 stub
+0x00007f6213cf9a80 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213cf9f00 0x0000000000000110 monitorexit_nofpu Runtime1 stub
+0x00007f6213cfa200 0x00000000000001e0 deoptimize Runtime1 stub
+0x00007f6213cfa500 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213cfa980 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213cfae00 0x0000000000000380 access_field_patching Runtime1 stub
+0x00007f6213cfb200 0x0000000000000380 load_klass_patching Runtime1 stub
+0x00007f6213cfb600 0x0000000000000380 load_mirror_patching Runtime1 stub
+0x00007f6213cfba00 0x0000000000000380 load_appendix_patching Runtime1 stub
+0x00007f6213cfbe00 0x0000000000000028 fpu2long_stub Runtime1 stub
+0x00007f6213cfc100 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213cfc580 0x00000000000001e0 counter_overflow Runtime1 stub
+0x00007f6213cfc880 0x00000000000001d8 predicate_failed_trap Runtime1 stub
+0x00007f6213cfcb80 0x00000000000001d0 g1_pre_barrier_slow
+0x00007f6213cfce80 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213cfd300 0x00000000000001f0 g1_post_barrier_slow
+0x00007f6213cfd600 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213cfda80 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213cfdf00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213cfe380 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213cfe800 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213cfec80 0x0000000000000478 I2C/C2I adapters
+0x00007f6213cff180 0x0000000000000458 I2C/C2I adapters
+0x00007f6213cff680 0x0000000000000418 I2C/C2I adapters
+0x00007f6213cffb80 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213d00000 0x0000000000000428 I2C/C2I adapters
+0x00007f6213d00500 0x0000000000000408 I2C/C2I adapters
+0x00007f6213d00a00 0x0000000000000418 I2C/C2I adapters
+0x00007f6213d00f00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d01380 0x0000000000000080 ExceptionBlob
+0x00007f6213d01680 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d01b00 0x0000000000000400 I2C/C2I adapters
+0x00007f6213d01f80 0x0000000000000418 I2C/C2I adapters
+0x00007f6213d02480 0x0000000000000070 _multianewarray3_Java
+0x00007f6213d02880 0x0000000000000068 _multianewarray2_Java
+0x00007f6213d02b80 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d03000 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d03480 0x0000000000000068 _new_array_nozero_Java
+0x00007f6213d03780 0x0000000000000068 _new_array_Java
+0x00007f6213d03a80 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d03f00 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d04380 0x0000000000000060 _notify_jvmti_vthread_unmount
+0x00007f6213d04700 0x0000000000000060 _notify_jvmti_vthread_mount
+0x00007f6213d04a00 0x0000000000000060 _notify_jvmti_vthread_end
+0x00007f6213d04d00 0x0000000000000060 _notify_jvmti_vthread_start
+0x00007f6213d05000 0x0000000000000068 _multianewarrayN_Java
+0x00007f6213d05300 0x0000000000000088 _multianewarray5_Java
+0x00007f6213d05600 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d05a80 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d05f00 0x0000000000000428 I2C/C2I adapters
+0x00007f6213d06400 0x0000000000000068 _new_instance_Java
+0x00007f6213d06700 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d06c00 0x0000000000000058 _monitor_notifyAll_Java
+0x00007f6213d06f00 0x0000000000000058 _monitor_notify_Java
+0x00007f6213d07200 0x0000000000000060 _complete_monitor_locking_Java
+0x00007f6213d07500 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d07980 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d07e00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d08280 0x0000000000000070 _multianewarray4_Java
+0x00007f6213d08580 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d08b00 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d08f80 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213d09400 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d09880 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d09d00 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d0a180 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d0a600 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d0aa80 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213d0af00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d0b380 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d0b800 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d0bc80 0x0000000000000088 _rethrow_Java
+0x00007f6213d0bf80 0x0000000000000068 _slow_arraycopy_Java
+0x00007f6213d0c280 0x0000000000000058 _register_finalizer_Java
+0x00007f6213d0c580 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d0ca00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d0ce80 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213d0d300 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d0d780 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213d0dc00 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d0e080 0x0000000000000428 I2C/C2I adapters
+0x00007f6213d0e580 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d0ea00 0x0000000000000408 I2C/C2I adapters
+0x00007f6213d0ef00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d0f380 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d0f800 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d0fc80 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d10100 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d10580 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d10a00 0x0000000000000448 I2C/C2I adapters
+0x00007f6213d10f00 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d11380 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d11800 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d11c80 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213d12100 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213d12580 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d12a00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d12e80 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d13300 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d13780 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d13c00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d14080 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d14500 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d14980 0x0000000000000428 I2C/C2I adapters
+0x00007f6213d14e80 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d15300 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213d15780 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213d15c00 0x00000000000003b8 I2C/C2I adapters
+0x00007f6213d16080 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213d16500 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213d16980 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213d16e00 0x0000000000000428 I2C/C2I adapters
+0x00007f6213d17300 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d17780 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d17c00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d18080 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d18500 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d18980 0x0000000000000400 I2C/C2I adapters
+0x00007f6213d18e00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d19280 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d19700 0x0000000000000400 I2C/C2I adapters
+0x00007f6213d19b80 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d1a000 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d1a480 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d1a900 0x0000000000000400 I2C/C2I adapters
+0x00007f6213d1ad80 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d1b200 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d1b680 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d1bf00 0x0000000000000400 I2C/C2I adapters
+0x00007f6213d1c380 0x0000000000000418 I2C/C2I adapters
+0x00007f6213d1c880 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d1cd00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d1d180 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d1d600 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d1da80 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d1df00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d1e380 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d1e800 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d1ec80 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d1f100 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d1f580 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d1fa00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d1fe80 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d20300 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d20780 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d20c00 0x00000000000003e0 I2C/C2I adapters
+0x00007f6213d21080 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d21500 0x00000000000003e0 I2C/C2I adapters
+0x00007f6213d21980 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d21e00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d22280 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d22700 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d22b80 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d23000 0x0000000000000a08 vtable chunks
+0x00007f6213d23b00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d23f80 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d24400 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d24880 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d24d00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d25180 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d25600 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d25a80 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d25f00 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d26380 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d26800 0x0000000000000428 I2C/C2I adapters
+0x00007f6213d26d00 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213d27180 0x0000000000000418 I2C/C2I adapters
+0x00007f6213d27680 0x0000000000000400 I2C/C2I adapters
+0x00007f6213d27b00 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213d27f80 0x00000000000003e8 I2C/C2I adapters
+0x00007f6213d28400 0x0000000000000410 I2C/C2I adapters
+0x00007f6213d28900 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d28d80 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d29200 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213d29680 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213d29b00 0x000000000008ccd0 C1 temporary CodeBuffer
+0x00007f6213db6880 0x0000000000000410 I2C/C2I adapters
+0x00007f6213db6e00 0x0000000000000400 I2C/C2I adapters
+0x00007f6213db7280 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213db7700 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213db7b80 0x0000000000000400 I2C/C2I adapters
+0x00007f6213db8000 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213db8480 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213db8900 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213db8d80 0x00000000000003f0 I2C/C2I adapters
+0x00007f6213db9200 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213db9680 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213db9b00 0x00000000000003c8 I2C/C2I adapters
+0x00007f6213db9f80 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213dba400 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213dba880 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213dbad00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213dbb180 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213dbb600 0x00000000000003d8 I2C/C2I adapters
+0x00007f6213ff2f80 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213ff3400 0x0000000000000410 I2C/C2I adapters
+0x00007f6213ff3900 0x0000000000000410 I2C/C2I adapters
+0x00007f6213ff3e00 0x00000000000003d0 I2C/C2I adapters
+0x00007f6213ff4280 0x00000000000003c0 I2C/C2I adapters
+0x00007f6213ff4700 0x0000000000000410 I2C/C2I adapters
