@@ -1,3 +1,7 @@
+package profiling;
+
+import naive.Main;
+
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.nio.file.Files;

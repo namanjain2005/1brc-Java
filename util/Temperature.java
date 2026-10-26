@@ -1,3 +1,5 @@
+package util;
+
 public final class Temperature {
     private static final long UNITS_PER_DEGREE = 10_000;
 

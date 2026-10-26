@@ -1,3 +1,7 @@
+package parallel;
+
+import util.Temperature;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

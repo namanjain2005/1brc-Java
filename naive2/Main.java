@@ -1,3 +1,8 @@
+package naive2;
+
+import util.CountryStat;
+import util.Temperature;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections;

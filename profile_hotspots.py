@@ -20,24 +20,32 @@ SVG_WIDTH = 1400
 BAR_HEIGHT = 24
 
 
-def run_java_profile(label, source_dir, stat_source, work_dir):
-    classes = work_dir / label
-    main_source = ROOT / source_dir / 'Main.java'
-    stat_path = ROOT / stat_source
+def run_java_profile(label, source_package, work_dir):
+    classes = work_dir / label / 'classes'
+    classes.mkdir(parents=True)
+    main_source = ROOT / source_package / 'Main.java'
+    sources = [main_source, ROOT / 'util/Temperature.java']
+    if source_package != 'parallel':
+        sources.append(ROOT / 'util/CountryStat.java')
     subprocess.run(
         ['javac', '-encoding', 'UTF-8', '-d', str(classes),
-         str(main_source), str(stat_path), str(ROOT / 'Temperature.java')],
+         *(str(source) for source in sources)],
         cwd=ROOT, check=True,
     )
-    runner = work_dir / label / 'ProfileRunner.java'
-    runner.write_text(
+    runner = work_dir / label / 'profiling' / 'ProfileRunner.java'
+    runner.parent.mkdir(parents=True)
+    class_checks = f'    Class.forName("{source_package}.Main");\n'
+    if source_package != 'parallel':
+        class_checks += '    Class.forName("util.CountryStat");\n'
+    runner_source = (
+        'package profiling;\n'
+        f'import {source_package}.Main;\n'
         'import jdk.jfr.Configuration;\n'
         'import jdk.jfr.Recording;\n'
         'import java.nio.file.Path;\n'
         'public class ProfileRunner {\n'
         '  public static void main(String[] args) throws Exception {\n'
-        '    Class.forName("Main");\n'
-        '    Class.forName("CountryStat");\n'
+        f'{class_checks}'
         '    Main.main(new String[0]); // warm-up outside the recording\n'
         '    try (Recording recording = new Recording(Configuration.getConfiguration("profile"))) {\n'
         '      recording.start();\n'
@@ -47,6 +55,9 @@ def run_java_profile(label, source_dir, stat_source, work_dir):
         '    }\n'
         '  }\n'
         '}\n',
+    )
+    runner.write_text(
+        runner_source,
         encoding='ascii',
     )
     subprocess.run(
@@ -56,7 +67,7 @@ def run_java_profile(label, source_dir, stat_source, work_dir):
     )
     recording = work_dir / f'{label}.jfr'
     subprocess.run(
-        ['java', *JAVA_OPTIONS, '-cp', str(classes), 'ProfileRunner', str(recording)],
+        ['java', *JAVA_OPTIONS, '-cp', str(classes), 'profiling.ProfileRunner', str(recording)],
         cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True,
     )
     return recording
@@ -91,7 +102,7 @@ def jfr_stacks(recording):
             if frame and '(' in frame and ')' in frame:
                 frames.append(frame.split(' line: ')[0])
         main_index = next((i for i, frame in enumerate(frames)
-                           if frame.startswith('Main.main(')), None)
+                           if frame.startswith('Main.main(') or '.Main.main(' in frame), None)
         if main_index is None:
             continue
         # JFR lists the active leaf first. Reverse through Main.main to make
@@ -99,8 +110,8 @@ def jfr_stacks(recording):
         stack = list(reversed(frames[:main_index + 1]))
         normalized = []
         for frame in stack:
-            if frame.startswith('Main.main('):
-                frame = 'Main.main'
+            if frame.startswith('Main.main(') or '.Main.main(' in frame:
+                frame = frame.split('(', 1)[0]
             if 'jdk.jfr.' not in frame and 'jdk.internal.classfile.' not in frame:
                 normalized.append(frame)
         if normalized:
@@ -243,11 +254,11 @@ OUTPUT.mkdir(exist_ok=True)
 with tempfile.TemporaryDirectory(prefix='1brc-profile-') as temp:
     work_dir = Path(temp)
     profiles = [
-        ('naive', 'TreeMap (naive)', 'naive', 'CountryStat.java'),
-        ('naive2', 'HashMap + sort (naive2)', 'naive2', 'naive2/CountryStat.java'),
+        ('naive', 'TreeMap (naive)', 'naive'),
+        ('naive2', 'HashMap + sort (naive2)', 'naive2'),
     ]
-    for output_name, label, source_dir, stat_source in profiles:
-        recording = run_java_profile(output_name, source_dir, stat_source, work_dir)
+    for output_name, label, source_package in profiles:
+        recording = run_java_profile(output_name, source_package, work_dir)
         print(f'\n=== {label}: JFR hot methods ===')
         print(jfr_hot_methods(recording))
         stacks = jfr_stacks(recording)

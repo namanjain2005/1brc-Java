@@ -18,16 +18,16 @@ Run-to-run timing varied, so treat these as approximate. In this run, the Python
 
 ### Linux comparison
 
-On 2026-10-26, `python benchmark.py` was run in this workspace with OpenJDK 21.0.13 and Python 3.13.5. It used one warm-up and 11 measured runs per implementation. The input contains 44,691 measurements and produces 41,343 station rows.
+After the Java package refactor, `python benchmark.py` was run in this workspace on 2026-10-26 with OpenJDK 21.0.13 and Python 3.13.5. It used one warm-up and 11 measured runs per implementation. The input contains 44,691 measurements and produces 41,343 station rows.
 
 | Implementation | Median timed section |
 | --- | ---: |
-| Java TreeMap (`naive/`) | 0.705 s |
-| Java HashMap plus sort (`naive2/`) | 0.712 s |
-| Java parallel streams (`parallel/`) | 0.517 s |
-| Python (`test.py`) | 0.271 s |
+| Java TreeMap (`naive/`) | 0.620 s |
+| Java HashMap plus sort (`naive2/`) | 0.647 s |
+| Java parallel streams (`parallel/`) | 0.452 s |
+| Python (`test.py`) | 0.216 s |
 
-On this run, the parallel-stream implementation was about 1.4 times faster than the TreeMap version. Python was about 1.9 times faster than the parallel-stream implementation. Timings depend on the machine and input size.
+On this run, the parallel-stream implementation was about 1.4 times faster than the TreeMap version. Python was about 2.1 times faster than the parallel-stream implementation. Timings depend on the machine and input size.
 
 ## Hotspots
 

@@ -24,7 +24,7 @@ The repeated `perf stat` run averaged 0.76713 seconds wall time per JVM process,
 - `perf-report.txt`: symbolized `perf report` summary.
 - `perf-stat.txt`: five-run counter output and per-run application timings.
 - `perf-record.log`: per-pass timings from the recorded run.
-- `PerfRunner.java`: runner used to repeat `Main.main` 20 times.
+- `profiling/PerfRunner.java`: runner used to repeat `naive.Main.main` 20 times.
 
 The JDK writes the JIT map to `/tmp/perf-PID.map`; it was moved into this directory after capture. No perf recording or map remains in `/tmp`.
 
@@ -35,15 +35,15 @@ Run from the repository root:
 ```bash
 mkdir -p profile-output/classes
 "$HOME/.local/jdk-21/bin/javac" -encoding UTF-8 -d profile-output/classes \
-  naive/Main.java CountryStat.java profile-output/PerfRunner.java
+  naive/Main.java util/CountryStat.java util/Temperature.java profiling/PerfRunner.java
 perf record -F 199 --call-graph fp -o profile-output/naive.perf.data -- \
   "$HOME/.local/jdk-21/bin/java" \
   -XX:+UnlockDiagnosticVMOptions -XX:+DumpPerfMapAtExit \
   -XX:+PreserveFramePointer -XX:+ShowHiddenFrames \
-  -Dfile.encoding=UTF-8 -cp profile-output/classes PerfRunner \
+  -Dfile.encoding=UTF-8 -cp profile-output/classes profiling.PerfRunner \
   > /dev/null 2> profile-output/perf-record.log
 PATH="$HOME/.local/jdk-21/bin:$PATH" perf stat -r 5 \
   -e task-clock,cycles,instructions,cache-misses,branch-misses \
-  java -Dfile.encoding=UTF-8 -cp profile-output/classes Main \
+  java -Dfile.encoding=UTF-8 -cp profile-output/classes naive.Main \
   > /dev/null 2> profile-output/perf-stat.txt
 ```

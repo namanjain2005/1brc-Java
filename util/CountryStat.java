@@ -1,10 +1,12 @@
+package util;
+
 public class CountryStat {
     public long MaxVal;
     public long MinVal;
     public long Sum;
     public long Count;
 
-    CountryStat(long val) {
+    public CountryStat(long val) {
        this.MinVal = val;
        this.MaxVal = val;
        this.Sum = val;

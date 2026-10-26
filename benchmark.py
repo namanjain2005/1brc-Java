@@ -7,8 +7,9 @@ from pathlib import Path
 
 root = Path(__file__).resolve().parent
 variants = {
-    'Java TreeMap (naive)': ('naive', root / 'naive/Main.java', root / 'CountryStat.java'),
-    'Java HashMap + sort (naive2)': ('naive2', root / 'naive2/Main.java', root / 'naive2/CountryStat.java'),
+    'Java TreeMap (naive)': ('naive', 'naive.Main', root / 'naive/Main.java', True),
+    'Java HashMap + sort (naive2)': ('naive2', 'naive2.Main', root / 'naive2/Main.java', True),
+    'Java parallel streams': ('parallel', 'parallel.Main', root / 'parallel/Main.java', False),
 }
 java_options = ['java', '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8',
                 '-Dstderr.encoding=UTF-8']
@@ -16,23 +17,18 @@ java_options = ['java', '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8',
 # Compile into a temporary directory so benchmarking leaves no class files in the repo.
 with tempfile.TemporaryDirectory(prefix='java-benchmark-') as temp:
     commands = {}
-    for name, (directory, main_source, stat_source) in variants.items():
+    for name, (directory, main_class, main_source, uses_country_stat) in variants.items():
         classes = Path(temp) / directory
+        classes.mkdir(parents=True)
+        sources = [main_source, root / 'util/Temperature.java']
+        if uses_country_stat:
+            sources.append(root / 'util/CountryStat.java')
         subprocess.run(
             ['javac', '-encoding', 'UTF-8', '-d', str(classes),
-             str(main_source), str(stat_source), str(root / 'Temperature.java')],
+             *(str(source) for source in sources)],
             cwd=root, check=True,
         )
-        commands[name] = java_options + ['-cp', str(classes), 'Main']
-
-    parallel_classes = Path(temp) / 'parallel'
-    subprocess.run(
-        ['javac', '-encoding', 'UTF-8', '-d', str(parallel_classes),
-         str(root / 'parallel/Main.java'), str(root / 'Temperature.java')],
-        cwd=root, check=True,
-    )
-    commands['Java parallel streams'] = java_options + [
-        '-cp', str(parallel_classes), 'Main']
+        commands[name] = java_options + ['-cp', str(classes), main_class]
 
     # Run the same Python implementation with its timing line on stderr so its
     # result rows can go to the null device during benchmarking.

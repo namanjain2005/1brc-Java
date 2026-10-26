@@ -1,3 +1,8 @@
+package naive;
+
+import util.CountryStat;
+import util.Temperature;
+
 import java.util.TreeMap;
 import java.util.Map;
 import java.io.BufferedReader;
