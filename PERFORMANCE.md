@@ -43,4 +43,4 @@ This points to TreeMap lookup/insertion in `naive/`, sorting in `naive2/`, and r
 
 ## Correctness
 
-All three Java implementations and both Python scripts produced 41,343 rows and matched `expected.txt` byte for byte after reversing the file's CP437 mojibake in station names. The check also covered positive, negative, and exact half-even boundary values.
+All three Java implementations and both Python scripts produced 41,343 rows and matched the UTF-8 `expected.txt` byte for byte. The check also covered positive, negative, and exact half-even boundary values.
