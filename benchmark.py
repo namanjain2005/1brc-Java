@@ -20,13 +20,22 @@ with tempfile.TemporaryDirectory(prefix='java-benchmark-') as temp:
         classes = Path(temp) / directory
         subprocess.run(
             ['javac', '-encoding', 'UTF-8', '-d', str(classes),
-             str(main_source), str(stat_source)],
+             str(main_source), str(stat_source), str(root / 'Temperature.java')],
             cwd=root, check=True,
         )
         commands[name] = java_options + ['-cp', str(classes), 'Main']
 
-    # Keep test.py's timer and computation unchanged; route its final timing line
-    # to stderr so its result rows can go to the null device during benchmarking.
+    parallel_classes = Path(temp) / 'parallel'
+    subprocess.run(
+        ['javac', '-encoding', 'UTF-8', '-d', str(parallel_classes),
+         str(root / 'parallel/Main.java'), str(root / 'Temperature.java')],
+        cwd=root, check=True,
+    )
+    commands['Java parallel streams'] = java_options + [
+        '-cp', str(parallel_classes), 'Main']
+
+    # Run the same Python implementation with its timing line on stderr so its
+    # result rows can go to the null device during benchmarking.
     python_source = (root / 'test.py').read_text(encoding='utf-8')
     timing_line = 'print("Time taken:", end - start, "seconds")'
     replacement = 'print("Time taken:", end - start, "seconds", file=sys.stderr)'

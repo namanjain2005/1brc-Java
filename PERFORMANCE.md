@@ -1,12 +1,12 @@
 # Performance and correctness
 
-`naive/` is the TreeMap implementation. `naive2/` is the HashMap implementation with a final sort. Both use `double` for aggregation and exact integer arithmetic to round to one decimal place with ties to even.
+All implementations parse the input decimal exactly into units of 1/10,000 degree and aggregate with integer arithmetic. The final ratios use the expected file's binary64 rounding behavior at one decimal place. Java performs that conversion and rounding with integer bit operations; Python formats the final ratio after its integer aggregation. `naive/` uses a `TreeMap`, `naive2/` uses a `HashMap` and a final sort, and `parallel/` uses `BufferedReader.lines().parallel()` with `groupingBy` and `summarizingLong`, then sorts the result in a `TreeMap`.
 
 ## Timing
 
-`test.py` starts its timer after imports and stdout setup, before creating its aggregation map and reading the input. It stops after printing station rows. Both Java programs time from the start of `main` through result printing. Process startup and compilation are excluded.
+`test.py` starts its timer after imports and stdout setup, before creating its aggregation map and reading the input. It stops after printing station rows. All Java programs time from the start of `main` through result printing. Process startup and compilation are excluded.
 
-Measured on Windows with OpenJDK 25.0.2 and Python 3.11. `python benchmark.py` compiles into a temporary directory, performs one warm-up and 11 measured runs per implementation, and sends result rows to the null device.
+Historical double-based timings measured on Windows with OpenJDK 25.0.2 and Python 3.11, before the exact fixed-point conversion. The current implementations use exact fixed-point arithmetic; use the Linux comparison below for current timings. `python benchmark.py` compiles into a temporary directory, performs one warm-up and 11 measured runs per implementation, and sends result rows to the null device.
 
 | Implementation | Median timed section |
 | --- | ---: |
@@ -16,9 +16,22 @@ Measured on Windows with OpenJDK 25.0.2 and Python 3.11. `python benchmark.py` c
 
 Run-to-run timing varied, so treat these as approximate. In this run, the Python baseline was about 2.3 times faster than the TreeMap version.
 
+### Linux comparison
+
+On 2026-10-26, `python benchmark.py` was run in this workspace with OpenJDK 21.0.13 and Python 3.13.5. It used one warm-up and 11 measured runs per implementation. The input contains 44,691 measurements and produces 41,343 station rows.
+
+| Implementation | Median timed section |
+| --- | ---: |
+| Java TreeMap (`naive/`) | 0.705 s |
+| Java HashMap plus sort (`naive2/`) | 0.712 s |
+| Java parallel streams (`parallel/`) | 0.517 s |
+| Python (`test.py`) | 0.271 s |
+
+On this run, the parallel-stream implementation was about 1.4 times faster than the TreeMap version. Python was about 1.9 times faster than the parallel-stream implementation. Timings depend on the machine and input size.
+
 ## Hotspots
 
-Run `python profile_hotspots.py` for JFR hot-method tables and stack samples for both Java versions, plus a `cProfile` table for Python. It also writes two Java flamegraphs and a Python hotspot chart to `profile-output/`; open `profile-output/index.html` to view them together. The profiler warms each Java process once, records 15 runs, and profiles Python's timed body over 15 runs. These are sampled profiles; cProfile adds overhead, so use the call rankings rather than its elapsed time as a benchmark.
+Run `python profile_hotspots.py` for JFR hot-method tables and stack samples for the two baseline Java versions, plus a `cProfile` table for Python. It also writes two Java flamegraphs and a Python hotspot chart to `profile-output/`; open `profile-output/index.html` to view them together. The profiler warms each Java process once, records 15 runs, and profiles Python's timed body over 15 runs. These are sampled profiles; cProfile adds overhead, so use the call rankings rather than its elapsed time as a benchmark. The profile table below is historical and reflects the pre-conversion double-based implementations; rerun the script for current profiles.
 
 | Implementation | Largest observed hot paths |
 | --- | --- |
@@ -30,4 +43,4 @@ This points to TreeMap lookup/insertion in `naive/`, sorting in `naive2/`, and r
 
 ## Correctness
 
-Both Java implementations produced 41,343 rows and matched `expected.txt` in sorted order and values. The check decodes the expected file as UTF-16 and repairs mojibake in station names before comparing.
+All three Java implementations and both Python scripts produced 41,343 rows and matched `expected.txt` byte for byte after reversing the file's CP437 mojibake in station names. The check also covered positive, negative, and exact half-even boundary values.

@@ -26,7 +26,7 @@ def run_java_profile(label, source_dir, stat_source, work_dir):
     stat_path = ROOT / stat_source
     subprocess.run(
         ['javac', '-encoding', 'UTF-8', '-d', str(classes),
-         str(main_source), str(stat_path)],
+         str(main_source), str(stat_path), str(ROOT / 'Temperature.java')],
         cwd=ROOT, check=True,
     )
     runner = work_dir / label / 'ProfileRunner.java'
