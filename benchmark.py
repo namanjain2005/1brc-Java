@@ -7,9 +7,11 @@ from pathlib import Path
 
 root = Path(__file__).resolve().parent
 variants = {
-    'Java TreeMap (naive)': ('naive', 'naive.Main', root / 'naive/Main.java', True),
-    'Java HashMap + sort (naive2)': ('naive2', 'naive2.Main', root / 'naive2/Main.java', True),
-    'Java parallel streams': ('parallel', 'parallel.Main', root / 'parallel/Main.java', False),
+    'Java TreeMap (naive)': ('naive', 'naive.Main', [root / 'naive/Main.java'], True),
+    'Java HashMap + sort (naive2)': ('naive2', 'naive2.Main', [root / 'naive2/Main.java'], True),
+    'Java parallel streams': ('parallel', 'parallel.Main', [root / 'parallel/Main.java'], False),
+    'Java divided workers (chunked)': ('divided_workers', 'divided_workers.Main',
+        [root / 'divided_workers/Main.java', root / 'divided_workers/Worker.java'], True),
 }
 java_options = ['java', '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8',
                 '-Dstderr.encoding=UTF-8']
@@ -17,10 +19,10 @@ java_options = ['java', '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8',
 # Compile into a temporary directory so benchmarking leaves no class files in the repo.
 with tempfile.TemporaryDirectory(prefix='java-benchmark-') as temp:
     commands = {}
-    for name, (directory, main_class, main_source, uses_country_stat) in variants.items():
+    for name, (directory, main_class, main_sources, uses_country_stat) in variants.items():
         classes = Path(temp) / directory
         classes.mkdir(parents=True)
-        sources = [main_source, root / 'util/Temperature.java']
+        sources = [root / 'util/Temperature.java', *main_sources]
         if uses_country_stat:
             sources.append(root / 'util/CountryStat.java')
         subprocess.run(

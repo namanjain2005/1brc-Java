@@ -1,6 +1,6 @@
 # Performance and correctness
 
-All implementations parse the input decimal exactly into units of 1/10,000 degree and aggregate with integer arithmetic. The final ratios use the expected file's binary64 rounding behavior at one decimal place. Java performs that conversion and rounding with integer bit operations; Python formats the final ratio after its integer aggregation. `naive/` uses a `TreeMap`, `naive2/` uses a `HashMap` and a final sort, and `parallel/` uses `BufferedReader.lines().parallel()` with `groupingBy` and `summarizingLong`, then sorts the result in a `TreeMap`.
+All implementations parse the input decimal exactly into units of 1/10,000 degree and aggregate with integer arithmetic. The final ratios use the expected file's binary64 rounding behavior at one decimal place. Java performs that conversion and rounding with integer bit operations; Python formats the final ratio after its integer aggregation. `naive/` uses a `TreeMap`, `naive2/` uses a `HashMap` and a final sort, `parallel/` uses `BufferedReader.lines().parallel()` with `groupingBy` and `summarizingLong`, then sorts the result in a `TreeMap`, and `divided_workers/` splits the file into byte-range chunks read by a fixed thread pool, aggregates per chunk, and merges the per-chunk maps.
 
 ## Timing
 
@@ -29,6 +29,20 @@ After the Java package refactor, `python benchmark.py` was run in this workspace
 
 On this run, the parallel-stream implementation was about 1.4 times faster than the TreeMap version. Python was about 2.1 times faster than the parallel-stream implementation. Timings depend on the machine and input size.
 
+### Linux comparison including divided workers
+
+A later `python benchmark.py` run on 2026-11-13 (same machine, OpenJDK 21, one warm-up and 11 measured runs) added the chunked `divided_workers/` implementation, which splits the file into byte ranges across a fixed thread pool, aggregates per chunk, and merges the per-chunk maps.
+
+| Implementation | Median timed section |
+| --- | ---: |
+| Java TreeMap (`naive/`) | 0.709 s |
+| Java HashMap plus sort (`naive2/`) | 0.745 s |
+| Java parallel streams (`parallel/`) | 0.505 s |
+| Java divided workers (`divided_workers/`) | 0.768 s |
+| Python (`test.py`) | 0.255 s |
+
+On this small input (44,691 lines, ~0.8 MB) the chunked implementation was slower than every sequential Java variant: the thread pool, per-worker `RandomAccessFile` buffers, and the merge step cost more than parallel parsing saves, and the whole file already sits in the page cache so there is no I/O overlap to win. The chunked design targets large inputs where the file does not fit in cache and parsing dominates; on this sample the parallel-stream implementation remains the fastest Java option and Python the fastest overall. Treat the cross-run differences between this table and the 2026-10-26 one as run-to-run variance.
+
 ## Hotspots
 
 Run `python profile_hotspots.py` for JFR hot-method tables and stack samples for the two baseline Java versions, plus a `cProfile` table for Python. It also writes two Java flamegraphs and a Python hotspot chart to `profile-output/`; open `profile-output/index.html` to view them together. The profiler warms each Java process once, records 15 runs, and profiles Python's timed body over 15 runs. These are sampled profiles; cProfile adds overhead, so use the call rankings rather than its elapsed time as a benchmark. The profile table below is historical and reflects the pre-conversion double-based implementations; rerun the script for current profiles.
@@ -44,3 +58,5 @@ This points to TreeMap lookup/insertion in `naive/`, sorting in `naive2/`, and r
 ## Correctness
 
 All three Java implementations and both Python scripts produced 41,343 rows and matched the UTF-8 `expected.txt` byte for byte. The check also covered positive, negative, and exact half-even boundary values.
+
+`divided_workers/` was also validated byte for byte against `expected.txt` after its chunk-boundary handling (peeking at the byte before a chunk start so a valid line is never skipped), exact `Temperature.parseScaled` parsing, and UTF-8 line decoding (replacing the ISO-8859-1 decoding of `RandomAccessFile.readLine()`) were fixed.

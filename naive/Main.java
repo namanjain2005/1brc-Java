@@ -12,8 +12,9 @@ import java.io.IOException;
 public  class Main {
     public static void main(String[] args) {
         long startTime = System.nanoTime();
+        String fileName = args.length > 0 ? args[0] : "weather_stations.csv";
         Map<String,CountryStat> aggregate = new TreeMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("weather_stations.csv"))){
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))){
 
             String line = null;
 

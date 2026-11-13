@@ -1,3 +1,6 @@
 *.class
 __pycache__/
 profile-output/
+measurements*.txt
+*.out
+out_results/
