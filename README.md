@@ -11,14 +11,16 @@ Requires Python 3.11+ for the benchmarking harness, and a JDK with `java` and `j
 The latest implementation runs from the repository root:
 
 ```powershell
-javac -encoding UTF-8 -d out util\CountryStat.java util\Temperature.java divided_workers\Main.java divided_workers\Worker.java
-java -cp out divided_workers.Main
+javac --add-modules jdk.incubator.vector -encoding UTF-8 -d out util\CountryStat.java util\Temperature.java divided_workers\Main.java divided_workers\Worker.java
+java --add-modules jdk.incubator.vector -cp out divided_workers.Main
 ```
+
+The `--add-modules jdk.incubator.vector` flag enables the SIMD `\n`/`;` byte scanning (see PERFORMANCE.md); without it the program still runs and gives identical output using a scalar fallback, just slower.
 
 Pass a path as the first argument to run against a different input file:
 
 ```powershell
-java -cp out divided_workers.Main measurements.txt
+java --add-modules jdk.incubator.vector -cp out divided_workers.Main measurements.txt
 ```
 
 ### Generate a billion-row dataset

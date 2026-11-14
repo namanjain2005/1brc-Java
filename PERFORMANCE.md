@@ -51,13 +51,16 @@ On this small input (44,691 lines, ~0.8 MB) the chunked implementation was slowe
 
 | Implementation | Time on 1,000,000,000 rows |
 | --- | ---: |
-| Java divided workers (`divided_workers/`, 80 threads) | 21.9 – 23.1 s |
+| Java divided workers (`divided_workers/`, 80 threads, SIMD scanning) | 17.6 – 17.9 s |
+| Java divided workers (`divided_workers/`, 80 threads, pre-SIMD) | 20.4 – 23.1 s |
 | Java parallel streams (`parallel/`) | 178 – 192 s |
 | Java HashMap plus sort (`naive2/`) | 483 s (~8 min) |
 | Java TreeMap (`naive/`) | 834 s (~14 min) |
 | Python (`test.py`) | 2845 s (~47 min) |
 
-At this scale the chunked implementation was about 8 times faster than parallel streams, 22 times faster than the HashMap variant, 38 times faster than the TreeMap variant, and 130 times faster than Python — the reverse of the ranking on the 44,691-row sample, where Python and the sequential Java variants won. The reason is that on a billion rows the per-row parse and aggregate work dominates and parallelizing it across cores pays off, while on the tiny sample process coordination, output formatting of 41k rows, and cache-resident I/O dominate instead.
+The SIMD version scans for `\n` and `;` with the incubator Vector API (`--add-modules jdk.incubator.vector`; falls back to a scalar loop when the flag is absent) and hands each worker a zero-copy view of the line inside the read buffer, removing the per-line `ByteArrayOutputStream` allocation and copy. On the billion-row dataset that took the chunked implementation from about 20.4 – 23.1 s to 17.6 – 17.9 s (~13% faster), and on a 10M-row slice it beat the parallel-streams baseline for the first time (2.85 s vs 3.43 s median, 5 runs each). Output remained byte-identical to the pre-SIMD version on the sample, the 10M slice, and the billion-row dataset.
+
+At this scale the chunked implementation is about 10 times faster than parallel streams, 27 times faster than the HashMap variant, 47 times faster than the TreeMap variant, and 160 times faster than Python — the reverse of the ranking on the 44,691-row sample, where Python and the sequential Java variants won. The reason is that on a billion rows the per-row parse and aggregate work dominates and parallelizing it across cores pays off, while on the tiny sample process coordination, output formatting of 41k rows, and cache-resident I/O dominate instead.
 
 ## Hotspots
 

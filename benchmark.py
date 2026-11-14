@@ -27,6 +27,9 @@ JAVA_IMPLS = {
 }
 JAVA_OPTIONS = ['-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8',
                 '-Dstderr.encoding=UTF-8']
+# Needed to compile and run the SIMD scanning in divided_workers; harmless
+# for the baselines.
+VECTOR_FLAGS = ['--add-modules', 'jdk.incubator.vector']
 TIMING_RE = re.compile(r'Time taken:\s*([0-9.]+)\s*seconds')
 
 
@@ -80,10 +83,11 @@ def main():
                 classes = temp_path / key
                 classes.mkdir()
                 subprocess.run(
-                    ['javac', '-encoding', 'UTF-8', '-d', str(classes),
+                    ['javac', *VECTOR_FLAGS, '-encoding', 'UTF-8', '-d', str(classes),
                      *(str(source) for source in info['sources'])],
                     cwd=str(tree), check=True)
-                commands[key] = (['java'] + JAVA_OPTIONS + ['-cp', str(classes),
+                commands[key] = (['java'] + VECTOR_FLAGS + JAVA_OPTIONS +
+                                                 ['-cp', str(classes),
                                                  info['main_class'],
                                                  str(dataset)], tree, None)
             else:
