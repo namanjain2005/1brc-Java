@@ -20,22 +20,33 @@ SVG_WIDTH = 1400
 BAR_HEIGHT = 24
 
 
-def run_java_profile(label, source_package, work_dir):
+def source_tree(name, work_dir):
+    """Locate an implementation tree: in ROOT, or in a fresh clone of impl/<name>."""
+    if (ROOT / name).is_dir() or (name == 'python' and (ROOT / 'test.py').is_file()):
+        return ROOT
+    tree = work_dir / f'clone-{name}'
+    subprocess.run(['git', 'clone', '-q', str(ROOT), str(tree)], cwd=str(ROOT), check=True)
+    subprocess.run(['git', 'checkout', '-q', f'impl/{name}'], cwd=str(tree), check=True)
+    return tree
+
+
+def run_java_profile(label, source_package, tree, work_dir):
     classes = work_dir / label / 'classes'
     classes.mkdir(parents=True)
-    main_source = ROOT / source_package / 'Main.java'
-    sources = [main_source, ROOT / 'util/Temperature.java']
-    if source_package != 'parallel':
-        sources.append(ROOT / 'util/CountryStat.java')
+    main_source = tree / source_package / 'Main.java'
+    sources = [main_source, tree / 'util/Temperature.java']
+    uses_country_stat = (tree / 'util/CountryStat.java').is_file()
+    if uses_country_stat:
+        sources.append(tree / 'util/CountryStat.java')
     subprocess.run(
         ['javac', '-encoding', 'UTF-8', '-d', str(classes),
          *(str(source) for source in sources)],
-        cwd=ROOT, check=True,
+        cwd=str(tree), check=True,
     )
     runner = work_dir / label / 'profiling' / 'ProfileRunner.java'
     runner.parent.mkdir(parents=True)
     class_checks = f'    Class.forName("{source_package}.Main");\n'
-    if source_package != 'parallel':
+    if uses_country_stat:
         class_checks += '    Class.forName("util.CountryStat");\n'
     runner_source = (
         'package profiling;\n'
@@ -54,7 +65,7 @@ def run_java_profile(label, source_package, work_dir):
         '      recording.dump(Path.of(args[0]));\n'
         '    }\n'
         '  }\n'
-        '}\n',
+        '}\n'
     )
     runner.write_text(
         runner_source,
@@ -190,18 +201,23 @@ def flamegraph_svg(stacks, title):
     return '\n'.join(parts)
 
 
-def profile_python():
-    source = (ROOT / 'test.py').read_text(encoding='utf-8')
+def profile_python(tree):
+    test_path = tree / 'test.py'
+    source = test_path.read_text(encoding='utf-8')
     source = source.replace('start = time.time()', 'profiler.enable()\nstart = time.time()', 1)
     source = source.replace('end = time.time()', 'profiler.disable()\nend = time.time()', 1)
     profiler = cProfile.Profile()
-    namespace = {'__name__': '__main__', '__file__': str(ROOT / 'test.py'),
+    namespace = {'__name__': '__main__', '__file__': str(test_path),
                  'profiler': profiler}
-    code = compile(source, str(ROOT / 'test.py'), 'exec')
-    with open(os.devnull, 'w', encoding='utf-8') as sink:
-        with contextlib.redirect_stdout(sink):
-            for _ in range(PROFILE_RUNS):
-                exec(code, namespace)
+    code = compile(source, str(test_path), 'exec')
+    sys.path.insert(0, str(tree))
+    try:
+        with open(os.devnull, 'w', encoding='utf-8') as sink:
+            with contextlib.redirect_stdout(sink):
+                for _ in range(PROFILE_RUNS):
+                    exec(code, namespace)
+    finally:
+        sys.path.pop(0)
     stats = pstats.Stats(profiler).strip_dirs()
     report = io.StringIO()
     stats.stream = report
@@ -258,7 +274,8 @@ with tempfile.TemporaryDirectory(prefix='1brc-profile-') as temp:
         ('naive2', 'HashMap + sort (naive2)', 'naive2'),
     ]
     for output_name, label, source_package in profiles:
-        recording = run_java_profile(output_name, source_package, work_dir)
+        tree = source_tree(source_package, work_dir)
+        recording = run_java_profile(output_name, source_package, tree, work_dir)
         print(f'\n=== {label}: JFR hot methods ===')
         print(jfr_hot_methods(recording))
         stacks = jfr_stacks(recording)
@@ -276,7 +293,7 @@ with tempfile.TemporaryDirectory(prefix='1brc-profile-') as temp:
                 break
         filename = f'flamegraph-{output_name}.svg'
         (OUTPUT / filename).write_text(flamegraph_svg(stacks, label), encoding='utf-8')
-    python_rows = profile_python()
+    python_rows = profile_python(source_tree('python', work_dir))
     (OUTPUT / 'python-hotspots.svg').write_text(python_hotspots_svg(python_rows), encoding='utf-8')
 write_index()
 print(f'\nVisual profile report: {OUTPUT / "index.html"}')

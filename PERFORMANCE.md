@@ -1,5 +1,7 @@
 # Performance and correctness
 
+`main` holds the latest implementation (`divided_workers/`); the `naive/`, `naive2/`, `parallel/`, and Python baselines live on the `impl/*` branches and are benchmarked from fresh clones by `compare.sh`. See the README for the workflow.
+
 All implementations parse the input decimal exactly into units of 1/10,000 degree and aggregate with integer arithmetic. The final ratios use the expected file's binary64 rounding behavior at one decimal place. Java performs that conversion and rounding with integer bit operations; Python formats the final ratio after its integer aggregation. `naive/` uses a `TreeMap`, `naive2/` uses a `HashMap` and a final sort, `parallel/` uses `BufferedReader.lines().parallel()` with `groupingBy` and `summarizingLong`, then sorts the result in a `TreeMap`, and `divided_workers/` splits the file into byte-range chunks read by a fixed thread pool, aggregates per chunk, and merges the per-chunk maps.
 
 ## Timing
