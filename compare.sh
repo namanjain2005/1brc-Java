@@ -54,4 +54,4 @@ done
 echo
 echo "Results appended to $RESULTS:"
 tail -n +2 "$RESULTS" | sort -t, -k4 -g | awk -F, \
-  '{printf "%-20s %-10.3f s  checksum %s\n", $2, $3, substr($4, 1, 12)}'
+  '{printf "%-20s %-10.3f s  checksum %s\n", $3, $4, substr($5, 1, 12)}'
