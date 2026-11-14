@@ -35,7 +35,7 @@ record() {  # $1 label; runs benchmark.py in the current directory
   out=$(python3 "$REPO/benchmark.py" --runs "$RUNS" --tree "$2" ${ARGS+"${ARGS[@]}"}
         2>&1) || { echo "$out"; exit 1; }
   echo "$out"
-  echo "$out" | grep '^RESULT' | sed "s/^RESULT/${STAMP},$1,/" >> "$RESULTS"
+  echo "$out" | grep '^RESULT' | sed "s/^RESULT,/${STAMP},$1,/" >> "$RESULTS"
 }
 
 record main "$REPO"
