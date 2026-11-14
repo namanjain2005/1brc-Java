@@ -4,3 +4,4 @@ profile-output/
 measurements*.txt
 *.out
 out_results/
+results/
