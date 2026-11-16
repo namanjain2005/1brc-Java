@@ -65,7 +65,12 @@ class Worker implements Callable<ByteStationTable> {
             return;
         }
         long val = parseScaled(data, sep + 1, to);
-        local.update(data, from, sep, val);
+        CountryStat stat = local.get(data, from, sep);
+        if (stat == null) {
+            local.put(data, from, sep, new CountryStat(val));
+        } else {
+            stat.update(val);
+        }
     }
 
     private static long parseScaled(byte[] buf, int from, int to) {

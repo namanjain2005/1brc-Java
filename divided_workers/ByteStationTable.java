@@ -36,21 +36,38 @@ final class ByteStationTable {
         this.limit = Math.min(limit, buckets.length * 3 / 4);
     }
 
-    void update(byte[] data, int from, int to, long temperature) {
+    CountryStat get(byte[] data, int from, int to) {
         int hash = hash(data, from, to);
         int slot = hash & mask;
-        while (keys[slot] != null) {
+        for (int probes = 0; probes < keys.length; probes++) {
+            if (keys[slot] == null) return null;
             if (hashes[slot] == hash && equals(keys[slot], data, from, to)) {
-                values[slot].update(temperature);
+                return values[slot];
+            }
+            slot = (slot + 1) & mask;
+        }
+        return null;
+    }
+
+    void put(byte[] data, int from, int to, CountryStat value) {
+        int hash = hash(data, from, to);
+        int slot = hash & mask;
+        for (int probes = 0; probes < keys.length; probes++) {
+            if (keys[slot] == null) {
+                if (size >= limit) throw new IllegalStateException("Station table limit reached: " + limit);
+                keys[slot] = Arrays.copyOfRange(data, from, to);
+                hashes[slot] = hash;
+                values[slot] = value;
+                size++;
+                return;
+            }
+            if (hashes[slot] == hash && equals(keys[slot], data, from, to)) {
+                values[slot] = value;
                 return;
             }
             slot = (slot + 1) & mask;
         }
-        if (size >= limit) throw new IllegalStateException("Station table limit reached: " + limit);
-        keys[slot] = Arrays.copyOfRange(data, from, to);
-        hashes[slot] = hash;
-        values[slot] = new CountryStat(temperature);
-        size++;
+        throw new IllegalStateException("Station table bucket array is full");
     }
 
     void merge(ByteStationTable other) {
