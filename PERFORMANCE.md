@@ -73,6 +73,17 @@ On 2026-11-16, the current `get`/`put` custom table and String `HashMap` branch 
 
 The custom table median was 0.844 s lower (about 4.6%) in this run set. The ranges overlap, so treat this as a modest observed difference, not a guaranteed speedup. `compare.sh` includes `string-hashmap` by default so future runs can compare both implementations on the selected dataset.
 
+### Upstream-generated 1B dataset
+
+The upstream repository's non-authoritative Python generator, [`create_measurements.py`](https://github.com/gunnarmorling/1brc/blob/main/src/main/python/create_measurements.py), generated a fresh 1,000,000,000-row file from its `data/weather_stations.csv`. The resulting `/tmp/1brc-upstream/data/measurements.txt` is 14.9 GiB. On 2026-11-16, each implementation was run once with no warm-up on that same file:
+
+| Implementation | Single run | Output rows |
+| --- | ---: | ---: |
+| Custom byte-key table (`main`) | 13.455 s | 8,878 |
+| String-key `HashMap` (`string-hashmap`) | 14.723 s | 8,878 |
+
+The two outputs matched byte for byte (SHA-256 `b74cdf76174eb558358b766cb28c35c677058c77c8668e82bf93e5ff13639a4e`). The upstream baseline also produced the same ordered min/average/max values for every row after normalizing `-0.0` to `0.0`; its default output encoding replaces some non-ASCII station-name characters, so the numerical triples were compared in the baseline's sorted row order. This is a one-run comparison on a separately generated dataset, not directly comparable with the earlier dataset's timings.
+
 At this scale the chunked implementation is about 10 times faster than parallel streams, 27 times faster than the HashMap variant, 47 times faster than the TreeMap variant, and 160 times faster than Python — the reverse of the ranking on the 44,691-row sample, where Python and the sequential Java variants won. The reason is that on a billion rows the per-row parse and aggregate work dominates and parallelizing it across cores pays off, while on the tiny sample process coordination, output formatting of 41k rows, and cache-resident I/O dominate instead.
 
 ## Hotspots
