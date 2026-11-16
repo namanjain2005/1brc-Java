@@ -45,44 +45,22 @@ A later `python benchmark.py` run on 2026-11-13 (same machine, OpenJDK 21, one w
 
 On this small input (44,691 lines, ~0.8 MB) the chunked implementation was slower than every sequential Java variant: the thread pool, per-worker `RandomAccessFile` buffers, and the merge step cost more than parallel parsing saves, and the whole file already sits in the page cache so there is no I/O overlap to win. The chunked design targets large inputs where the file does not fit in cache and parsing dominates; on this sample the parallel-stream implementation remains the fastest Java option and Python the fastest overall. Treat the cross-run differences between this table and the 2026-10-26 one as run-to-run variance.
 
-### Billion-row comparison
+### Billion-row benchmark: upstream-generated dataset
 
-`generator/` produced a 1BRC-style dataset of exactly 1,000,000,000 rows (14.7 GiB) from the 44,691 station names in `weather_stations.csv` with uniform temperatures in [-99.9, 99.9] at one decimal place. The dataset lives outside the repository (it is git-ignored); see the README for the generator command. All five implementations were run on the same machine (OpenJDK 21 for Java, Python 3.13.5, 80 cores, 503 GiB RAM, dataset in the page cache after the first pass). `divided_workers/` and `parallel/` were run 3–4 times each; the others once. Every implementation produced byte-identical output with 41,343 station rows.
+The upstream repository's non-authoritative Python generator, [`create_measurements.py`](https://github.com/gunnarmorling/1brc/blob/main/src/main/python/create_measurements.py), generated exactly 1,000,000,000 rows from its `data/weather_stations.csv`. The generated file is 14.9 GiB at `/tmp/1brc-upstream/data/measurements.txt` and contains 8,878 distinct stations. The [upstream README](https://github.com/gunnarmorling/1brc#running-the-challenge) identifies the Java generator as authoritative.
 
-| Implementation | Time on 1,000,000,000 rows |
-| --- | ---: |
-| Java divided workers (`divided_workers/`, 80 threads, SIMD scanning) | 17.6 – 17.9 s |
-| Java divided workers (`divided_workers/`, 80 threads, pre-SIMD) | 20.4 – 23.1 s |
-| Java parallel streams (`parallel/`) | 178 – 192 s |
-| Java HashMap plus sort (`naive2/`) | 483 s (~8 min) |
-| Java TreeMap (`naive/`) | 834 s (~14 min) |
-| Python (`test.py`) | 2845 s (~47 min) |
+Each implementation was run once, with no warm-up, against this same file using `compare.sh`. Java used OpenJDK 21 with UTF-8 output; Python used Python 3.13.5. Runs were sequential on the same 80-core host with 503 GiB RAM. Every implementation produced 8,878 output rows with the same SHA-256 checksum, `b74cdf76174eb558358b766cb28c35c677058c77c8668e82bf93e5ff13639a4e`.
 
-The SIMD version scans for `\n` and `;` with the incubator Vector API (`--add-modules jdk.incubator.vector`; falls back to a scalar loop when the flag is absent) and hands each worker a zero-copy view of the line inside the read buffer, removing the per-line `ByteArrayOutputStream` allocation and copy. On the billion-row dataset that took the chunked implementation from about 20.4 – 23.1 s to 17.6 – 17.9 s (~13% faster), and on a 10M-row slice it beat the parallel-streams baseline for the first time (2.85 s vs 3.43 s median, 5 runs each). Output remained byte-identical to the pre-SIMD version on the sample, the 10M slice, and the billion-row dataset.
+| Implementation | Single run | Output check |
+| --- | ---: | --- |
+| Java custom byte-key table (`main`, 80 workers) | 11.486 s | Match |
+| Java String-key `HashMap` workers (`string-hashmap`, 80 workers) | 13.345 s | Match |
+| Java parallel streams (`parallel/`) | 189.268 s | Match |
+| Java `HashMap` plus sort (`naive2/`) | 446.298 s | Match |
+| Java TreeMap (`naive/`) | 698.465 s | Match |
+| Python (`test.py`) | 2596.935 s | Match |
 
-Before switching the table to explicit `get`/`put` calls, the custom byte-key table was run twice on the same 1B-row dataset with UTF-8 output enabled and SIMD scanning. Those single-run times were 17.534 s and 16.940 s. Both produced 41,343 rows and matched the recorded 1B reference output. These are historical measurements of the earlier table update path.
-
-### Custom byte table vs String HashMap
-
-On 2026-11-16, the current `get`/`put` custom table and String `HashMap` branch were each run 10 times (no warm-up) on the same 1B-row dataset with OpenJDK 21, UTF-8 output, and SIMD scanning. Every run produced 41,343 rows and the reference SHA-256 `5cce5b176507fda7423b070a9fc256734a7ab4eac02fba76e4a04a7db252896f`.
-
-| Branch / implementation | Median (10 runs) | Range | Correctness |
-| --- | ---: | ---: | --- |
-| `main` — open-addressed byte-key table | 17.448 s | 15.981–18.419 s | All 10 match |
-| `string-hashmap` — String keys with `HashMap` | 18.292 s | 17.627–18.644 s | All 10 match |
-
-The custom table median was 0.844 s lower (about 4.6%) in this run set. The ranges overlap, so treat this as a modest observed difference, not a guaranteed speedup. `compare.sh` includes `string-hashmap` by default so future runs can compare both implementations on the selected dataset.
-
-### Upstream-generated 1B dataset
-
-The upstream repository's non-authoritative Python generator, [`create_measurements.py`](https://github.com/gunnarmorling/1brc/blob/main/src/main/python/create_measurements.py), generated a fresh 1,000,000,000-row file from its `data/weather_stations.csv`. The resulting `/tmp/1brc-upstream/data/measurements.txt` is 14.9 GiB. On 2026-11-16, each implementation was run once with no warm-up on that same file:
-
-| Implementation | Single run | Output rows |
-| --- | ---: | ---: |
-| Custom byte-key table (`main`) | 13.455 s | 8,878 |
-| String-key `HashMap` (`string-hashmap`) | 14.723 s | 8,878 |
-
-The two outputs matched byte for byte (SHA-256 `b74cdf76174eb558358b766cb28c35c677058c77c8668e82bf93e5ff13639a4e`). The upstream baseline also produced the same ordered min/average/max values for every row after normalizing `-0.0` to `0.0`; its default output encoding replaces some non-ASCII station-name characters, so the numerical triples were compared in the baseline's sorted row order. This is a one-run comparison on a separately generated dataset, not directly comparable with the earlier dataset's timings.
+On this single run, the custom byte-key version was about 16 times faster than parallel streams, 39 times faster than HashMap plus sort, 61 times faster than TreeMap, and 226 times faster than Python. These are single-pass measurements, not medians; the values are specific to this generated file and host. The reduced station count also makes the smaller initial custom table especially effective. The SIMD scanner and zero-copy line views continue to avoid per-row byte-array copies.
 
 ### Smaller table and sampled-byte hash
 
@@ -117,4 +95,4 @@ All three Java implementations and both Python scripts produced 41,343 rows and 
 
 `divided_workers/` was also validated byte for byte against `expected.txt` after its chunk-boundary handling (peeking at the byte before a chunk start so a valid line is never skipped), exact `Temperature.parseScaled` parsing, and UTF-8 line decoding (replacing the ISO-8859-1 decoding of `RandomAccessFile.readLine()`) were fixed.
 
-On the generated billion-row dataset, all four Java implementations and Python agreed byte for byte with each other (41,343 station rows), and on a 10,000,000-row slice from the same generator all four Java implementations agreed byte for byte as well.
+On the earlier generated billion-row dataset, all four Java implementations and Python agreed byte for byte with each other (41,343 station rows), and on a 10,000,000-row slice from that generator all four Java implementations agreed byte for byte as well. On the upstream-generated billion-row dataset, all six implementations in the comparison table agreed byte for byte (8,878 station rows).
