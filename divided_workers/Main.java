@@ -7,9 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -31,7 +29,7 @@ public class Main {
 
         ExecutorService pool = Executors.newFixedThreadPool(noOfThreads);
         long chunkSize = fileSize / noOfThreads;
-        List<Future<Map<String, CountryStat>>> futures = new ArrayList<>();
+        List<Future<ByteStationTable>> futures = new ArrayList<>();
 
         for (int i = 0; i < noOfThreads; i++) {
             long start = i * chunkSize;
@@ -39,21 +37,10 @@ public class Main {
             futures.add(pool.submit(new Worker(fileName, start, end)));
         }
 
-        Map<String, CountryStat> aggregate = new HashMap<>();
+        ByteStationTable aggregate = ByteStationTable.createDefault();
         try {
-            for (Future<Map<String, CountryStat>> future : futures) {
-                for (Map.Entry<String, CountryStat> entry : future.get().entrySet()) {
-                    CountryStat merged = aggregate.get(entry.getKey());
-                    if (merged == null) {
-                        aggregate.put(entry.getKey(), entry.getValue());
-                    } else {
-                        CountryStat stat = entry.getValue();
-                        merged.Sum += stat.Sum;
-                        merged.Count += stat.Count;
-                        merged.MaxVal = Math.max(merged.MaxVal, stat.MaxVal);
-                        merged.MinVal = Math.min(merged.MinVal, stat.MinVal);
-                    }
-                }
+            for (Future<ByteStationTable> future : futures) {
+                aggregate.merge(future.get());
             }
         } catch (Exception e) {
             System.err.println("Aggregation failed: " + e);
@@ -63,10 +50,15 @@ public class Main {
             pool.shutdown();
         }
 
-        List<String> names = new ArrayList<>(aggregate.keySet());
-        Collections.sort(names);
-        for (String name : names) {
-            CountryStat stat = aggregate.get(name);
+        List<OutputRow> rows = new ArrayList<>(aggregate.size());
+        for (int i = 0; i < (1 << 17); i++) {
+            byte[] key = aggregate.keyAt(i);
+            if (key != null) rows.add(new OutputRow(aggregate.nameAt(i), aggregate.valueAt(i)));
+        }
+        rows.sort((a, b) -> a.name.compareTo(b.name));
+        for (OutputRow row : rows) {
+            String name = row.name;
+            CountryStat stat = row.stat;
             System.out.printf(
                 "%s;%s;%s;%s%n",
                 name,
@@ -80,5 +72,11 @@ public class Main {
         System.err.printf("Time taken: %d.%06d seconds%n",
                 elapsedNanos / 1_000_000_000L,
                 (elapsedNanos % 1_000_000_000L) / 1_000L);
+    }
+
+    private static final class OutputRow {
+        final String name;
+        final CountryStat stat;
+        OutputRow(String name, CountryStat stat) { this.name = name; this.stat = stat; }
     }
 }

@@ -16,6 +16,7 @@ set -euo pipefail
 
 REPO=$(cd "$(dirname "$0")" && pwd -P)
 RUNS=${RUNS:-5}
+WARMUPS=${WARMUPS:-1}
 IMPLS=${IMPLS:-"impl/naive impl/naive2 impl/parallel impl/python"}
 
 DATASET=${1:-}
@@ -32,7 +33,7 @@ echo "timestamp,tree,implementation,median_seconds,checksum" > "$RESULTS"
 record() {  # $1 label; runs benchmark.py in the current directory
   local out
   echo "=== $1 ==="
-  out=$(python3 "$REPO/benchmark.py" --runs "$RUNS" --tree "$2" ${ARGS+"${ARGS[@]}"}
+  out=$(python3 "$REPO/benchmark.py" --runs "$RUNS" --warmups "$WARMUPS" --tree "$2" ${ARGS+"${ARGS[@]}"}
         2>&1) || { echo "$out"; exit 1; }
   echo "$out"
   echo "$out" | grep '^RESULT' | sed "s/^RESULT,/${STAMP},$1,/" >> "$RESULTS"

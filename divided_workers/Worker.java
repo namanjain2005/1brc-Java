@@ -6,15 +6,13 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.Callable;
 
 import jdk.incubator.vector.ByteVector;
 import jdk.incubator.vector.VectorMask;
 import jdk.incubator.vector.VectorSpecies;
 
-class Worker implements Callable<Map<String, CountryStat>> {
+class Worker implements Callable<ByteStationTable> {
     private static final int BUFFER_SIZE = 1 << 16;
     private static final byte NEWLINE = '\n';
     private static final byte SEMICOLON = ';';
@@ -37,8 +35,8 @@ class Worker implements Callable<Map<String, CountryStat>> {
     }
 
     @Override
-    public Map<String, CountryStat> call() throws Exception {
-        Map<String, CountryStat> local = new HashMap<>();
+    public ByteStationTable call() throws Exception {
+        ByteStationTable local = ByteStationTable.createDefault();
         try (RandomAccessFile file = new RandomAccessFile(fileName, "r")) {
             long pos = start;
             if (start != 0) {
@@ -61,21 +59,13 @@ class Worker implements Callable<Map<String, CountryStat>> {
         return local;
     }
 
-    private void process(byte[] data, int from, int to, Map<String, CountryStat> local) {
+    private void process(byte[] data, int from, int to, ByteStationTable local) {
         int sep = SCANNER.indexOf(data, from, to, SEMICOLON);
         if (sep < 0) {
             return;
         }
-        // Decode only the station name as UTF-8; the temperature is parsed from
-        // the raw bytes, mirroring Temperature.parseScaled exactly.
-        String name = new String(data, from, sep - from, StandardCharsets.UTF_8);
         long val = parseScaled(data, sep + 1, to);
-        CountryStat stat = local.get(name);
-        if (stat == null) {
-            local.put(name, new CountryStat(val));
-        } else {
-            stat.update(val);
-        }
+        local.update(data, from, sep, val);
     }
 
     private static long parseScaled(byte[] buf, int from, int to) {

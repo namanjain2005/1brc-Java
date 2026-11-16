@@ -66,10 +66,14 @@ def timed_run(command, cwd, dataset: Path, env=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--runs', type=int, default=11)
+    parser.add_argument('--warmups', type=int, default=1,
+                        help='warm-up runs before measured runs (default: 1)')
     parser.add_argument('--tree', type=Path, default=Path(__file__).resolve().parent)
     parser.add_argument('dataset', nargs='?', type=Path, default=None,
                         help='input file, default: <tree>/weather_stations.csv')
     args = parser.parse_args()
+    if args.runs < 1 or args.warmups < 0:
+        parser.error('--runs must be positive and --warmups cannot be negative')
     tree = args.tree.resolve()
     dataset = (args.dataset or tree / 'weather_stations.csv').resolve()
 
@@ -107,9 +111,10 @@ def main():
                 env = dict(os.environ, PYTHONPATH=str(tree))
                 commands[key] = ([sys.executable, '-c', source], py_cwd, env)
 
-        for key in commands:  # warm-up, also checks checksums
+        for key in commands:
             command, cwd, env = commands[key]
-            timed_run(command, cwd, dataset, env)
+            for _ in range(args.warmups):
+                timed_run(command, cwd, dataset, env)
 
         samples = {key: [] for key in commands}
         checksums = {}
