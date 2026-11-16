@@ -17,7 +17,7 @@ set -euo pipefail
 REPO=$(cd "$(dirname "$0")" && pwd -P)
 RUNS=${RUNS:-5}
 WARMUPS=${WARMUPS:-1}
-IMPLS=${IMPLS:-"impl/naive impl/naive2 impl/parallel impl/python"}
+IMPLS=${IMPLS:-"string-hashmap impl/naive impl/naive2 impl/parallel impl/python"}
 
 DATASET=${1:-}
 ARGS=()

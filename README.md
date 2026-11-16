@@ -1,6 +1,6 @@
 # 1BRC Java and Python implementations
 
-`main` holds the latest implementation (`divided_workers/`), the dataset `generator/`, the shared Java `util/` classes, and the comparison harness. The comparable baselines live on branches: `impl/naive` (TreeMap), `impl/naive2` (HashMap plus sort), `impl/parallel` (parallel streams), and `impl/python` (Python). Each branch contains only that implementation, the shared code it needs, and the sample dataset. This host ships git 1.8, which has no `git worktree`, so the harness compares via fresh local clones.
+`main` holds the latest implementation (`divided_workers/`, using a custom byte-key hash table), the dataset `generator/`, the shared Java `util/` classes, and the comparison harness. The String-key `HashMap` version of the chunked worker implementation is on `string-hashmap`. Other baselines live on branches: `impl/naive` (TreeMap), `impl/naive2` (HashMap plus sort), `impl/parallel` (parallel streams), and `impl/python` (Python). Each baseline branch contains only that implementation, the shared code it needs, and the sample dataset. This host ships git 1.8, which has no `git worktree`, so the harness compares via fresh local clones.
 
 The implementations read `weather_stations.csv` from the repository root by default, or the file given as the first program argument.
 
@@ -36,7 +36,7 @@ The generated file is about 15 GiB for one billion rows, so point it at a filesy
 
 ### Compare against the baselines
 
-`compare.sh` benchmarks the latest implementation and every `impl/*` branch on the same dataset and appends medians plus output checksums to `results/<timestamp>.csv` (git-ignored). Checksums that differ between rows mean an implementation produced different output.
+`compare.sh` benchmarks the latest implementation, the `string-hashmap` branch, and every `impl/*` branch on the same dataset and appends medians plus output checksums to `results/<timestamp>.csv` (git-ignored). Checksums that differ between rows mean an implementation produced different output.
 
 ```bash
 ./compare.sh                              # sample dataset, 5 runs each

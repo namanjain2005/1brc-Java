@@ -62,6 +62,17 @@ The SIMD version scans for `\n` and `;` with the incubator Vector API (`--add-mo
 
 On 2026-11-16, the custom open-addressed byte-key table was run twice on the same 1B-row dataset with UTF-8 output enabled and SIMD scanning. The single-run times were 17.534 s and 16.940 s. Both produced 41,343 rows, byte-identical to the recorded 1B reference output (SHA-256 `5cce5b176507fda7423b070a9fc256734a7ab4eac02fba76e4a04a7db252896f`). These are two individual runs, not a stable median; compare against repeated runs before drawing a performance conclusion against the prior 17.6–17.9 s range.
 
+### Custom byte table vs String HashMap
+
+On 2026-11-16, each branch was run once (no warm-up) on the same 1B-row dataset with OpenJDK 21, UTF-8 output, and SIMD scanning. Both outputs had 41,343 rows and matched the reference SHA-256 above.
+
+| Branch / implementation | Single run | Correctness |
+| --- | ---: | --- |
+| `main` — open-addressed byte-key table | 18.272 s | Match |
+| `string-hashmap` — String keys with `HashMap` | 19.786 s | Match |
+
+This one-pass comparison shows the byte-key variant 1.514 s faster in this run (about 7.6%); run-to-run variance means this is not a stable speedup estimate. `compare.sh` now includes `string-hashmap` by default so future runs can compare both implementations on the selected dataset.
+
 At this scale the chunked implementation is about 10 times faster than parallel streams, 27 times faster than the HashMap variant, 47 times faster than the TreeMap variant, and 160 times faster than Python — the reverse of the ranking on the 44,691-row sample, where Python and the sequential Java variants won. The reason is that on a billion rows the per-row parse and aggregate work dominates and parallelizing it across cores pays off, while on the tiny sample process coordination, output formatting of 41k rows, and cache-resident I/O dominate instead.
 
 ## Hotspots
