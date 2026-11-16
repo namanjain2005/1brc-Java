@@ -51,7 +51,7 @@ public class Main {
         }
 
         List<OutputRow> rows = new ArrayList<>(aggregate.size());
-        for (int i = 0; i < (1 << 17); i++) {
+        for (int i = 0; i < aggregate.capacity(); i++) {
             byte[] key = aggregate.keyAt(i);
             if (key != null) rows.add(new OutputRow(aggregate.nameAt(i), aggregate.valueAt(i)));
         }

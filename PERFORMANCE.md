@@ -84,6 +84,19 @@ The upstream repository's non-authoritative Python generator, [`create_measureme
 
 The two outputs matched byte for byte (SHA-256 `b74cdf76174eb558358b766cb28c35c677058c77c8668e82bf93e5ff13639a4e`). The upstream baseline also produced the same ordered min/average/max values for every row after normalizing `-0.0` to `0.0`; its default output encoding replaces some non-ASCII station-name characters, so the numerical triples were compared in the baseline's sorted row order. This is a one-run comparison on a separately generated dataset, not directly comparable with the earlier dataset's timings.
 
+### Smaller table and sampled-byte hash
+
+The upstream-generated file has 8,878 distinct stations, so a 2,000- or 4,000-entry cap would overflow. The custom table now starts with 16,384 buckets (12,288 entries at a 75% load factor), grows by doubling when needed, and keeps its 100,000-entry maximum. Its hash mixes the name length with up to the first and last four bytes instead of hashing every byte.
+
+To measure these combined changes, the prior implementation (131,072 initial buckets and full-byte hashing) and the tuned implementation were each run five times with no warm-up on both available 1B datasets. Results are medians; ranges show all five runs.
+
+| Dataset | Prior median (range) | Tuned median (range) | Change | Correctness |
+| --- | ---: | ---: | ---: | --- |
+| Upstream Python generator, 8,878 stations | 14.753 s (13.251–15.189) | 11.686 s (11.365–12.854) | 3.067 s faster | All outputs match `b74cdf76…13639a4e` |
+| Earlier generator, 41,343 stations | 20.019 s (17.961–21.053) | 18.066 s (17.265–19.582) | 1.953 s faster | All outputs match `5cce5b17…252896f` |
+
+The tuned table resized on the higher-cardinality dataset and still matched its reference output. The improvement exceeded 3 seconds on the upstream-generated file; timings are specific to these datasets and this host.
+
 At this scale the chunked implementation is about 10 times faster than parallel streams, 27 times faster than the HashMap variant, 47 times faster than the TreeMap variant, and 160 times faster than Python — the reverse of the ranking on the 44,691-row sample, where Python and the sequential Java variants won. The reason is that on a billion rows the per-row parse and aggregate work dominates and parallelizing it across cores pays off, while on the tiny sample process coordination, output formatting of 41k rows, and cache-resident I/O dominate instead.
 
 ## Hotspots

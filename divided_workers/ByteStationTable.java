@@ -5,24 +5,25 @@ import util.CountryStat;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
-/** Fixed-capacity open-addressed table keyed by UTF-8 byte sequences. */
+/** Bounded, resizing open-addressed table keyed by UTF-8 byte sequences. */
 final class ByteStationTable {
     static final int DEFAULT_LIMIT = 100_000;
+    private static final int DEFAULT_CAPACITY = 1 << 14;
 
-    private final byte[][] keys;
-    private final int[] hashes;
-    private final CountryStat[] values;
-    private final int mask;
+    private byte[][] keys;
+    private int[] hashes;
+    private CountryStat[] values;
+    private int mask;
     private final int limit;
     private int size;
 
-    /** The input array supplies the table's fixed bucket capacity (rounded up to a power of two). */
+    /** The input array supplies the initial bucket capacity, which must be a power of two. */
     ByteStationTable(byte[][] buckets) {
         this(buckets, DEFAULT_LIMIT);
     }
 
     static ByteStationTable createDefault() {
-        return new ByteStationTable(new byte[1 << 17][]);
+        return new ByteStationTable(new byte[DEFAULT_CAPACITY][]);
     }
 
     ByteStationTable(byte[][] buckets, int limit) {
@@ -33,7 +34,7 @@ final class ByteStationTable {
         this.hashes = new int[buckets.length];
         this.values = new CountryStat[buckets.length];
         this.mask = buckets.length - 1;
-        this.limit = Math.min(limit, buckets.length * 3 / 4);
+        this.limit = limit;
     }
 
     CountryStat get(byte[] data, int from, int to) {
@@ -51,23 +52,29 @@ final class ByteStationTable {
 
     void put(byte[] data, int from, int to, CountryStat value) {
         int hash = hash(data, from, to);
-        int slot = hash & mask;
-        for (int probes = 0; probes < keys.length; probes++) {
-            if (keys[slot] == null) {
-                if (size >= limit) throw new IllegalStateException("Station table limit reached: " + limit);
-                keys[slot] = Arrays.copyOfRange(data, from, to);
-                hashes[slot] = hash;
-                values[slot] = value;
-                size++;
-                return;
+        while (true) {
+            int slot = hash & mask;
+            int probes = 0;
+            for (; probes < keys.length; probes++) {
+                if (keys[slot] == null) break;
+                if (hashes[slot] == hash && equals(keys[slot], data, from, to)) {
+                    values[slot] = value;
+                    return;
+                }
+                slot = (slot + 1) & mask;
             }
-            if (hashes[slot] == hash && equals(keys[slot], data, from, to)) {
-                values[slot] = value;
-                return;
+
+            if (size >= limit) throw new IllegalStateException("Station table limit reached: " + limit);
+            if (probes == keys.length || size + 1 > keys.length * 3 / 4) {
+                resize();
+                continue;
             }
-            slot = (slot + 1) & mask;
+            keys[slot] = Arrays.copyOfRange(data, from, to);
+            hashes[slot] = hash;
+            values[slot] = value;
+            size++;
+            return;
         }
-        throw new IllegalStateException("Station table bucket array is full");
     }
 
     void merge(ByteStationTable other) {
@@ -75,22 +82,14 @@ final class ByteStationTable {
             byte[] key = other.keys[i];
             if (key == null) continue;
             CountryStat value = other.values[i];
-            int slot = other.hashes[i] & mask;
-            while (keys[slot] != null && !(hashes[slot] == other.hashes[i]
-                    && equals(keys[slot], key, 0, key.length))) {
-                slot = (slot + 1) & mask;
-            }
-            if (keys[slot] == null) {
-                if (size >= limit) throw new IllegalStateException("Station table limit reached: " + limit);
-                keys[slot] = Arrays.copyOf(key, key.length);
-                hashes[slot] = other.hashes[i];
-                values[slot] = new CountryStat(value.Sum);
-                values[slot].Count = value.Count;
-                values[slot].MinVal = value.MinVal;
-                values[slot].MaxVal = value.MaxVal;
-                size++;
+            CountryStat current = get(key, 0, key.length);
+            if (current == null) {
+                CountryStat copy = new CountryStat(value.Sum);
+                copy.Count = value.Count;
+                copy.MinVal = value.MinVal;
+                copy.MaxVal = value.MaxVal;
+                put(key, 0, key.length, copy);
             } else {
-                CountryStat current = values[slot];
                 current.Sum += value.Sum;
                 current.Count += value.Count;
                 current.MinVal = Math.min(current.MinVal, value.MinVal);
@@ -100,18 +99,43 @@ final class ByteStationTable {
     }
 
     int size() { return size; }
+    int capacity() { return keys.length; }
     byte[] keyAt(int slot) { return keys[slot]; }
     CountryStat valueAt(int slot) { return values[slot]; }
 
     private static int hash(byte[] data, int from, int to) {
-        // Hash length plus the first and last bytes, then mix all bytes to limit
-        // clustering when station names share prefixes or suffixes.
-        int h = 0x811c9dc5 ^ (to - from);
-        for (int i = from; i < to; i++) h = (h ^ (data[i] & 0xff)) * 0x01000193;
+        // Mix the name length and up to four bytes from each end. Station names
+        // are short, and this keeps the hot-path hash cheaper than scanning all bytes.
+        int length = to - from;
+        int h = length;
+        int prefixEnd = from + Math.min(length, 4);
+        for (int i = from; i < prefixEnd; i++) h = 31 * h + (data[i] & 0xff);
+        int suffixStart = from + Math.max(4, length - 4);
+        for (int i = suffixStart; i < to; i++) h = 31 * h + (data[i] & 0xff);
         h ^= h >>> 16;
         h *= 0x7feb352d;
         h ^= h >>> 15;
         return h;
+    }
+
+    private void resize() {
+        if (keys.length >= (1 << 29)) throw new IllegalStateException("Station table is too large to resize");
+        byte[][] oldKeys = keys;
+        int[] oldHashes = hashes;
+        CountryStat[] oldValues = values;
+        keys = new byte[oldKeys.length << 1][];
+        hashes = new int[keys.length];
+        values = new CountryStat[keys.length];
+        mask = keys.length - 1;
+
+        for (int i = 0; i < oldKeys.length; i++) {
+            if (oldKeys[i] == null) continue;
+            int slot = oldHashes[i] & mask;
+            while (keys[slot] != null) slot = (slot + 1) & mask;
+            keys[slot] = oldKeys[i];
+            hashes[slot] = oldHashes[i];
+            values[slot] = oldValues[i];
+        }
     }
 
     private static boolean equals(byte[] key, byte[] data, int from, int to) {
