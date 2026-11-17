@@ -4,7 +4,7 @@
 
 ## Billion-row benchmarks
 
-Benchmarks use the upstream Python generator to create a 1,000,000,000-row file with 8,873 stations on the same 80-processor host (OpenJDK 21). The main comparison dataset is 14.8 GiB. Repository implementations use their in-application timers, which exclude JVM startup. All timings are machine- and dataset-specific.
+Benchmarks use the upstream Python generator to create a 1,000,000,000-row file with 8,873 stations on an 80-logical-CPU host with two Intel Xeon E5-2698 v4 @ 2.20 GHz processors (40 physical cores total, 2 threads per core). The Java runs used OpenJDK 21. The main comparison dataset is 14.8 GiB. Repository implementations use their in-application timers, which exclude JVM startup. All timings are machine- and dataset-specific.
 
 ### Current custom table and String/HashMap
 
