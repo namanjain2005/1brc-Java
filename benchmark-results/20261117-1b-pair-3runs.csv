@@ -1,0 +1,3 @@
+timestamp,dataset,implementation,runs,average_seconds,median_seconds,min_seconds,max_seconds,timing_scope,checksum,result_check
+2026-11-17,upstream-python-1b-8873,custom-byte-copy,3,10.145938,10.144713,9.984470,10.308631,application-timer,52a367557cbd135afda25013e12dced63d9a8953afd2d27369a99508d83dac71,exact-output
+2026-11-17,upstream-python-1b-8873,string-hashmap,3,12.845120,12.578538,12.443913,13.512908,application-timer,52a367557cbd135afda25013e12dced63d9a8953afd2d27369a99508d83dac71,exact-output

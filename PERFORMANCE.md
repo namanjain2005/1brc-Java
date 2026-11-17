@@ -106,6 +106,17 @@ On 2026-11-17, the current custom byte-table build, `string-hashmap`, TreeMap, H
 
 The five repository implementations produced identical output bytes. `thomaswue` formats the result as a brace-delimited map and prints `0.0` for some averages where our formatter prints `-0.0`; after parsing min/mean/max and normalizing signed zero, all 8,873 station results matched (normalized SHA-256 `6ebbbc2fe0c4679d784eb5f19793275a58d0879d88f699709cc576525654d145`). It ran with OpenJDK 21 preview and native access enabled. These are single-pass timings except for `thomaswue`; host load and run-to-run variation are material, especially in the 12.339 s custom-table result. The raw CSV is in `benchmark-results/20261117-1b.csv`.
 
+### Repeated custom-table and String/HashMap comparison
+
+The current custom byte table (`copy` storage) and the `string-hashmap` branch were each run three times with no warm-up on the same file. All six stdout results matched byte for byte (SHA-256 `52a367557cbd135afda25013e12dced63d9a8953afd2d27369a99508d83dac71`). The figures are arithmetic means of the application-timed sections; runs were made sequentially by implementation.
+
+| Implementation | Runs | Average | Median | Range |
+| --- | ---: | ---: | ---: | ---: |
+| Custom byte-key table (`main`, `copy` storage) | 3 | 10.146 s | 10.145 s | 9.984–10.309 s |
+| String-key `HashMap` workers | 3 | 12.845 s | 12.579 s | 12.444–13.513 s |
+
+The custom table averaged 2.699 s faster on this run. The raw measurements are in `benchmark-results/20261117-1b-pair-3runs.csv`.
+
 A separate ten-run-per-version comparison of the original custom parser and the one-decimal candidate showed overlapping ranges: original median 9.600 s (8.905–10.796 s), one-decimal median 9.768 s (9.035–10.374 s). The specialized parser was not kept in `main` because it showed no repeatable gain and removed malformed-input validation.
 
 ### Stable-key storage experiments
