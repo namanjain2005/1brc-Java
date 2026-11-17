@@ -1,0 +1,7 @@
+timestamp,dataset,implementation,runs,median_seconds,min_seconds,max_seconds,timing_scope,checksum,result_check
+2026-11-17,upstream-python-1b-8873,custom-byte-copy,1,12.339165,12.339165,12.339165,application-timer,52a367557cbd135afda25013e12dced63d9a8953afd2d27369a99508d83dac71,exact-output
+2026-11-17,upstream-python-1b-8873,string-hashmap,1,14.522071,14.522071,14.522071,application-timer,52a367557cbd135afda25013e12dced63d9a8953afd2d27369a99508d83dac71,exact-output
+2026-11-17,upstream-python-1b-8873,treemap,1,693.063375,693.063375,693.063375,application-timer,52a367557cbd135afda25013e12dced63d9a8953afd2d27369a99508d83dac71,exact-output
+2026-11-17,upstream-python-1b-8873,hashmap-sort,1,468.524992,468.524992,468.524992,application-timer,52a367557cbd135afda25013e12dced63d9a8953afd2d27369a99508d83dac71,exact-output
+2026-11-17,upstream-python-1b-8873,parallel-streams,1,174.585108,174.585108,174.585108,application-timer,52a367557cbd135afda25013e12dced63d9a8953afd2d27369a99508d83dac71,exact-output
+2026-11-17,upstream-python-1b-8873,thomaswue,3,3.731,3.687,3.798,whole-process-wall,6ebbbc2fe0c4679d784eb5f19793275a58d0879d88f699709cc576525654d145,numeric-equal-signed-zero-normalized

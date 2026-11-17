@@ -53,13 +53,13 @@ class Worker implements Callable<ByteStationTable> {
 
             LineReader reader = new LineReader(file, pos);
             while (reader.position() < end && reader.nextLine()) {
-                process(reader.lineBytes, reader.lineStart, reader.lineEnd, local);
+                process(reader.lineBytes, reader.lineStart, reader.lineEnd, reader.lineFileStart, local);
             }
         }
         return local;
     }
 
-    private void process(byte[] data, int from, int to, ByteStationTable local) {
+    private void process(byte[] data, int from, int to, long fileOffset, ByteStationTable local) {
         int sep = SCANNER.indexOf(data, from, to, SEMICOLON);
         if (sep < 0) {
             return;
@@ -67,7 +67,7 @@ class Worker implements Callable<ByteStationTable> {
         long val = parseScaled(data, sep + 1, to);
         CountryStat stat = local.get(data, from, sep);
         if (stat == null) {
-            local.put(data, from, sep, new CountryStat(val));
+            local.put(data, from, sep, new CountryStat(val), fileOffset);
         } else {
             stat.update(val);
         }
@@ -201,6 +201,7 @@ class Worker implements Callable<ByteStationTable> {
         byte[] lineBytes;
         int lineStart;
         int lineEnd;
+        long lineFileStart;
 
         LineReader(RandomAccessFile file, long pos) throws IOException {
             this.file = file;
@@ -240,6 +241,7 @@ class Worker implements Callable<ByteStationTable> {
                 lineBytes = buffer;
                 lineStart = offset;
                 lineEnd = found;
+                lineFileStart = pos;
                 pos += found + 1 - offset;
                 offset = found + 1;
                 trimCarriageReturn();
@@ -256,6 +258,7 @@ class Worker implements Callable<ByteStationTable> {
 
         /** Collects a line that spans one or more buffer refills. */
         private boolean slowLine() throws IOException {
+            lineFileStart = pos;
             int length = buffered - offset;
             spare = ensureCapacity(spare, length);
             System.arraycopy(buffer, offset, spare, 0, length);
