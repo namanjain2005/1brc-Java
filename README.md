@@ -1,47 +1,72 @@
-# 1BRC Java and Python implementations
+# 1BRC Java benchmark
 
-`main` holds the latest implementation (`divided_workers/`, using a custom byte-key hash table), the dataset `generator/`, the shared Java `util/` classes, and the comparison harness. The String-key `HashMap` version of the chunked worker implementation is on `string-hashmap`. Other baselines live on branches: `impl/naive` (TreeMap), `impl/naive2` (HashMap plus sort), `impl/parallel` (parallel streams), and `impl/python` (Python). Each baseline branch contains only that implementation, the shared code it needs, and the sample dataset. This host ships git 1.8, which has no `git worktree`, so the harness compares via fresh local clones.
+This repository contains a Java implementation of the One Billion Row Challenge and a small harness for comparing it with the other implementations in this project.
 
-The implementations read `weather_stations.csv` from the repository root by default, or the file given as the first program argument.
+The current `main` implementation is in `divided_workers/`. It splits the input into byte ranges, parses each range on a worker thread, aggregates station data in a custom byte-key hash table, and merges the worker tables. It uses fixed-point integer arithmetic for temperatures and tries the JDK Vector API for byte scanning, with a scalar fallback.
 
-## Run
+## Requirements
 
-Requires Python 3.11+ for the benchmarking harness, and a JDK with `java` and `javac` on `PATH` for the Java implementations.
+- JDK 21 or newer
+- Python 3 for the benchmark scripts
+- Git, to compare the implementation branches
 
-The latest implementation runs from the repository root:
+## Build and run
 
-```powershell
-javac --add-modules jdk.incubator.vector -encoding UTF-8 -d out util\CountryStat.java util\Temperature.java divided_workers\Main.java divided_workers\Worker.java
+Run these commands from the repository root. By default, the program reads `weather_stations.csv` and writes station rows to standard output; elapsed time is written to standard error.
+
+```bash
+mkdir -p out
+javac --add-modules jdk.incubator.vector -encoding UTF-8 -d out \
+  util/CountryStat.java util/Temperature.java \
+  divided_workers/Main.java divided_workers/Worker.java divided_workers/ByteStationTable.java
 java --add-modules jdk.incubator.vector -cp out divided_workers.Main
 ```
 
-The `--add-modules jdk.incubator.vector` flag enables the SIMD `\n`/`;` byte scanning (see PERFORMANCE.md); without it the program still runs and gives identical output using a scalar fallback, just slower.
-
-Pass a path as the first argument to run against a different input file:
-
-```powershell
-java --add-modules jdk.incubator.vector -cp out divided_workers.Main measurements.txt
-```
-
-### Generate a billion-row dataset
-
-`generator/` writes a 1BRC-style measurements file (default temperatures uniform in [-99.9, 99.9], one decimal digit) using the station names from `weather_stations.csv`:
-
-```powershell
-javac -encoding UTF-8 -d out generator\Main.java
-java -cp out generator.Main measurements.txt 1000000000 16
-```
-
-The generated file is about 15 GiB for one billion rows, so point it at a filesystem with enough free space.
-
-### Compare against the baselines
-
-`compare.sh` benchmarks the latest implementation, the `string-hashmap` branch, and every `impl/*` branch on the same dataset and appends medians plus output checksums to `results/<timestamp>.csv` (git-ignored). Checksums that differ between rows mean an implementation produced different output.
+Pass another measurements file as the first argument:
 
 ```bash
-./compare.sh                              # sample dataset, 5 runs each
-./compare.sh /path/to/measurements.txt    # any dataset
-RUNS=11 ./compare.sh measurements_10m.txt # more runs for a stable median
+java --add-modules jdk.incubator.vector -cp out divided_workers.Main /path/to/measurements.txt
 ```
 
-To work on a baseline, clone its branch: `git clone . ../1brc-naive -b impl/naive` (or push from main after editing). `python benchmark.py [--runs N] [--tree PATH] [dataset]` benchmarks a single tree on its own.
+The Vector API module flag is required to compile the scanner and enables SIMD scanning at runtime. If the module is unavailable at runtime, the scanner falls back to scalar byte scanning.
+
+## Generate a large dataset
+
+`generator/` creates rows from the station names in `weather_stations.csv`, with temperatures in the range `-99.9` to `99.9`. A billion rows take about 15 GiB of disk space.
+
+```bash
+javac -encoding UTF-8 -d out generator/Main.java
+java -cp out generator.Main /path/to/measurements.txt 1000000000 16
+```
+
+The generator reads `weather_stations.csv` relative to the current working directory, so run it from the repository root. Its third argument is the number of generator threads.
+
+## Benchmark
+
+Benchmark the current tree with a warm-up and 3 measured runs:
+
+```bash
+python3 benchmark.py --runs 3 --warmups 1 /path/to/measurements.txt
+```
+
+The default is 11 measured runs and one warm-up. The script compiles each implementation it finds, runs them against the same input, and reports median application time and an output checksum. A matching checksum confirms identical output bytes for that input.
+
+Compare `main` with the available implementation branches:
+
+```bash
+RUNS=3 WARMUPS=1 ./compare.sh /path/to/measurements.txt
+```
+
+`compare.sh` also benchmarks `string-hashmap` and the `impl/*` branches by cloning each branch into a temporary directory. It saves a timestamped CSV under the ignored `results/` directory. Use `IMPLS="impl/naive impl/naive2"` to select a subset of baseline branches.
+
+## Branches
+
+- `main`: custom byte-key table and chunked workers
+- `string-hashmap`: chunked workers using String keys and Java `HashMap`
+- `impl/naive`: TreeMap baseline
+- `impl/naive2`: HashMap with a final sort
+- `impl/parallel`: parallel-stream baseline
+- `impl/python`: Python baseline
+- `experiment/key-storage`: exploratory key-storage variants
+
+The billion-row benchmark results and their methodology are in [PERFORMANCE.md](PERFORMANCE.md).
