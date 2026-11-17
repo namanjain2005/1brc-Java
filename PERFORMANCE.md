@@ -91,37 +91,37 @@ Each implementation ran three measured passes, sequentially in a rotated order, 
 
 As a worker-count sensitivity check, all three were also run three times with `-XX:ActiveProcessorCount=4`; medians were 37.797 s (custom byte table), 56.744 s (String/HashMap), and 15.319 s (`thomaswue`). Those capped results are not the host-default comparison. On the default configuration, `thomaswue` was 7.300 s faster than our custom implementation on this dataset. The dataset has a newly randomized station/temperature sample, so these figures are a separate comparison and should not be merged with the prior 8,878-station run's table.
 
-### Current 1B comparison (Python omitted)
+### Earlier full 1B comparison (Python omitted)
 
-On 2026-11-17, the current custom byte-table build, `string-hashmap`, TreeMap, HashMap-plus-sort, and parallel streams were each run once with no warm-up on the 1,000,000,000-row upstream Python-generator file (14.8 GiB, 8,873 output stations). The user asked to omit Python from this rerun. Repository implementations use the application timer, excluding JVM startup. Upstream `thomaswue` was run three times and is timed by whole-process wall clock, including JVM startup.
+On 2026-11-17, a configurable key-storage build, `string-hashmap`, TreeMap, HashMap-plus-sort, and parallel streams were each run once with no warm-up on the 1,000,000,000-row upstream Python-generator file (14.8 GiB, 8,873 output stations). Python was omitted. The custom-table result below used that build's `copy` mode and is superseded by the original-table rerun below. Repository implementations use the application timer, excluding JVM startup. Upstream `thomaswue` was run three times and is timed by whole-process wall clock, including JVM startup.
 
 | Implementation | Runs | Median / observed time | Range | Result check |
 | --- | ---: | ---: | ---: | --- |
-| Custom byte-key table (`main`, `copy` storage) | 1 | 12.339 s | — | Exact stdout SHA-256 `52a36755…83dac71` |
+| Experimental storage-switch build (`copy` selected; not current `main`) | 1 | 12.339 s | — | Exact stdout SHA-256 `52a36755…83dac71` |
 | String-key `HashMap` workers | 1 | 14.522 s | — | Exact stdout SHA-256 `52a36755…83dac71` |
 | Java TreeMap (`naive/`) | 1 | 693.063 s | — | Exact stdout SHA-256 `52a36755…83dac71` |
 | Java HashMap plus sort (`naive2/`) | 1 | 468.525 s | — | Exact stdout SHA-256 `52a36755…83dac71` |
 | Java parallel streams (`parallel/`) | 1 | 174.585 s | — | Exact stdout SHA-256 `52a36755…83dac71` |
 | Upstream `thomaswue` (commit `db064194`) | 3 | 3.731 s | 3.687–3.798 s | Numeric station stats match after signed-zero normalization |
 
-The five repository implementations produced identical output bytes. `thomaswue` formats the result as a brace-delimited map and prints `0.0` for some averages where our formatter prints `-0.0`; after parsing min/mean/max and normalizing signed zero, all 8,873 station results matched (normalized SHA-256 `6ebbbc2fe0c4679d784eb5f19793275a58d0879d88f699709cc576525654d145`). It ran with OpenJDK 21 preview and native access enabled. These are single-pass timings except for `thomaswue`; host load and run-to-run variation are material, especially in the 12.339 s custom-table result. The raw CSV is in `benchmark-results/20261117-1b.csv`.
+The five repository implementations produced identical output bytes. `thomaswue` formats the result as a brace-delimited map and prints `0.0` for some averages where our formatter prints `-0.0`; after parsing min/mean/max and normalizing signed zero, all 8,873 station results matched (normalized SHA-256 `6ebbbc2fe0c4679d784eb5f19793275a58d0879d88f699709cc576525654d145`). It ran with OpenJDK 21 preview and native access enabled. These are single-pass timings except for `thomaswue`; host load and run-to-run variation are material. The raw CSV is in `benchmark-results/20261117-1b.csv`.
 
 ### Repeated custom-table and String/HashMap comparison
 
-The current custom byte table (`copy` storage) and the `string-hashmap` branch were each run three times with no warm-up on the same file. All six stdout results matched byte for byte (SHA-256 `52a367557cbd135afda25013e12dced63d9a8953afd2d27369a99508d83dac71`). The figures are arithmetic means of the application-timed sections; runs were made sequentially by implementation.
+After restoring the original copy-based byte table on `main`, it and the `string-hashmap` branch were each run three times with no warm-up on the same file. All six stdout results matched byte for byte (SHA-256 `52a367557cbd135afda25013e12dced63d9a8953afd2d27369a99508d83dac71`). The figures are arithmetic means of the application-timed sections; runs were made sequentially by implementation.
 
 | Implementation | Runs | Average | Median | Range |
 | --- | ---: | ---: | ---: | ---: |
-| Custom byte-key table (`main`, `copy` storage) | 3 | 10.146 s | 10.145 s | 9.984–10.309 s |
-| String-key `HashMap` workers | 3 | 12.845 s | 12.579 s | 12.444–13.513 s |
+| Original custom byte-key table (`main`) | 3 | 9.471 s | 9.275 s | 8.945–10.193 s |
+| String-key `HashMap` workers | 3 | 12.511 s | 12.533 s | 12.449–12.551 s |
 
-The custom table averaged 2.699 s faster on this run. The raw measurements are in `benchmark-results/20261117-1b-pair-3runs.csv`.
+The original custom table averaged 3.040 s faster on this run. The raw measurements are in `benchmark-results/20261117-1b-pair-3runs.csv`.
 
 A separate ten-run-per-version comparison of the original custom parser and the one-decimal candidate showed overlapping ranges: original median 9.600 s (8.905–10.796 s), one-decimal median 9.768 s (9.035–10.374 s). The specialized parser was not kept in `main` because it showed no repeatable gain and removed malformed-input validation.
 
 ### Stable-key storage experiments
 
-The worker table can now be selected with `-Dkey.storage=copy|arena|mapped`; `copy` remains the default. `copy` preserves the existing per-key byte arrays. `arena` stores bytes contiguously in a per-worker growable array and keeps offsets in buckets. `mapped` stores absolute file offsets and compares against read-only 1 GiB memory-mapped windows. All three modes were run five times, in a rotated order, on the same 1B-row/8,873-station dataset. Every output was byte-identical (`52a36755…83dac71`). The application timer includes the file mapping setup for `mapped`.
+The storage-mode code is isolated on the pushed `experiment/key-storage` branch; `main` retains the original byte-array table. There, `copy` preserves per-key byte arrays, `arena` stores key bytes in a growable per-worker array, and `mapped` stores absolute offsets into read-only 1 GiB file mappings. The three modes were each run five times on the same 1B-row/8,873-station dataset. Every output was byte-identical (`52a36755…83dac71`). The application timer includes mapping setup for `mapped`.
 
 | Key storage | Median timed section | Range |
 | --- | ---: | ---: |
@@ -129,7 +129,7 @@ The worker table can now be selected with `-Dkey.storage=copy|arena|mapped`; `co
 | Per-worker key arena (`arena`) | 83.243 s | 8.477–125.154 s |
 | Mapped-file offsets (`mapped`) | 10.343 s | 10.114–19.223 s |
 
-The arena timings are too unstable to support a speed claim, despite correct output; a separate JFR run completed in 8.311 s. The mapped mode is slower than the copy table on its typical warm runs and has slow outliers, consistent with scattered key reads and page-fault costs. Neither mode replaces the copy default. Memory usage was not measured. These implementations are exploratory and should be profiled further before adoption.
+The arena timings are too unstable to support a speed claim, despite correct output; a separate JFR run completed in 8.311 s. The mapped mode is slower than the copy table on its typical warm runs and has slow outliers, consistent with scattered key reads and page-fault costs. Neither mode replaces the original table on `main`. Memory usage was not measured. These implementations remain exploratory.
 
 ## Hotspots
 

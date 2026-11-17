@@ -27,15 +27,6 @@ public class Main {
             return;
         }
 
-        if (ByteStationTable.mappedStorageEnabled()) {
-            try {
-                ByteStationTable.mapInput(Path.of(fileName));
-            } catch (Exception e) {
-                System.err.println("Could not map input file: " + e);
-                return;
-            }
-        }
-
         ExecutorService pool = Executors.newFixedThreadPool(noOfThreads);
         long chunkSize = fileSize / noOfThreads;
         List<Future<ByteStationTable>> futures = new ArrayList<>();
@@ -46,9 +37,7 @@ public class Main {
             futures.add(pool.submit(new Worker(fileName, start, end)));
         }
 
-        // The final table only holds one copy of each station; worker tables
-        // may use arena or mapped-file key storage during the hot loop.
-        ByteStationTable aggregate = ByteStationTable.createCopy();
+        ByteStationTable aggregate = ByteStationTable.createDefault();
         try {
             for (Future<ByteStationTable> future : futures) {
                 aggregate.merge(future.get());
