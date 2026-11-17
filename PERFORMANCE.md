@@ -31,15 +31,13 @@ Raw measurements: [`20261117-1b.csv`](benchmark-results/20261117-1b.csv). That f
 
 ### Upstream `thomaswue` comparison
 
-The upstream [`CalculateAverage_thomaswue.java`](https://github.com/gunnarmorling/1brc/blob/db064194be375edc02d6dbcd21268ad40f7e2869/src/main/java/dev/morling/onebrc/CalculateAverage_thomaswue.java), at commit `db064194`, was run three times on a separately generated 1B dataset with 8,873 stations. The results were compared after parsing and sorting station statistics; signed zero was normalized because the output formatting differs. All results matched with normalized SHA-256 `6ebbbc2fe0c4679d784eb5f19793275a58d0879d88f699709cc576525654d145`.
+The upstream [`CalculateAverage_thomaswue.java`](https://github.com/gunnarmorling/1brc/blob/db064194be375edc02d6dbcd21268ad40f7e2869/src/main/java/dev/morling/onebrc/CalculateAverage_thomaswue.java), at commit `db064194`, was run three times on a separately generated 1B dataset with 8,873 stations. Its output was compared with the custom-table and String/HashMap implementations after parsing and sorting station statistics; signed zero was normalized because the output formatting differs. All results matched with normalized SHA-256 `6ebbbc2fe0c4679d784eb5f19793275a58d0879d88f699709cc576525654d145`.
 
-| Implementation | Runs | Median wall time | Range | Timing scope |
-| --- | ---: | ---: | ---: | --- |
-| Custom byte-key table (`main`) | 3 | 10.739 s | 10.567–12.386 s | Application timer |
-| String-key `HashMap` workers | 3 | 14.361 s | 14.093–14.989 s | Application timer |
-| Upstream `thomaswue` | 3 | 3.439 s | 3.373–3.461 s | Whole process, including JVM startup |
+| Implementation | Runs | Median wall time | Timing scope |
+| --- | ---: | ---: | --- |
+| Upstream `thomaswue` | 3 | 3.439 s | Whole process, including JVM startup |
 
-This comparison used a different generated file from the paired benchmark above, so compare rankings within each dataset rather than combining the times. The raw `thomaswue` comparison is recorded in [`20261117-1b.csv`](benchmark-results/20261117-1b.csv).
+This result uses a different generated file from the paired benchmark above. The custom-table and String/HashMap timing results for that separate comparison are omitted here so the custom table has one reported timing in this document. The raw measurements remain in [`20261117-1b.csv`](benchmark-results/20261117-1b.csv).
 
 ## Correctness
 
